@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoogleCustomizations>
+    <CustomSearchEngine id="jersey_jaxb_search"
+                        keywords="&quot;Jersey&quot; &quot;JAX-WS&quot; &quot;JAXB&quot; &quot;Web Services&quot;  &quot;guide&quot;"
+                        language="en">
+        <Title>Jersey Search</Title>
+        <Description>Search all about Jersey including RI docs, guide, blogs, articles etc.
+        </Description>
+        <Context>
+            <BackgroundLabels>
+                <Label name="jersey_jaxb_docs_label" mode="FILTER"/>
+                <Label name="metro_jaxb_guide_exclusions_label" mode="ELIMINATE"/>
+            </BackgroundLabels>
+        </Context>
+        <LookAndFeel nonprofit="true">
+           <Logo url="https://glassfish-theme.dev.java.net/logo.gif" destination="https://jersey.dev.java.net/" height="90"/>
+        </LookAndFeel>
+    </CustomSearchEngine>
+    <Annotations>
+        <!--https://jersey.dev.java.net/nonav/documentation/latest/user-guide.html/-->        
+        <Annotation about="https://jersey.dev.java.net/nonav/documentation/latest/*" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+            <AdditionalData attribute="original_url" value="https://jersey.dev.java.net/nonav/documentation/latest/*"/>
+        </Annotation>
+
+
+        <Annotation about="https://jersey.dev.java.net/nonav/*">
+            <Label name="jersey_jaxb_docs_label"/>
+            <AdditionalData attribute="original_url" value="https://jersey.dev.java.net/nonav/*"/>
+        </Annotation>
+
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/jersey/*" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+            <AdditionalData attribute="original_url" value="jersey.dev.java.net/nonav/apidocs/latest/jersey/*"/>
+        </Annotation>
+        <!--
+         <Annotation about="jersey.dev.java.net/nonav/apidocs/1.4-SNAPSHOT/jersey/*">
+            <Label name="jersey_jaxb_docs_label"/>
+            <AdditionalData attribute="original_url" value="jersey.dev.java.net/nonav/apidocs/1.4-SNAPSHOT/jersey/*"/>
+        </Annotation>-->
+        <!--<Annotation about="jersey.dev.java.net/nonav/apidocs/1.4-SNAPSHOT/jersey/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>-->
+        <!--
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/1.4-SNAPSHOT/jersey/com/sun/jersey/api/core/ResourceConfig.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        -->
+        
+        <Annotation about="https://jersey.dev.java.net/source/browse/jersey/*">
+            <Label name="jersey_jaxb_docs_label"/>
+            <AdditionalData attribute="original_url" value="https://jersey.dev.java.net/source/browse/jersey/*"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/contribute/" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/servlets/ProjectNewsList" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/servlets/ProjectMailingListList" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/servlets/ProjectMemberList" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/issues/" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/source/browse/jersey/" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>        
+
+
+        <Annotation about="http://wikis.sun.com/display/Jersey/*" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jsr311.dev.java.net/nonav/releases/1.1/spec/spec.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jsr311.dev.java.net/nonav/releases/1.1/*" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jsr311.dev.java.net/nonav/releases/1.1/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="https://jsr311.dev.java.net/*">
+            <Label name="jersey_jaxb_docs_label"/>
+            <AdditionalData attribute="original_url" value="https://jsr311.dev.java.net/*"/>
+        </Annotation>
+        <Annotation about="https://jsr311.dev.java.net/" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/jersey/*" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/documentation/latest/user-guide.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="http://wikis.sun.com/display/Jersey/Main" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/documentation/latest/user-guide.html#d4e8" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/documentation/latest/user-guide.html#chapter_deps" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/contribute/#areas" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>       
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/jersey/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/jersey-test-framework/jersey-test-framework-core/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-spring/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-guice/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-multipart/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-apache-client/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-atom-abdera/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-simple-server/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-oauth/oauth-signature/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-oauth/oauth-server/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jersey.dev.java.net/nonav/apidocs/latest/contribs/jersey-oauth/oauth-client/index.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+
+
+
+        <!-- JAXB-RI docs -->
+         <Annotation about="jaxb.dev.java.net/guide/*" score="1">
+                    <Label name="jersey_jaxb_docs_label"/>
+                    <AdditionalData attribute="original_url" value="https://jaxb.dev.java.net/guide/*"/>
+         </Annotation>
+         <Annotation about="jaxb.dev.java.net/nonav/2.2/docs/*" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+         <Annotation about="jaxb.dev.java.net/nonav/2.2/docs/" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+         <Annotation about="jaxb.dev.java.net/nonav/2.2/docs/samples.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+         <Annotation about="jaxb.dev.java.net/nonav/2.2/docs/xjc.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+         <Annotation about="jaxb.dev.java.net/nonav/2.2/docs/schemagen.html" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+         <Annotation about="jaxb.dev.java.net/jaxb-maven2-plugin/" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="maven-jaxb2-plugin.dev.java.net/" score="0.7">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="jaxb2-commons.dev.java.net/*" score="1">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+
+        <!-- Blogs -->
+        <!-- feel free to add jersey related blogs here -->
+        <!--
+            *  Earthly Powers, by Paul Sandoz, at http://blogs.sun.com/sandoz/category/REST.
+            * Marc Hadley's Blog, at http://weblogs.java.net/blog/mhadley/.
+            * Japod's Blog, by Jakub Podlesak, at http://blogs.sun.com/japod/category/REST.
+            * Naresh's Blog, at http://blogs.sun.com/naresh/category/REST.
+            * Martin Matula's Blog, at http://blog.alutam.com/category/rest.
+            -->
+        <Annotation about="blogs.sun.com/sandoz/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="weblogs.java.net/blog/mhadley/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="blogs.sun.com/japod/category/REST/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="http://blogs.sun.com/naresh/category/REST/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="weblogs.java.net/blog/arungupta/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="http://blog.alutam.com/category/rest/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>        
+        <Annotation about="weblogs.java.net/blog/haroldcarr/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="blogs.sun.com/ritzmann/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>       
+        <Annotation about="http://blogs.sun.com/mgrebac/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+        <Annotation about="blogs.sun.com/marek/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+
+
+
+        <!-- References -->
+        <Annotation about="netbeans.org/kb/docs/websvc/*" score="0.8">
+            <Label name="jersey_jaxb_docs_label"/>
+        </Annotation>
+
+    </Annotations>
+</GoogleCustomizations>

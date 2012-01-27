@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!--
+
+    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+    Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+
+    The contents of this file are subject to the terms of either the GNU
+    General Public License Version 2 only ("GPL") or the Common Development
+    and Distribution License("CDDL") (collectively, the "License").  You
+    may not use this file except in compliance with the License.  You can
+    obtain a copy of the License at
+    http://glassfish.java.net/public/CDDL+GPL_1_1.html
+    or packager/legal/LICENSE.txt.  See the License for the specific
+    language governing permissions and limitations under the License.
+
+    When distributing the software, include this License Header Notice in each
+    file and include the License file at packager/legal/LICENSE.txt.
+
+    GPL Classpath Exception:
+    Oracle designates this particular file as subject to the "Classpath"
+    exception as provided by Oracle in the GPL Version 2 section of the License
+    file that accompanied this code.
+
+    Modifications:
+    If applicable, add the following below the License Header, with the fields
+    enclosed by brackets [] replaced by your own identifying information:
+    "Portions Copyright [year] [name of copyright owner]"
+
+    Contributor(s):
+    If you wish your version of this file to be governed by only the CDDL or
+    only the GPL Version 2, indicate your decision by adding "[Contributor]
+    elects to include this software in this distribution under the [CDDL or GPL
+    Version 2] license."  If you don't indicate a single choice of license, a
+    recipient has the option to distribute your version of this file under
+    either the CDDL, the GPL Version 2 or to extend the choice of license to
+    its licensees as provided above.  However, if you add GPL Version 2 code
+    and therefore, elected the GPL Version 2 license, then the option applies
+    only if the new code is made subject to such option by the copyright
+    holder.
+
+-->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+                 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[
+<!ENTITY % ents SYSTEM "jersey.ent" >
+%ents;
+]>
+
+<chapter id="how-to-build">
+  <title>Building and testing Jersey</title>
+
+<section>
+<title>Checking out the source</title>
+<para>
+The Jersey source code is available from the Subversion repository located at
+<ulink url="http://java.net/projects/jersey/sources/svn/show">http://java.net/projects/jersey/sources/svn/show</ulink>.
+</para>
+<para>
+To check out the trunk where active development on the next release occurs use
+the following command:
+<programlisting>
+svn checkout https://svn.java.net/svn/jersey~svn/trunk/jersey jersey --username &lt;username&gt;
+</programlisting>
+</para>
+<para>
+If you are new to Subversion, you may want to visit the <ulink url="http://subversion.tigris.org/">Subversion Project website</ulink> and read <ulink url="http://svnbook.red-bean.com/">Version Control with Subversion</ulink>.
+</para>
+<para>
+<ulink url="http://jersey.java.net/servlets/ProjectSource">Read more about how to checkout this project's repository...</ulink>
+</para>
+<para>
+Stable releases of Jersey are tagged in the location
+<ulink url="http://jersey.java.net/svn/jersey/tags">http://jersey.java.net/svn/jersey/tags</ulink>.
+</para>
+<para>
+The source code may be browsed using
+<ulink url="http://fisheye4.atlassian.com/browse/jersey">FishEye</ulink>.
+</para>
+</section>
+
+<section>
+<title>Building using Maven</title>
+<para>
+Java SE 6 or greater is required. Maven 2.2.1 or greater is recommended.
+</para>
+<para>
+It is recommended to build the whole of Jersey after you have initially checked
+out the source code.
+To build all of Jersey use the following command from the checked out
+<literal>jersey</literal> directory:
+<programlisting>
+mvn clean install
+</programlisting>
+To skip all the tests do:
+<programlisting>
+mvn -Dmaven.test.skip=true clean install
+</programlisting>
+The following maven options are recommended:
+<programlisting>
+-Xmx1048m -XX:PermSize=64M -XX:MaxPermSize=128M
+</programlisting>
+</para>
+
+<para>
+Building the whole Jersey project including tests could take about an hour, depending on your system 
+performance of course. Even if you have a pretty fast performant machine, this could be quite annoying.
+Especially if you just want to experiment with a limited amount of code.
+To avoid building the whole Jersey project tree, you can easily utilize the maven reactor plugin.
+</para>
+<para>
+To build only the modules needed for the helloworld example, you can launch:
+<programlisting>
+mvn reactor:make -Dmake.goals=clean,install -Dmake.folders=samples/helloworld
+</programlisting> 
+which takes less then 2 minutes on my machine. To switch testing off, when building the same
+set of modules, you will use:
+<programlisting>
+mvn reactor:make -Dmake.goals=-Dmaven.test.skip,clean,install -Dmake.folders=samples/helloworld
+</programlisting> 
+</para>
+</section>
+
+<section>
+<title>Testing</title>
+<para>
+Jersey contains many unit tests. Most of these are not really unit tests per-say
+and are functional tests using the JUnit test framework because it is very
+convientient for execution and reporting.
+</para>
+<para>
+Some modules have specific tests but most tests associated with testing the
+jersey-core, jersey-client and jersey-server modules are located in the
+jersey-test module. This module can take some time to execute all the tests so
+it is recommended that you pick the appropriate tests to run related to the
+particular area that is being investigated. For example,
+using:
+<programlisting>
+mvn -Dtest=&lt;pattern&gt; test
+</programlisting>
+where <literal>pattern</literal> may be a comma separated set of names matching
+tests.
+</para>
+</section>
+<section>
+<title>Continuous building and testing with Hudson</title>
+<para>
+Jersey is built, tested and deployed on Solaris, Windows and Linux using an
+interal Hudson server. The Jersey Hudson jobs are available publically
+at <ulink url="http://hudson.glassfish.org/job/Jersey-trunk-multiplatform/">
+    http://hudson.glassfish.org/job/Jersey-trunk-multiplatform/</ulink>.
+</para>
+</section>
+
+<section>
+<title>Using NetBeans</title>
+<para>
+NetBeans 6.8 or greater has excellent maven support. The Jersey maven
+modules can be loaded, built and tested in NetBeans without any additional
+project-specific requirements.
+</para>
+</section>
+
+</chapter>

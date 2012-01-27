@@ -1,0 +1,1069 @@
+<?xml version="1.0"?>
+<!--
+
+    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+    Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+
+    The contents of this file are subject to the terms of either the GNU
+    General Public License Version 2 only ("GPL") or the Common Development
+    and Distribution License("CDDL") (collectively, the "License").  You
+    may not use this file except in compliance with the License.  You can
+    obtain a copy of the License at
+    http://glassfish.java.net/public/CDDL+GPL_1_1.html
+    or packager/legal/LICENSE.txt.  See the License for the specific
+    language governing permissions and limitations under the License.
+
+    When distributing the software, include this License Header Notice in each
+    file and include the License file at packager/legal/LICENSE.txt.
+
+    GPL Classpath Exception:
+    Oracle designates this particular file as subject to the "Classpath"
+    exception as provided by Oracle in the GPL Version 2 section of the License
+    file that accompanied this code.
+
+    Modifications:
+    If applicable, add the following below the License Header, with the fields
+    enclosed by brackets [] replaced by your own identifying information:
+    "Portions Copyright [year] [name of copyright owner]"
+
+    Contributor(s):
+    If you wish your version of this file to be governed by only the CDDL or
+    only the GPL Version 2, indicate your decision by adding "[Contributor]
+    elects to include this software in this distribution under the [CDDL or GPL
+    Version 2] license."  If you don't indicate a single choice of license, a
+    recipient has the option to distribute your version of this file under
+    either the CDDL, the GPL Version 2 or to extend the choice of license to
+    its licensees as provided above.  However, if you add GPL Version 2 code
+    and therefore, elected the GPL Version 2 license, then the option applies
+    only if the new code is made subject to such option by the copyright
+    holder.
+
+-->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+                 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[
+<!ENTITY % ents SYSTEM "jersey.ent" >
+%ents;
+]>
+
+<chapter id="jax-rs">
+  <title>Overview of JAX-RS &jsr311.version;</title>
+
+  <para>This chapter presents an overview of the JAX-RS &jsr311.version; features.</para>
+
+  <para>The JAX-RS &jsr311.version; API may be found online <ulink url="&jsr311.release.path;/index.html">here</ulink>.</para>
+
+  <para>The JAX-RS &jsr311.version; specification draft may be found online <ulink
+  url="&jsr311.release.path;/spec/spec.html">here</ulink>.</para>
+
+  <section>
+    <title>Root Resource Classes</title>
+
+    <para><emphasis>Root resource classes</emphasis> are POJOs (Plain Old Java Objects) that are annotated with &jaxrs.Path;
+    have at least one method annotated with &jaxrs.Path; or a resource method designator annotation such as &jaxrs.GET;,
+    &jaxrs.PUT;, &jaxrs.POST;, &jaxrs.DELETE;. Resource methods are methods of a resource class annotated with a resource
+    method designator. This section shows how to use Jersey to annotate Java objects to create RESTful web services.</para>
+
+    <para>The following code example is a very simple example of a root
+    resource class using JAX-RS annotations. The example code shown here is
+    from one of the samples that ships with Jersey, the zip file of which can
+    be found in the maven repository <ulink url="https://maven.java.net/service/local/artifact/maven/redirect?r=&repository;&amp;g=com.sun.jersey.samples&amp;a=helloworld&amp;v=&version;&amp;c=project&amp;e=zip">here</ulink>.</para>
+    <para><example>
+<title>Simple hello world root resource class</title>
+<programlisting language="java" linenumbering="numbered">package com.sun.ws.rest.samples.helloworld.resources;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.Path;
+
+// The Java class will be hosted at the URI path "/helloworld"
+@Path("/helloworld")
+public class HelloWorldResource {
+
+    // The Java method will process HTTP GET requests
+    @GET
+    // The Java method will produce content identified by the MIME Media
+    // type "text/plain"
+    @Produces("text/plain")
+    public String getClichedMessage() {
+        // Return some cliched textual content
+        return "Hello World";
+    }
+}</programlisting></example>Let's look at some of the JAX-RS annotations used in this
+    example.</para>
+
+    <section>
+      <title>@Path</title>
+
+      <para>The &jaxrs.Path; annotation's value is a relative URI path. In the example above, the Java class will be hosted
+      at the URI path <literal>/helloworld</literal>. This is an extremely simple use of the &jaxrs.Path; annotation.
+      What makes JAX-RS so useful is that you can embed variables in the URIs.</para>
+
+      <para><emphasis>URI path templates</emphasis> are URIs with variables embedded within the URI syntax. These variables
+      are substituted at runtime in order for a resource to respond to a request based on the substituted URI. Variables are
+      denoted by curly braces. For example, look at the following &jaxrs.Path; annotation:</para>
+
+      <para><programlisting language="java">@Path("/users/{username}")</programlisting>In this
+      type of example, a user will be prompted to enter their name, and then a
+      Jersey web service configured to respond to requests to this URI path
+      template will respond. For example, if the user entered their username
+      as "Galileo", the web service will respond to the following URL:</para>
+
+      <para><literal>http://example.com/users/Galileo</literal></para>
+
+      <para>To obtain the value of the username variable the &jaxrs.PathParam; may be used on method parameter of a request method,
+      for example:</para>
+
+      <para><example>
+      <title>Specifying URI path parameter</title>
+<programlisting language="java" linenumbering="numbered">@Path("/users/{username}")
+public class UserResource {
+
+    @GET
+    @Produces("text/xml")
+    public String getUser(@PathParam("username") String userName) {
+        ...
+    }
+}</programlisting></example>If it is required that a user name must only consist of
+      lower and upper case numeric characters then it is possible to declare a
+      particular regular expression, which overrides the default regular
+      expression, "[^/]+?", for example:</para>
+
+      <para><programlisting language="java">@Path("users/{username: [a-zA-Z][a-zA-Z_0-9]*}")</programlisting>In
+      this type of example the username variable will only match user names
+      that begin with one upper or lower case letter and zero or more alpha
+      numeric characters and the underscore character. If a user name does not
+      match that a 404 (Not Found) response will occur. </para>
+
+      <para>A &jaxrs.Path; value may or may not begin with a '/', it makes no difference. Likewise, by default, a &jaxrs.Path;
+      value may or may not end in a '/', it makes no difference, and thus request URLs that end or do not end in a '/' will both
+      be matched.
+      However, Jersey has a redirection mechanism, which if enabled, automatically performs redirection to a request URL ending
+      in a '/' if a request URL does not end in a '/' and the matching &jaxrs.Path; does end in a '/'.</para>
+    </section>
+
+    <section>
+      <title>HTTP Methods</title>
+
+      <para>&jaxrs.GET;, &jaxrs.PUT;, &jaxrs.POST;, &jaxrs.DELETE; and &jaxrs.HEAD;
+      are <emphasis>resource method designator</emphasis> annotations defined
+      by JAX-RS and which correspond to the similarly named HTTP methods. In
+      the example above, the annotated Java method will process HTTP GET
+      requests. The behavior of a resource is determined by which of the HTTP
+      methods the resource is responding to.</para>
+
+      <para>The following example is an extract from the storage service
+      sample that shows the use of the PUT method to create or update a
+      storage container:</para>
+
+      <para><example>
+<title>PUT method</title>
+<programlisting language="java" linenumbering="numbered">@PUT
+public Response putContainer() {
+    System.out.println("PUT CONTAINER " + container);
+
+    URI uri =  uriInfo.getAbsolutePath();
+    Container c = new Container(container, uri.toString());
+
+    Response r;
+    if (!MemoryStore.MS.hasContainer(c)) {
+        r = Response.created(uri).build();
+    } else {
+        r = Response.noContent().build();
+    }
+
+    MemoryStore.MS.createContainer(c);
+    return r;
+}</programlisting></example>By default the JAX-RS runtime will automatically support the
+      methods HEAD and OPTIONS, if not explicitly implemented. For HEAD the
+      runtime will invoke the implemented GET method (if present) and ignore
+      the response entity (if set). For OPTIONS the Allow response header
+      will be set to the set of HTTP methods support by the resource. In
+      addition Jersey will return a <ulink url="http://wadl.java.net/">WADL</ulink> document describing the
+      resource.</para>
+    </section>
+
+    <section>
+      <title>@Produces</title>
+
+      <para>The &jaxrs.Produces; annotation is used to specify the MIME media types of representations a resource can
+      produce and send back to the client. In this example, the Java method will produce representations identified by
+      the MIME media type "text/plain".</para>
+
+      <para>&jaxrs.Produces; can be applied at both the class and method levels. Here's an example:</para>
+
+      <para><example>
+<title>Specifying output MIME type</title>
+<programlisting language="java" linenumbering="numbered">@Path("/myResource")
+@Produces("text/plain")
+public class SomeResource {
+    @GET
+    public String doGetAsPlainText() {
+        ...
+    }
+
+    @GET
+    @Produces("text/html")
+    public String doGetAsHtml() {
+        ...
+    }
+}</programlisting></example>The <literal>doGetAsPlainText</literal> method defaults to the MIME type of the &jaxrs.Produces;
+      annotation at the class level. The <literal>doGetAsHtml</literal> method's &jaxrs.Produces;
+      annotation overrides the class-level &jaxrs.Produces; setting, and specifies that the method can produce HTML rather than
+      plain text. </para>
+
+      <para>If a resource class is capable of producing more that one MIME
+      media type then the resource method chosen will correspond to the most
+      acceptable media type as declared by the client. More specifically the
+      Accept header of the HTTP request declared what is most acceptable. For
+      example if the Accept header is:</para>
+
+      <para><programlisting>Accept: text/plain</programlisting>then the
+      <literal>doGetAsPlainText</literal> method will be invoked.
+      Alternatively if the Accept header is: </para>
+
+      <para><programlisting>Accept: text/plain;q=0.9, text/html</programlisting></para>
+
+      <para>which declares that the client can accept media types of
+      "text/plain" and "text/html" but prefers the latter, then the
+      <literal>doGetAsHtml</literal> method will be invoked. </para>
+
+      <para>More than one media type may be declared in the same &jaxrs.Produces; declaration, for example:</para>
+
+      <para><example>
+<title>Using multiple output MIME types</title>
+<programlisting language="java" linenumbering="numbered">@GET
+@Produces({"application/xml", "application/json"})
+public String doGetAsXmlOrJson() {
+    ...
+}</programlisting></example>The <literal>doGetAsXmlOrJson</literal> method will get
+      invoked if either of the media types "application/xml" and
+      "application/json" are acceptable. If both are equally acceptable then
+      the former will be chosen because it occurs first. </para>
+
+      <para>The examples above refer explicitly to MIME media types for
+      clarity. It is possible to refer to constant values, which may reduce
+      typographical errors, see the constant field values of &jaxrs.core.MediaType;.</para>
+    </section>
+
+    <section>
+      <title>@Consumes</title>
+
+      <para>The &jaxrs.Consumes; annotation is used to specify the MIME media types of representations a
+      resource can consume that were sent by the client. The above example can be modified to set the cliched
+      message as follows:</para>
+
+      <para><example>
+<title>Specifying input MIME type</title>
+<programlisting language="java" linenumbering="numbered">@POST
+@Consumes("text/plain")
+public void postClichedMessage(String message) {
+    // Store the message
+}</programlisting></example></para>
+
+      <para>In this example, the Java method will consume representations
+      identified by the MIME media type "text/plain". Notice that the resource
+      method returns void. This means no representation is returned and
+      response with a status code of 204 (No Content) will be returned.</para>
+
+      <para>&jaxrs.Consumes; can be applied at both the class and method levels and more than one
+      media type may be declared in the same &jaxrs.Consumes; declaration.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Deploying a RESTful Web Service</title>
+
+    <para>JAX-RS provides a deployment agnostic abstract class &jaxrs.core.Application;
+    for declaring root resource and provider classes, and root resource and provider singleton instances.
+    A Web service may extend this class to declare root resource and provider classes. For
+    example,</para>
+
+    <para><example>
+<title>Deployment agnostic application model</title>
+<programlisting language="java" linenumbering="numbered">public class MyApplication extends Application {
+    public Set&lt;Class&lt;?&gt;&gt; getClasses() {
+        Set&lt;Class&lt;?&gt;&gt; s = new HashSet&lt;Class&lt;?&gt;&gt;();
+        s.add(HelloWorldResource.class);
+        return s;
+    }
+}</programlisting></example>Alternatively it is possible to reuse one of Jersey's
+    implementations that scans for root resource and provider classes given a classpath or
+    a set of package names. Such classes are automatically added to the set of
+    classes that are returned by <literal>getClasses</literal>. For example,
+    the following scans for root resource and provider classes in packages "org.foo.rest",
+    "org.bar.rest" and in any sub-packages of those two:</para>
+
+    <para><example>
+<title>Reusing Jersey implementation in your custom application model</title>
+<programlisting language="java" linenumbering="numbered">public class MyApplication extends PackagesResourceConfig {
+    public MyApplication() {
+        super("org.foo.rest;org.bar.rest");
+    }
+}</programlisting></example></para>
+    <para>There are multiple deployment options for the class that implements &jaxrs.core.Application;
+    interface in the Servlet 3.0 container. For simple deployments, no <literal>web.xml</literal> 
+    is needed at all. Instead, an &jaxrs.ApplicationPath; annotation can be used to annotate the
+    user defined application class and specify the the base resource URI of all application resources:</para>
+    <para><example>
+        <title>Deployment of a JAX-RS application using <literal>@ApplicationPath</literal> with Servlet 3.0</title>
+        <programlisting language="java" linenumbering="numbered">@ApplicationPath("resources")
+public class MyApplication extends PackagesResourceConfig {
+    public MyApplication() {
+        super("org.foo.rest;org.bar.rest");
+    }    
+    ...
+}</programlisting>
+    </example></para>      
+    <para>You also need to set maven-war-plugin attribute &maven-war-plugin.failOnMissingWebXml; to false in pom.xml when building .war without web.xml file using maven:</para>
+    <para><example>
+        <title>Configuration of maven-war-plugin in <literal>pom.xml</literal> with Servlet 3.0</title>
+        <programlisting language="xml" linenumbering="numbered">&lt;plugins&gt;
+ ...
+ &lt;plugin&gt;
+   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+   &lt;artifactId&gt;maven-war-plugin&lt;/artifactId&gt;
+   &lt;version&gt;2.1.1&lt;/version&gt;    
+   &lt;configuration&gt;
+       &lt;failOnMissingWebXml&gt;false&lt;/failOnMissingWebXml&gt;        
+   &lt;/configuration&gt;
+   &lt;/plugin&gt;
+ ...
+ &lt;/plugins&gt;</programlisting>
+    </example></para>    
+    <para>Another deployment option is to declare JAX-RS application details in the <literal>web.xml</literal>.
+    This is usually suitable in case of more complex deployments, e.g. when security model needs to be properly defined 
+    or when additional initialization parameters have to be passed to Jersey runtime.
+    JAX-RS 1.1 specifies that a fully qualified name of the class that
+    implements &jaxrs.core.Application;
+    may be declared in the <literal>&lt;servlet-name&gt;</literal> element of the JAX-RS application's
+    <literal>web.xml</literal>. This is supported in a Web container implementing Servlet 3.0 as follows:</para>
+    <para><example>
+        <title>Deployment of a JAX-RS application using <literal>web.xml</literal> with Servlet 3.0</title>
+        <programlisting language="xml" linenumbering="numbered">&lt;web-app&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;org.foo.rest.MyApplication&lt;/servlet-name&gt;
+    &lt;/servlet&gt;
+    ...
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;org.foo.rest.MyApplication&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/resources&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+    ...
+&lt;/web-app&gt;</programlisting>
+    </example></para>    
+    <para>Note that the <literal>&lt;servlet-class&gt;</literal> element is omitted from the servlet declaration. 
+    This is a correct declaration utilizing the Servlet 3.0 extension mechanism. Also note that 
+    <literal>&lt;servlet-mapping&gt;</literal> is used to define the base resource URI.</para>    
+    <para>When running in a Servlet 2.x then instead it is necessary to declare the Jersey
+    specific servlet and pass the &jaxrs.core.Application; implementation class name as
+    one of the servlet's <literal>init-param</literal> entries:
+    <example>
+        <title>Deployment of your application using Jersey specific servlet</title>
+        <programlisting language="xml" linenumbering="numbered">&lt;web-app&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;Jersey Web Application&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;com.sun.jersey.spi.container.servlet.ServletContainer&lt;/servlet-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;javax.ws.rs.Application&lt;/param-name&gt;
+            &lt;param-value&gt;org.foo.rest.MyApplication&lt;/param-value&gt;
+        &lt;/init-param&gt;
+        ...
+    &lt;/servlet&gt;
+    ...
+&lt;/web-app&gt;</programlisting>
+    </example></para>        
+    <para>Alternatively a simpler approach is to let Jersey choose the <literal>PackagesResourceConfig</literal> 
+    implementation automatically by declaring the packages as follows:
+
+    <example>
+        <title>Using Jersey specific servlet without an application model instance</title>
+        <programlisting language="xml" linenumbering="numbered">&lt;web-app&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;Jersey Web Application&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;com.sun.jersey.spi.container.servlet.ServletContainer&lt;/servlet-class&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;com.sun.jersey.config.property.packages&lt;/param-name&gt;
+            &lt;param-value&gt;org.foo.rest;org.bar.rest&lt;/param-value&gt;
+        &lt;/init-param&gt;
+        ...
+    &lt;/servlet&gt;
+    ...
+&lt;/web-app&gt;</programlisting>
+    </example></para>    
+    <para>JAX-RS also provides the ability to obtain a container specific artifact 
+    from an &jaxrs.core.Application; instance. For example, Jersey supports using
+    <ulink url="http://grizzly.java.net/">Grizzly</ulink> as follows:
+    <programlisting language="java">SelectorThread st = RuntimeDelegate.createEndpoint(new MyApplication(), SelectorThread.class);</programlisting>    
+    Jersey also provides <ulink url="http://grizzly.java.net/">Grizzly</ulink>
+    helper classes to deploy the ServletThread instance at a base URL for
+    in-process deployment.</para>
+
+    <para>The Jersey samples provide many examples of Servlet-based and
+    Grizzly-in-process-based deployments.</para>
+  </section>
+
+  <section>
+    <title>Extracting Request Parameters</title>
+
+    <para>Parameters of a resource method may be annotated with parameter-based annotations to extract information from
+    a request. A previous example presented the use &jaxrs.PathParam; to extract a path parameter from the path component
+    of the request URL that matched the path declared in &jaxrs.Path;.</para>
+
+    <para>&jaxrs.QueryParam; is used to extract query parameters from the Query component of the request URL. The following
+    example is an extract from the sparklines sample: </para>
+
+    <example>
+<title>Query parameters</title>
+<programlisting language="java" linenumbering="numbered">@Path("smooth")
+@GET
+public Response smooth(
+        @DefaultValue("2") @QueryParam("step") int step,
+        @DefaultValue("true") @QueryParam("min-m") boolean hasMin,
+        @DefaultValue("true") @QueryParam("max-m") boolean hasMax,
+        @DefaultValue("true") @QueryParam("last-m") boolean hasLast,           
+        @DefaultValue("blue") @QueryParam("min-color") ColorParam minColor,
+        @DefaultValue("green") @QueryParam("max-color") ColorParam maxColor,
+        @DefaultValue("red") @QueryParam("last-color") ColorParam lastColor
+        ) { ... }</programlisting></example>
+
+    <para>If a query parameter "step" exists in the query component of the
+    request URI then the "step" value will be will extracted and parsed as a
+    32 bit signed integer and assigned to the step method parameter. If "step"
+    does not exist then a default value of 2, as declared in the &jaxrs.DefaultValue;
+    annotation, will be assigned to the step method parameter. If the "step"
+    value cannot be parsed as a 32 bit signed integer then a HTTP 404 (Not
+    Found) response is returned. User defined Java types such as
+    <literal>ColorParam</literal> may be used, which as implemented as
+    follows: </para>
+
+    <example>
+<title>Custom Java type for consuming request parameters</title>
+<programlisting language="java" linenumbering="numbered">public class ColorParam extends Color {
+    public ColorParam(String s) {
+        super(getRGB(s));
+    }
+
+    private static int getRGB(String s) {
+        if (s.charAt(0) == '#') {
+            try {
+                Color c = Color.decode("0x" + s.substring(1));
+                return c.getRGB();
+            } catch (NumberFormatException e) {
+                throw new WebApplicationException(400);
+            }
+        } else {
+            try {
+                Field f = Color.class.getField(s);
+                return ((Color)f.get(null)).getRGB();
+            } catch (Exception e) {
+                throw new WebApplicationException(400);
+            }
+        }
+    }
+}</programlisting></example>
+
+    <para>In general the Java type of the method parameter may:</para>
+
+    <orderedlist>
+      <listitem>
+        <para>Be a primitive type;</para>
+      </listitem>
+
+      <listitem>
+        <para>Have a constructor that accepts a single
+        <literal>String</literal> argument;</para>
+      </listitem>
+
+      <listitem>
+        <para>Have a static method named <literal>valueOf</literal> or <literal>fromString</literal>
+        that accepts a single <literal>String</literal> argument (see, for example,
+        <literal>Integer.valueOf(String)</literal> and <literal>java.util.UUID.fromString(String)</literal>);
+        or</para>
+      </listitem>
+
+      <listitem>
+        <para>Be <literal>List&lt;T&gt;</literal>,
+        <literal>Set&lt;T&gt;</literal> or
+        <literal>SortedSet&lt;T&gt;</literal>, where <literal>T</literal>
+        satisfies 2 or 3 above. The resulting collection is read-only.</para>
+      </listitem>
+    </orderedlist>
+
+    <para>Sometimes parameters may contain more than one value for the same
+    name. If this is the case then types in 4) may be used to obtain all
+    values.</para>
+
+    <para>If the &jaxrs.DefaultValue; is not used in conjunction with &jaxrs.QueryParam;
+    and the query parameter is not present in the request then value will be
+    an empty collection for <literal>List</literal>, <literal>Set</literal> or
+    <literal>SortedSet</literal>, <literal>null</literal> for other object
+    types, and the Java-defined default for primitive types.</para>
+
+    <para>The &jaxrs.PathParam; and the other parameter-based annotations, &jaxrs.MatrixParam;,
+    &jaxrs.HeaderParam;, &jaxrs.CookieParam;, &jaxrs.FormParam; obey the same rules as &jaxrs.QueryParam;.
+    &jaxrs.MatrixParam; extracts information from URL path segments. &jaxrs.HeaderParam; extracts information
+    from the HTTP headers. &jaxrs.CookieParam; extracts information from the cookies declared in cookie related HTTP
+    headers.</para>
+
+    <para>&jaxrs.FormParam; is slightly special because it extracts information from a request representation that
+    is of the MIME media type <literal>"application/x-www-form-urlencoded"</literal> and conforms to the encoding
+    specified by HTML forms, as described here. This parameter is very useful for extracting information that is
+    POSTed by HTML forms, for example the following extracts the form parameter named "name" from the POSTed form
+    data: </para>
+
+    <para><example>
+<title>Processing POSTed HTML form</title>
+<programlisting language="java" linenumbering="numbered">@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(@FormParam("name") String name) {
+    // Store the message
+}</programlisting></example></para>
+
+    <para>If it is necessary to obtain a general map of parameter name to
+    values then, for query and path parameters it is possible to do the
+    following: </para>
+
+    <para><example>
+<title>Obtaining general map of URI path and/or query parameters</title>
+<programlisting language="java" linenumbering="numbered">@GET
+public String get(@Context UriInfo ui) {
+    MultivaluedMap&lt;String, String&gt; queryParams = ui.getQueryParameters();
+    MultivaluedMap&lt;String, String&gt; pathParams = ui.getPathParameters();
+}</programlisting></example></para>
+
+    <para>For header and cookie parameters the following:</para>
+
+    <para><example>
+<title>Obtaining general map of header parameters</title>
+<programlisting language="java" linenumbering="numbered">@GET
+public String get(@Context HttpHeaders hh) {
+    MultivaluedMap&lt;String, String&gt; headerParams = hh.getRequestHeaders();
+    Map&lt;String, Cookie&gt; pathParams = hh.getCookies();
+}</programlisting></example></para>
+
+    <para>In general &jaxrs.core.Context; can be used to obtain contextual Java types related to the request or
+    response. For form parameters it is possible to do the following:</para>
+
+    <para><example>
+<title>Obtaining general map of form parameters</title><programlisting language="java" linenumbering="numbered">@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(MultivaluedMap&lt;String, String&gt; formParams) {
+    // Store the message
+}</programlisting></example></para>
+  </section>
+
+  <section>
+    <title>Representations and Java Types</title>
+
+    <para>Previous sections on &jaxrs.Produces; and &jaxrs.Consumes;
+    referred to MIME media types of representations and showed resource
+    methods that consume and produce the Java type String for a number of
+    different media types. However, <literal>String</literal> is just one of
+    many Java types that are required to be supported by JAX-RS
+    implementations.</para>
+
+    <para>Java types such as <literal>byte[]</literal>,
+    <literal>java.io.InputStream</literal>, <literal>java.io.Reader</literal>
+    and <literal>java.io.File</literal> are supported. In addition JAXB beans
+    are supported. Such beans are <literal>JAXBElement</literal> or classes
+    annotated with <ulink url="http://java.sun.com/javase/6/docs/api/javax/xml/bind/annotation/XmlRootElement.html">@XmlRootElement</ulink>
+    or <ulink url="http://java.sun.com/javase/6/docs/api/javax/xml/bind/annotation/XmlType.html">@XmlType</ulink>.
+    The samples jaxb and json-from-jaxb show the use of JAXB beans. </para>
+
+    <para>Unlike method parameters that are associated with the extraction of
+    request parameters, the method parameter associated with the
+    representation being consumed does not require annotating. A maximum of
+    one such unannotated method parameter may exist since there may only be a
+    maximum of one such representation sent in a request.</para>
+
+    <para>The representation being produced corresponds to what is returned by
+    the resource method. For example JAX-RS makes it simple to produce images
+    that are instance of <literal>File</literal> as follows:</para>
+
+    <para><example>
+<title>Using <code>File</code> with a specific MIME type to produce a response</title><programlisting language="java" linenumbering="numbered">@GET
+@Path("/images/{image}")
+@Produces("image/*")
+public Response getImage(@PathParam("image") String image) {
+    File f = new File(image);
+
+    if (!f.exists()) {
+        throw new WebApplicationException(404);
+    }
+
+    String mt = new MimetypesFileTypeMap().getContentType(f);
+    return Response.ok(f, mt).build();
+}</programlisting></example></para>
+
+    <para>A <literal>File</literal> type can also be used when consuming, a
+    temporary file will be created where the request entity is stored.</para>
+
+    <para>The <literal>Content-Type</literal> (if not set, see next section)
+    can be automatically set from the MIME media types declared by &jaxrs.Produces;
+    if the most acceptable media type is not a wild card (one that contains a
+    *, for example "application/" or "/*"). Given the following method:</para>
+
+    <para><example>
+<title>The most acceptable MIME type is used when multiple output MIME types allowed</title><programlisting language="java" linenumbering="numbered">@GET
+@Produces({"application/xml", "application/json"})
+public String doGetAsXmlOrJson() {
+    ...
+}</programlisting></example></para>
+
+    <para>if "application/xml" is the most acceptable then the
+    <literal>Content-Type</literal> of the response will be set to
+    "application/xml".</para>
+  </section>
+
+  <section>
+    <title>Building Responses</title>
+
+    <para>Sometimes it is necessary to return additional
+    information in response to a HTTP request. Such information may be built
+    and returned using &jaxrs.core.Response; and &jaxrs.core.Response.ResponseBuilder;.
+    For example, a common RESTful pattern for the creation of a new resource
+    is to support a POST request that returns a 201 (Created) status code and
+    a <literal>Location</literal> header whose value is the URI to the newly
+    created resource. This may be achieved as follows:</para>
+
+    <para><example>
+<title>Returning 201 status code and adding <literal>Location</literal> header in response to POST request</title><programlisting language="java" linenumbering="numbered">@POST
+@Consumes("application/xml")
+public Response post(String content) {
+    URI createdUri = ...
+    create(content);
+    return Response.created(createdUri).build();
+}</programlisting></example></para>
+
+    <para>In the above no representation produced is returned, this can be
+    achieved by building an entity as part of the response as follows:</para>
+
+    <para><example>
+<title>Adding an entity body to a custom response</title><programlisting language="java" linenumbering="numbered">@POST
+@Consumes("application/xml")
+public Response post(String content) {
+    URI createdUri = ...
+    String createdContent = create(content);
+    return Response.created(createdUri).entity(createdContent).build();
+}</programlisting></example></para>
+
+    <para>Response building provides other functionality such as setting the
+    entity tag and last modified date of the representation.</para>
+  </section>
+
+  <section>
+    <title>Sub-resources</title>
+
+    <para>&jaxrs.Path; may be used on classes and such classes are referred to as root resource classes. &jaxrs.Path;
+    may also be used on methods of root resource classes. This enables common functionality for a number of resources
+    to be grouped together and potentially reused.</para>
+
+    <para>The first way &jaxrs.Path; may be used is on resource methods and such methods are referred to as
+    <emphasis>sub-resource methods</emphasis>. The following example shows the method signatures for a root
+    resource class from the jmaki-backend sample:</para>
+
+    <para><example>
+<title>Sub-resource methods</title><programlisting language="java" linenumbering="numbered">@Singleton
+@Path("/printers")
+public class PrintersResource {
+
+    @GET
+    @Produces({"application/json", "application/xml"})
+    public WebResourceList getMyResources() { ... }
+   
+    @GET @Path("/list")
+    @Produces({"application/json", "application/xml"})
+    public WebResourceList getListOfPrinters() { ... }
+
+    @GET @Path("/jMakiTable")
+    @Produces("application/json")
+    public PrinterTableModel getTable() { ... }
+
+    @GET @Path("/jMakiTree")
+    @Produces("application/json")
+    public TreeModel getTree() { ... }
+
+    @GET @Path("/ids/{printerid}")
+    @Produces({"application/json", "application/xml"})
+    public Printer getPrinter(@PathParam("printerid") String printerId) { ... }
+
+    @PUT @Path("/ids/{printerid}")
+    @Consumes({"application/json", "application/xml"})
+    public void putPrinter(@PathParam("printerid") String printerId,  Printer printer) { ... }
+
+    @DELETE @Path("/ids/{printerid}")
+    public void deletePrinter(@PathParam("printerid") String printerId) { ... }
+}</programlisting></example></para>
+
+    <para>If the path of the request URL is "printers" then the resource methods not annotated with &jaxrs.Path;
+    will be selected. If the request path of the request URL is "printers/list" then first the root resource class
+    will be matched and then the sub-resource methods that match "list" will be selected, which in this case
+    is the sub-resource method <literal>getListOfPrinters</literal>. So in this example hierarchical matching
+    on the path of the request URL is performed.</para>
+
+    <para>The second way &jaxrs.Path; may be used is on methods <emphasis role="bold">not</emphasis> annotated
+    with resource method designators such as &jaxrs.GET; or &jaxrs.POST;. Such methods are referred to as
+    <emphasis>sub-resource locators</emphasis>. The following example shows the method signatures for
+    a root resource class and a resource class from the optimistic-concurrency sample:</para>
+
+    <para><example>
+<title>Sub-resource locators</title><programlisting language="java" linenumbering="numbered">@Path("/item")
+public class ItemResource {
+    @Context UriInfo uriInfo;
+
+    @Path("content")
+    public ItemContentResource getItemContentResource() {
+        return new ItemContentResource();
+    }
+
+    @GET
+    @Produces("application/xml")
+    public Item get() { ... }
+}
+
+public class ItemContentResource {
+
+    @GET
+    public Response get() { ... }
+
+    @PUT
+    @Path("{version}")
+    public void put(
+            @PathParam("version") int version,
+            @Context HttpHeaders headers,
+            byte[] in) { ... }
+}</programlisting></example></para>
+
+    <para>The root resource class <literal>ItemResource</literal> contains the
+    sub-resource locator method <literal>getItemContentResource</literal> that
+    returns a new resource class. If the path of the request URL is
+    "item/content" then first of all the root resource will be matched, then
+    the sub-resource locator will be matched and invoked, which returns an
+    instance of the <literal>ItemContentResource</literal> resource class.
+    Sub-resource locators enable reuse of resource classes.</para>
+
+    <para>In addition the processing of resource classes returned by
+    sub-resource locators is performed at runtime thus it is possible to
+    support polymorphism. A sub-resource locator may return different
+    sub-types depending on the request (for example a sub-resource locator
+    could return different sub-types dependent on the role of the principle
+    that is authenticated).</para>
+
+    <para>Note that the runtime will not manage the life-cycle or perform any
+    field injection onto instances returned from sub-resource locator methods.
+    This is because the runtime does not know what the life-cycle of the
+    instance is.</para>
+  </section>
+
+  <section>
+    <title>Building URIs</title>
+
+    <para>A very important aspects of REST is hyperlinks, URIs, in
+    representations that clients can use to transition the Web service to new
+    application states (this is otherwise known as "hypermedia as the engine
+    of application state"). HTML forms present a good example of this in
+    practice.</para>
+
+    <para>Building URIs and building them safely is not easy with <ulink
+    url="http://java.sun.com/j2se/1.5.0/docs/api/java/net/URI.html">java.net.URI</ulink>,
+    which is why JAX-RS has the &jaxrs.core.UriBuilder; class that makes it simple and easy to build URIs safely.</para>
+
+    <para>&jaxrs.core.UriBuilder; can be used to build new URIs or build from existing URIs. For resource
+    classes it is more than likely that URIs will be built from the base URI the web service is deployed at
+    or from the request URI. The class &jaxrs.core.UriInfo; provides such information (in addition to further
+    information, see next section).</para>
+
+    <para>The following example shows URI building with &jaxrs.core.UriInfo; and &jaxrs.core.UriBuilder;
+    from the bookmark sample:</para>
+
+    <para><example>
+<title>URI building</title><programlisting language="java" linenumbering="numbered">@Path("/users/")
+public class UsersResource {
+
+    @Context UriInfo uriInfo;
+
+    ...
+
+    @GET
+    @Produces("application/json")
+    public JSONArray getUsersAsJsonArray() {
+        JSONArray uriArray = new JSONArray();
+        for (UserEntity userEntity : getUsers()) {
+            UriBuilder ub = uriInfo.getAbsolutePathBuilder();
+            URI userUri = ub.
+                    path(userEntity.getUserid()).
+                    build();
+            uriArray.put(userUri.toASCIIString());
+        }
+        return uriArray;
+    }
+}</programlisting></example></para>
+
+    <para>&jaxrs.core.UriInfo; is obtained using the @Context annotation, and in this particular example injection onto
+    the field of the root resource class is performed, previous examples showed the use of @Context on resource method parameters.</para>
+
+    <para>&jaxrs.core.UriInfo; can be used to obtain URIs and associated &jaxrs.core.UriBuilder; instances for
+    the following URIs: the base URI the application is deployed at; the request URI; and the absolute path URI, which
+    is the request URI minus any query components.</para>
+
+    <para>The <literal>getUsersAsJsonArray</literal> method constructs a
+    JSONArrray where each element is a URI identifying a specific user
+    resource. The URI is built from the absolute path of the request URI by
+    calling <ulink url="&jsr311.javadoc.path;/core/UriInfo.html#getAbsolutePathBuilder()">UriInfo.getAbsolutePathBuilder()</ulink>.
+    A new path segment is added, which is the user ID, and then the URI is
+    built. Notice that it is not necessary to worry about the inclusion of '/'
+    characters or that the user ID may contain characters that need to be
+    percent encoded. UriBuilder takes care of such details.</para>
+
+    <para>&jaxrs.core.UriBuilder; can be used to build/replace query or matrix parameters. URI templates can also be declared,
+    for example the following will build the URI "http://localhost/segment?name=value":</para>
+
+    <para><example>
+<title>Building URIs using query parameters</title><programlisting language="java" linenumbering="numbered">UriBuilder.fromUri("http://localhost/").
+    path("{a}").
+    queryParam("name", "{value}").
+    build("segment", "value");</programlisting></example></para>
+  </section>
+
+  <section>
+    <title>WebApplicationException and Mapping Exceptions to Responses</title>
+
+    <para>Previous sections have shown how to return HTTP responses and it is
+    possible to return HTTP errors using the same mechanism. However,
+    sometimes when programming in Java it is more natural to use exceptions
+    for HTTP errors.</para>
+
+    <para>The following example shows the throwing of a
+    <literal>NotFoundException</literal> from the bookmark sample:</para>
+
+    <para><example>
+<title>Throwing Jersey specific exceptions to control response</title><programlisting language="java" linenumbering="numbered">@Path("items/{itemid}/")
+public Item getItem(@PathParam("itemid") String itemid) {
+    Item i = getItems().get(itemid);
+    if (i == null)
+        throw new NotFoundException("Item, " + itemid + ", is not found");
+
+    return i;
+}</programlisting></example></para>
+
+    <para>This exception is a Jersey specific exception that extends &jaxrs.WebApplicationException;
+    and builds a HTTP response with the 404 status code and an optional
+    message as the body of the response:</para>
+
+    <para><example>
+<title>Jersey specific exception implementation</title><programlisting language="java" linenumbering="numbered">public class NotFoundException extends WebApplicationException {
+
+    /**
+     * Create a HTTP 404 (Not Found) exception.
+     */
+    public NotFoundException() {
+        super(Responses.notFound().build());
+    }
+
+    /**
+     * Create a HTTP 404 (Not Found) exception.
+     * @param message the String that is the entity of the 404 response.
+     */
+    public NotFoundException(String message) {
+        super(Response.status(Responses.NOT_FOUND).
+                entity(message).type("text/plain").build());
+    }
+
+}</programlisting></example></para>
+
+    <para>In other cases it may not be appropriate to throw instances of &jaxrs.WebApplicationException;,
+    or classes that extend &jaxrs.WebApplicationException;, and instead it may be preferable to map an existing exception to a
+    response. For such cases it is possible to use the &jaxrs.ext.ExceptionMapper; interface. For example, the following
+    maps the <ulink url="http://java.sun.com/javaee/5/docs/api/javax/persistence/EntityNotFoundException.html">EntityNotFoundException</ulink>
+    to a HTTP 404 (Not Found) response:</para>
+
+    <para><example>
+<title>Mapping generic exceptions to responses</title><programlisting language="java" linenumbering="numbered">@Provider
+public class EntityNotFoundMapper implements
+        ExceptionMapper&lt;javax.persistence.EntityNotFoundException&gt; {
+    public Response toResponse(javax.persistence.EntityNotFoundException ex) {
+        return Response.status(404).
+            entity(ex.getMessage()).
+            type("text/plain").
+            build();
+    }
+}</programlisting></example></para>
+
+    <para>The above class is annotated with &jaxrs.ext.Provider;, this declares that the class is of interest to the JAX-RS runtime. Such a
+    class may be added to the set of classes of the &jaxrs.core.Application; instance that is configured. When an application throws an
+    <ulink url="http://java.sun.com/javaee/5/docs/api/javax/persistence/EntityNotFoundException.html">EntityNotFoundException</ulink>
+    the <literal>toResponse</literal> method of the <literal>EntityNotFoundMapper</literal> instance will be invoked.</para>
+  </section>
+
+  <section>
+    <title>Conditional GETs and Returning 304 (Not Modified) Responses</title>
+
+    <para>Conditional GETs are a great way to reduce bandwidth, and
+    potentially server-side performance, depending on how the information used
+    to determine conditions is calculated. A well-designed web site may return
+    304 (Not Modified) responses for the many of the static images it
+    serves.</para>
+
+    <para>JAX-RS provides support for conditional GETs using the contextual interface &jaxrs.core.Request;.</para>
+
+    <para>The following example shows conditional GET support from the sparklines sample:</para>
+
+    <para><example>
+        <title>Conditional GET support</title><programlisting language="java" linenumbering="numbered">public SparklinesResource(
+        @QueryParam("d") IntegerList data,
+        @DefaultValue("0,100") @QueryParam("limits") Interval limits,
+        @Context Request request,
+        @Context UriInfo ui) {
+    if (data == null)
+        throw new WebApplicationException(400);
+
+    this.data = data;
+
+    this.limits = limits;
+
+    if (!limits.contains(data))
+        throw new WebApplicationException(400);
+
+    this.tag = computeEntityTag(ui.getRequestUri());
+    if (request.getMethod().equals("GET")) {
+        Response.ResponseBuilder rb = request.evaluatePreconditions(tag);
+        if (rb != null)
+            throw new WebApplicationException(rb.build());
+    }
+}</programlisting></example></para>
+
+    <para>The constructor of the <literal>SparklinesResouce</literal> root
+    resource class computes an entity tag from the request URI and then calls
+    the <ulink url="&jsr311.javadoc.path;/core/Request.html#evaluatePreconditions(javax.ws.rs.core.EntityTag)">request.evaluatePreconditions</ulink>
+    with that entity tag. If a client request contains an
+    <literal>If-None-Match</literal> header with a value that contains the
+    same entity tag that was calculated then the <ulink url="&jsr311.javadoc.path;/core/Request.html#evaluatePreconditions(javax.ws.rs.core.EntityTag)">evaluatePreconditions</ulink>
+    returns a pre-filled out response, with the 304 status code and entity tag
+    set, that may be built and returned. Otherwise, <ulink url="&jsr311.javadoc.path;/core/Request.html#evaluatePreconditions(javax.ws.rs.core.EntityTag)">evaluatePreconditions</ulink>
+    returns <literal>null</literal> and the normal response can be
+    returned.</para>
+
+    <para>Notice that in this example the constructor of a resource class can
+    be used perform actions that may otherwise have to be duplicated to
+    invoked for each resource method.</para>
+  </section>
+
+  <section>
+    <title>Life-cycle of Root Resource Classes</title>
+
+    <para>By default the life-cycle of root resource classes is per-request,
+    namely that a new instance of a root resource class is created every time
+    the request URI path matches the root resource. This makes for a very
+    natural programming model where constructors and fields can be utilized
+    (as in the previous section showing the constructor of the
+    <literal>SparklinesResource</literal> class) without concern for multiple
+    concurrent requests to the same resource.</para>
+
+    <para>In general this is unlikely to be a cause of performance issues.
+    Class construction and garbage collection of JVMs has vastly improved over
+    the years and many objects will be created and discarded to serve and
+    process the HTTP request and return the HTTP response.</para>
+
+    <para>Instances of singleton root resource classes can be declared by an instance of &jaxrs.core.Application;.</para>
+
+    <para>Jersey supports two further life-cycles using Jersey specific
+    annotations. If a root resource class is annotated with @Singleton then
+    only one instance is created per-web application. If a root resource class
+    is annotated with @PerSession then one instance is created per web session
+    and stored as a session attribute.</para>
+  </section>
+
+  <section>
+    <title>Security</title>
+
+    <para>Security information is available by obtaining the &jaxrs.core.SecurityContext; using &jaxrs.core.Context;,
+    which is essentially the equivalent functionality available on the <ulink url="http://java.sun.com/javaee/5/docs/api/javax/servlet/http/HttpServletRequest.html">HttpServletRequest</ulink>.</para>
+
+    <para>&jaxrs.core.SecurityContext; can be used in conjunction with sub-resource locators to return different
+    resources if the user principle is included in a certain role. For example, a sub-resource locator could return
+    a different resource if a user is a preferred customer:</para>
+
+    <para><example>
+<title>Accessing <code>SecurityContext</code></title><programlisting language="java" linenumbering="numbered">@Path("basket")
+public ShoppingBasketResource get(@Context SecurityContext sc) {
+    if (sc.isUserInRole("PreferredCustomer") {
+       return new PreferredCustomerShoppingBaskestResource();
+    } else {
+       return new ShoppingBasketResource();
+    }
+}</programlisting></example></para>
+  </section>
+
+  <section>
+    <title>Rules of Injection</title>
+
+    <para>Previous sections have presented examples of annotated types, mostly
+    annotated method parameters but also annotated fields of a class, for the
+    injection of values onto those types.</para>
+
+    <para>This section presents the rules of injection of values on annotated
+    types. Injection can be performed on fields, constructor parameters,
+    resource/sub-resource/sub-resource locator method parameters and bean
+    setter methods. The following presents an example of all such injection
+    cases: </para>
+
+    <para><example>
+<title>Injection</title><programlisting language="java" linenumbering="numbered">@Path("id: \d+")
+public class InjectedResource {
+    // Injection onto field
+    @DefaultValue("q") @QueryParam("p")
+    private String p;
+
+    // Injection onto constructor parameter
+    public InjectedResource(@PathParam("id") int id) { ... }
+
+    // Injection onto resource method parameter
+    @GET
+    public String get(@Context UriInfo ui) { ... }
+
+    // Injection onto sub-resource resource method parameter
+    @Path("sub-id")
+    @GET
+    public String get(@PathParam("sub-id") String id) { ... }
+
+    // Injection onto sub-resource locator method parameter
+    @Path("sub-id")
+    public SubResource getSubResource(@PathParam("sub-id") String id) { ... }
+
+    // Injection using bean setter method
+    @HeaderParam("X-header")
+    public void setHeader(String header) { ... }
+}</programlisting></example></para>
+
+    <para>There are some restrictions when injecting on to resource classes
+    with a life-cycle other than per-request. In such cases it is not possible
+    to injected onto fields for the annotations associated with extraction of
+    request parameters. However, it is possible to use the &jaxrs.core.Context;
+    annotation on fields, in such cases a thread local proxy will be
+    injected.</para>
+
+    <para>The &jaxrs.FormParam; annotation is special and may only be utilized on resource and sub-resource methods.
+    This is because it extracts information from a request entity.</para>
+  </section>
+
+  <section>
+    <title>Use of @Context</title>
+
+    <para>Previous sections have introduced the use of &jaxrs.core.Context;. <ulink url="&jsr311.release.path;/spec/spec3.html#x3-520005">Chapter 5</ulink>
+    of the JAX-RS specification presents all the standard JAX-RS Java types that may be used with &jaxrs.core.Context;.</para>
+
+    <para>When deploying a JAX-RS application using servlet then <ulink url="http://java.sun.com/javaee/5/docs/api/javax/servlet/ServletConfig.html">ServletConfig</ulink>,
+    <ulink url="http://java.sun.com/javaee/5/docs/api/javax/servlet/ServletContext.html">ServletContext</ulink>,
+    <ulink url="http://java.sun.com/javaee/5/docs/api/javax/servlet/http/HttpServletRequest.html">HttpServletRequest</ulink>
+    and <ulink url="http://java.sun.com/javaee/5/docs/api/javax/servlet/http/HttpServletResponse.html">HttpServletResponse</ulink>
+    are available using &jaxrs.core.Context;.</para>
+  </section>
+
+  <section>
+    <title>Annotations Defined By JAX-RS</title>
+
+    <para>For a list of the annotations specified by JAX-RS see <ulink url="&jsr311.release.path;/spec/spec3.html#x3-66000A">Appendix
+    A</ulink> of the specification.</para>
+  </section>
+</chapter>

@@ -1,0 +1,41 @@
+<rdf:RDF xmlns="http://usefulinc.com/ns/doap#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://usefulinc.com/ns/doap#Project"/>
+        <bug-database rdf:resource="https://jersey.dev.java.net/servlets/ProjectIssues"/>
+
+        <created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2007-06-20</created>
+        <name>Jersey: The JAX-RS (JSR 311) Reference Implementation</name>
+        <description xml:lang="en">
+Jersey is the open source JAX-RS (JSR 311) Reference Implementation for building RESTful Web services. But, it is also more than the Reference Implementation. Jersey provides additional APIs and extension points (SPIs) so that developers may extend Jersey to suite their needs.
+	</description>
+        <shortdesc xml:lang="en">
+	Jersey is the open source JAX-RS (JSR 311) Reference Implementation for building RESTful Web services.
+	</shortdesc>
+
+        <homepage rdf:resource="https://jersey.dev.java.net/"/>
+        <license rdf:resource="https://jersey.dev.java.net/license.txt"/>
+        <download-page rdf:resource="https://jersey.dev.java.net/servlets/ProjectDocumentList"/>
+
+        <mailing-list rdf:resource="https://jersey.dev.java.net/servlets/SummarizeList?listName=dev"/>
+        <mailing-list rdf:resource="https://jersey.dev.java.net/servlets/SummarizeList?listName=users"/>
+        <mailing-list rdf:resource="https://jersey.dev.java.net/servlets/SummarizeList?listName=issues"/>
+        <mailing-list rdf:resource="https://jersey.dev.java.net/servlets/SummarizeList?listName=commits"/>
+
+        <programming-language>Java</programming-language>
+
+        <repository rdf:parseType="Resource">
+            <rdf:type rdf:resource="http://usefulinc.com/ns/doap#SVNRepository"/>
+            <browse rdf:resource="https://jersey.dev.java.net/source/browse/jersey/"/>
+            <location rdf:resource="https://jersey.dev.java.net/svn/"/>
+            <module>jersey/trunk/jersey</module>
+        </repository>
+
+	<!--
+        <wiki rdf:resource=""/>
+        <maintainer rdf:resource=""/>
+	-->
+    </rdf:Description>
+</rdf:RDF>
+

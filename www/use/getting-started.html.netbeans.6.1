@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>Getting Started</title>
+    </head>
+    
+    <body>
+    <h1>Getting Started</h1>
+    <p>Getting started with Jersey is very easy. 
+    First, <a href="https://jersey.dev.java.net/servlets/ProjectDocumentList">download</a> the 
+    latest distribution of Jersey and unzip it. If you are using NetBeans IDE 6.x, you do not need
+    to download the Jersey distribution.
+    If using NetBeans IDE 6.1 then RESTful Web Services support using Jersey is provided and no download
+    or plugin installation is required.
+    If using NetBeans IDE 6.0 install the RESTful Web Services plugin from the Plugin
+    Manager under the Tools menu.
+ 
+    
+    </p><p>Then, create a new project (using your favourite 
+    IDE or just ant/maven) and add the JAR files in the Jersey distribution lib directory as compile
+    time and run time dependencies of your project. In NetBeans IDE 6.x, create a web application
+    project named "HelloWorld" and do not worry about the JAR files, since these will be 
+    automatically added by the wizard in the next step.
+    
+    </p><h1>Creating a Web resource</h1>
+    <p>Create a Java class, named "HelloWorldResource", in your project. In NetBeans IDE 6.x, you can use the
+    New RESTful Web Service from Patterns wizard, under New File. Choose a singleton design pattern, then specify the resource classes as in the following template: </p>
+
+    <p><img src="../images/netbeans-get-started-2.png" border="1">
+    </p>
+    <p>Whether or not you are using the IDE, add the following code to the class:
+    </p>
+    <pre> 1    // The Java class will be hosted at the URI path "/helloworld"
+ 2    @Path("helloworld")
+ 3    public class HelloWorldResource {
+ 4    
+ 5        @Context
+ 6        private UriInfo context;
+ 7
+ 8        /** Creates a new instance of HelloWorldResource */
+ 9        public HelloWorldResource() {
+10        }
+11
+12       /**
+13       * Retrieves representation of an instance of hello.world.HelloWorldResource
+14       * @return an instance of java.lang.String
+15       */
+16       @GET
+17       @ProduceMime("text/plain")
+18       public String getClichedMessage() {
+19           //Return some cliched textual content
+20           return ("Hello World! Here is " + context.getAbsolutePath());
+21       }
+22    }</pre>
+    <p>The <code>HelloWorldResource</code> class is a very simple Web resource. The URI path of the resource is "/helloworld" (line 2), it supports the HTTP GET method (line 16) and produces cliched textual content (line 20) of the MIME media type "text/plain" (line 17).</p>
+    <p>
+    </p>
+    <p>Notice the use of Java annotations to declare the URI path, the HTTP method and the MIME media type. 
+Also note the @HttpContext annotation, which acts as a marker to say &quot;Please 
+inject an instance of the Java type, in this case UriInfo, after the 
+class has been constructed.&quot;
+This use of annotations is a key feature of JSR 311.</p>
+    <p>In the IDE, the class, within its project structure, looks as follows:
+    </p><p><img src="../images/netbeans-get-started-1.png" border="1">
+
+    </p><p>In the IDE, you can now immediately deploy the application, to this URL, by
+    right-clicking the project node, choosing Run, and then adding "/resources/helloworld"
+    to the URL in the browser:
+    </p><p><tt>http://<i>host</i>:<i>port</i>/HelloWorld/resources/helloworld</tt>
+    </p><p>For the IDE, these getting started steps are now complete. For
+    further details, see <a href="http://www.netbeans.org/kb/61/websvc/rest.html">Getting Started with RESTful Web Services in NetBeans IDE</a>.
+    
+    </p><h1>Deploying the Web resource using the Lightweight HTTP Server</h1>
+    <p>If you are not using a web application, such as the IDE project shown above,
+    the Web resource can be deployed using the Lightweight HTTP Server included in the Jersey distribution and in Sun's Java Platform, Standard Edition 6 (Java SE 6) release.</p>
+
+    <p>Create the following Java class in your project:</p>
+    <pre> 1 public class Main {
+ 2
+ 3     public static void main(String[] args) throws IOException {
+ 4         HttpServer server = HttpServerFactory.create("http://localhost:9998/");
+ 5         server.start();
+ 6
+ 7         System.out.println("Server running");
+ 8         System.out.println("Visit: http://localhost:9998/helloworld");
+ 9         System.out.println("Hit return to stop...");
+10         System.in.read();
+11         System.out.println("Stopping server");
+12         server.stop(0);
+13         System.out.println("Server stopped");
+14     }
+15 } </pre>
+    <p>The <code>Main</code> class deploys the <code>HelloWorldResource</code> using the Lightweight HTTP Server.</p>
+    <p> Line 4 creates the Lightweight HTTP Server using the base URI <a class="moz-txt-link-rfc2396E" href="http://localhost:9998/">"http://localhost:9998/"</a> and deploys the HelloWorldResource. </p>
+
+    <p> Notice that no deployment descriptors were needed and the setup required just one statement of Java code with no explicit reference to the HelloWorldResource class. By default Jersey will dynamically search for root resource classes, such as the HelloWorldResource class that is annotated with @Path, from the java.class.path. </p>
+    <p>Go to the URI <a href="http://localhost:9998/helloworld">http://localhost:9998/helloworld</a> in your favourite browser.</p>
+
+    <p>Or, from the command line use <code>curl<code>:</code></code></p><p>
+    </p><pre>    &gt; curl http://localhost:9998/helloworld</pre>
+
+    <a name="created"><h1>Further Examples</h1></a>
+    <p> Further example code is shipped in the Jersey distribution  (see the <tt>examples</tt> directory, or <a href="https://jersey.dev.java.net/source/browse/jersey/trunk/jersey/examples/HelloWorld/">browse</a> the project source). The examples may be opened using the IDE
+    or may be run from the command line by typing <code>ant run</code> from the project directory.</p>
+   </body>
+</html>
