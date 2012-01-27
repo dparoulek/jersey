@@ -12,7 +12,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;10.&nbsp;Experimental Features</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jrebel.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="chapter_deps.html">Next</a></td></tr></table><hr></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="float:right"><a href="http://jersey.java.net"><img src="http://jersey.java.net/images/Jersey_yellow.png"></a></div><small xmlns:fo="http://www.w3.org/1999/XSL/Format">Links: <a href="index.html">Table of Contents</a> | <a href="user-guide.html">Single HTML</a></small><div class="chapter" title="Chapter&nbsp;10.&nbsp;Experimental Features"><div class="titlepage"><div><div><h2 class="title"><a name="experimental"></a>Chapter&nbsp;10.&nbsp;Experimental Features</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="experimental.html#hypermedia">10.1. Hypermedia Actions</a></span></dt><dd><dl><dt><span class="section"><a href="experimental.html#d4e1474">10.1.1. Introduction</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1492">10.1.2. Hypermedia by Example</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1515">10.1.3. Server API</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1552">10.1.4. Client API</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1602">10.1.5. Server Evolution</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1612">10.1.6. Configuring Hypermedia in Jersey</a></span></dt></dl></dd></dl></div>
+</script></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;10.&nbsp;Experimental Features</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="jrebel.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="chapter_deps.html">Next</a></td></tr></table><hr></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="float:right"><a href="http://jersey.java.net"><img src="http://jersey.java.net/images/Jersey_yellow.png"></a></div><small xmlns:fo="http://www.w3.org/1999/XSL/Format">Links: <a href="index.html">Table of Contents</a> | <a href="user-guide.html">Single HTML</a></small><div class="chapter" title="Chapter&nbsp;10.&nbsp;Experimental Features"><div class="titlepage"><div><div><h2 class="title"><a name="experimental"></a>Chapter&nbsp;10.&nbsp;Experimental Features</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="experimental.html#hypermedia">10.1. Hypermedia Actions</a></span></dt><dd><dl><dt><span class="section"><a href="experimental.html#d4e1450">10.1.1. Introduction</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1468">10.1.2. Hypermedia by Example</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1491">10.1.3. Server API</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1528">10.1.4. Client API</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1578">10.1.5. Server Evolution</a></span></dt><dt><span class="section"><a href="experimental.html#d4e1588">10.1.6. Configuring Hypermedia in Jersey</a></span></dt></dl></dd></dl></div>
     
     <p>This chapter describes experimental features of Jersey that are
     only available in maven SNAPSHOT releases. Such features are not intended to
@@ -23,7 +23,7 @@
 
     <div class="section" title="10.1.&nbsp;Hypermedia Actions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="hypermedia"></a>10.1.&nbsp;Hypermedia Actions</h2></div></div></div>
     
-    <div class="section" title="10.1.1.&nbsp;Introduction"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1474"></a>10.1.1.&nbsp;Introduction</h3></div></div></div>
+    <div class="section" title="10.1.1.&nbsp;Introduction"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1450"></a>10.1.1.&nbsp;Introduction</h3></div></div></div>
         
         <p>It is generally understood that, in order to follow the REST style, URIs should be
             assigned to anything of interest (resources) and a few, well-defined operations should
@@ -56,7 +56,7 @@
                 <code class="literal">pay</code> action will become available after an order is
         reviewed.</p>
     </div>
-    <div class="section" title="10.1.2.&nbsp;Hypermedia by Example"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1492"></a>10.1.2.&nbsp;Hypermedia by Example</h3></div></div></div>
+    <div class="section" title="10.1.2.&nbsp;Hypermedia by Example"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1468"></a>10.1.2.&nbsp;Hypermedia by Example</h3></div></div></div>
         
         <p>The notion of action resources naturally leads to discussions about improved client
             APIs to support them. Given that action resources are identified by URIs, no additional
@@ -95,7 +95,7 @@
             to a URI. Refer to <a class="ulink" href="https://maven.java.net/content/repositories/snapshots/com/sun/jersey/experimental/hypermedia-action/hypermedia-action-sample" target="_top">hypermedia-action-sample</a> for more information on how this mapping is
         implemented.</p>
     </div>
-    <div class="section" title="10.1.3.&nbsp;Server API"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1515"></a>10.1.3.&nbsp;Server API</h3></div></div></div>
+    <div class="section" title="10.1.3.&nbsp;Server API"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1491"></a>10.1.3.&nbsp;Server API</h3></div></div></div>
         
         <p>The server API introduces 3 new annotation types: <code class="literal">@Action</code>,
                 <code class="literal">@ContextualActionSet</code> and
@@ -108,7 +108,7 @@
             annotated with <code class="literal">@Action</code> and at most one method annotated with
                 <code class="literal">@ContextualActionSet</code>.</p>
         <p>The following example illustrates the use of all these annotation types to define the
-                <code class="literal">OrderResource</code> controller.<sup>[<a name="d4e1530" href="#ftn.d4e1530" class="footnote">2</a>]</sup>
+                <code class="literal">OrderResource</code> controller.<sup>[<a name="d4e1506" href="#ftn.d4e1506" class="footnote">2</a>]</sup>
             </p><pre class="programlisting">&nbsp;&nbsp;1     @Path("/orders/{id}")
 &nbsp;&nbsp;2     @HypermediaController(
 &nbsp;&nbsp;3         model=Order.class,
@@ -207,7 +207,7 @@
             has not been payed by only including the <code class="literal">ship</code> action in the
                 <code class="literal">PAYED</code> state.</p>
     </div>
-    <div class="section" title="10.1.4.&nbsp;Client API"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1552"></a>10.1.4.&nbsp;Client API</h3></div></div></div>
+    <div class="section" title="10.1.4.&nbsp;Client API"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1528"></a>10.1.4.&nbsp;Client API</h3></div></div></div>
         
         <p>Although action resources can be accessed using traditional APIs for REST, including
             Jersey's client API, the use of client-side proxies and method invocations to trigger
@@ -264,7 +264,7 @@
             proxy to review, pay and ship an order. For the sake of the example, we assume the
             customer that submitted the order has been suspended and needs to be activated before
             the order is reviewed. For that purpose, the client code retrieves the customer URI from
-            the order's model and obtains an instance of <code class="literal">CustomerController</code>.<sup>[<a name="d4e1579" href="#ftn.d4e1579" class="footnote">3</a>]</sup>
+            the order's model and obtains an instance of <code class="literal">CustomerController</code>.<sup>[<a name="d4e1555" href="#ftn.d4e1555" class="footnote">3</a>]</sup>
             </p><pre class="programlisting">&nbsp;&nbsp;1     // Instantiate Jersey's Client class
 &nbsp;&nbsp;2     Client client = new Client();
 &nbsp;&nbsp;3         
@@ -306,7 +306,7 @@
             not supported). The <code class="literal">@Name</code> annotation used in Jersey is defined in
                 <code class="literal">com.sun.jersey.core.hypermedia</code>.</p>
     </div>
-    <div class="section" title="10.1.5.&nbsp;Server Evolution"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1602"></a>10.1.5.&nbsp;Server Evolution</h3></div></div></div>
+    <div class="section" title="10.1.5.&nbsp;Server Evolution"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1578"></a>10.1.5.&nbsp;Server Evolution</h3></div></div></div>
         
         <p>In the last section, we have seen how the use of client proxies based on
                 <span class="emphasis"><em>partially</em></span> annotated interfaces facilitates server evolution. An
@@ -324,7 +324,7 @@
             interfaces should be fully annotated and a <span class="emphasis"><em>tighly-coupled</em></span> contract
             should be used instead.</p>
     </div>
-    <div class="section" title="10.1.6.&nbsp;Configuring Hypermedia in Jersey"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1612"></a>10.1.6.&nbsp;Configuring Hypermedia in Jersey</h3></div></div></div>
+    <div class="section" title="10.1.6.&nbsp;Configuring Hypermedia in Jersey"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1588"></a>10.1.6.&nbsp;Configuring Hypermedia in Jersey</h3></div></div></div>
         
         <p>There are a few configuration options in <a class="ulink" href="https://maven.java.net/content/repositories/snapshots/com/sun/jersey/experimental/hypermedia-action/hypermedia-action-sample" target="_top">hypermedia-action-sample</a> that are worth highlighting. First, a
             special filter factory <code class="literal">HypermediaFilterFactory</code> must
@@ -354,10 +354,10 @@
     </div>
 </div>
 <div class="footnotes"><br><hr width="100" align="left"><div class="footnote">
-                <p><sup>[<a name="ftn.d4e1530" href="#d4e1530" class="para">2</a>] </sup>Several details about this class are omitted for clarity. The reader is
+                <p><sup>[<a name="ftn.d4e1506" href="#d4e1506" class="para">2</a>] </sup>Several details about this class are omitted for clarity. The reader is
                     referred to the hypermedia sample for more details.</p>
             </div><div class="footnote">
-                <p><sup>[<a name="ftn.d4e1579" href="#d4e1579" class="para">3</a>] </sup>
+                <p><sup>[<a name="ftn.d4e1555" href="#d4e1555" class="para">3</a>] </sup>
                     <code class="literal">CustomerController</code> is a hypermedia controller interface akin
                     to <code class="literal">OrderController</code> which is omitted since it does not
                     highlight any additional feature.</p>

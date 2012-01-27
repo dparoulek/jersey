@@ -12,7 +12,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="float:right"><a href="http://jersey.java.net"><img src="http://jersey.java.net/images/Jersey_yellow.png"></a></div><small xmlns:fo="http://www.w3.org/1999/XSL/Format">Links: <a href="index.html">Table of Contents</a> | <a href="user-guide.html">Single HTML</a></small><div class="book" title="Jersey 1.12-SNAPSHOT User Guide"><div class="titlepage"><div><div><h1 class="title"><a name="d4e1"></a>Jersey 1.12-SNAPSHOT User Guide</h1></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="preface"><a href="#preface">Preface</a></span></dt><dt><span class="chapter"><a href="#getting-started">1. Getting Started</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e47">1.1. Creating a root resource</a></span></dt><dt><span class="section"><a href="#d4e54">1.2. Deploying the root resource</a></span></dt><dt><span class="section"><a href="#d4e68">1.3. Testing the root resource</a></span></dt><dt><span class="section"><a href="#getting.started.created">1.4. Here's one Paul created earlier</a></span></dt></dl></dd><dt><span class="chapter"><a href="#jax-rs">2. Overview of JAX-RS 1.1</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e88">2.1. Root Resource Classes</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e104">2.1.1. @Path</a></span></dt><dt><span class="section"><a href="#d4e129">2.1.2. HTTP Methods</a></span></dt><dt><span class="section"><a href="#d4e144">2.1.3. @Produces</a></span></dt><dt><span class="section"><a href="#d4e176">2.1.4. @Consumes</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e188">2.2. Deploying a RESTful Web Service</a></span></dt><dt><span class="section"><a href="#d4e247">2.3. Extracting Request Parameters</a></span></dt><dt><span class="section"><a href="#d4e324">2.4. Representations and Java Types</a></span></dt><dt><span class="section"><a href="#d4e357">2.5. Building Responses</a></span></dt><dt><span class="section"><a href="#d4e374">2.6. Sub-resources</a></span></dt><dt><span class="section"><a href="#d4e405">2.7. Building URIs</a></span></dt><dt><span class="section"><a href="#d4e435">2.8. WebApplicationException and Mapping Exceptions to Responses</a></span></dt><dt><span class="section"><a href="#d4e465">2.9. Conditional GETs and Returning 304 (Not Modified) Responses</a></span></dt><dt><span class="section"><a href="#d4e483">2.10. Life-cycle of Root Resource Classes</a></span></dt><dt><span class="section"><a href="#d4e491">2.11. Security</a></span></dt><dt><span class="section"><a href="#d4e504">2.12. Rules of Injection</a></span></dt><dt><span class="section"><a href="#d4e516">2.13. Use of @Context</a></span></dt><dt><span class="section"><a href="#d4e528">2.14. Annotations Defined By JAX-RS</a></span></dt></dl></dd><dt><span class="chapter"><a href="#client-api">3. Client API</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e534">3.1. Introduction</a></span></dt><dt><span class="section"><a href="#d4e548">3.2. Uniform Interface Constraint</a></span></dt><dt><span class="section"><a href="#d4e573">3.3. Ease of use and reusing JAX-RS artifacts</a></span></dt><dt><span class="section"><a href="#d4e609">3.4. Getting started with the Jersey client</a></span></dt><dt><span class="section"><a href="#d4e618">3.5. Overview of the API</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e623">3.5.1. Configuring a Client and WebResource</a></span></dt><dt><span class="section"><a href="#d4e644">3.5.2. Building a request</a></span></dt><dt><span class="section"><a href="#d4e665">3.5.3. Receiving a response</a></span></dt><dt><span class="section"><a href="#d4e677">3.5.4. Creating new WebResources from a WebResource</a></span></dt><dt><span class="section"><a href="#d4e683">3.5.5. Java instances and types for representations</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e694">3.6. Adding support for new representations</a></span></dt><dt><span class="section"><a href="#d4e706">3.7. Using filters</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e740">3.7.1. Supported filters</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e759">3.8. Testing services</a></span></dt><dt><span class="section"><a href="#d4e778">3.9. Security with Http(s)URLConnection</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e780">3.9.1. With Http(s)URLConnection</a></span></dt><dt><span class="section"><a href="#d4e796">3.9.2. With Apache HTTP client</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#xml">4. XML Support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e806">4.1. Low level XML support</a></span></dt><dt><span class="section"><a href="#d4e820">4.2. Getting started with JAXB</a></span></dt><dt><span class="section"><a href="#d4e849">4.3. POJOs</a></span></dt><dt><span class="section"><a href="#d4e865">4.4. Using custom JAXBContext</a></span></dt></dl></dd><dt><span class="chapter"><a href="#json">5. JSON Support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e895">5.1. POJO support</a></span></dt><dt><span class="section"><a href="#d4e913">5.2. JAXB Based JSON support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e928">5.2.1. Configuration Options</a></span></dt><dt><span class="section"><a href="#d4e949">5.2.2. JSON Notations</a></span></dt><dt><span class="section"><a href="#d4e1119">5.2.3. Examples</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1124">5.3. Low-Level JSON support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1138">5.3.1. Examples</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#linking">6. Declarative Hyperlinking</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1147">6.1. Links in Representations</a></span></dt><dt><span class="section"><a href="#d4e1161">6.2. Binding Template Parameters</a></span></dt><dt><span class="section"><a href="#d4e1196">6.3. Conditional Link Injection</a></span></dt><dt><span class="section"><a href="#d4e1205">6.4. Link Headers</a></span></dt><dt><span class="section"><a href="#d4e1219">6.5. Configuration</a></span></dt></dl></dd><dt><span class="chapter"><a href="#test-framework">7. Jersey Test Framework</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1244">7.1. What is different in Jersey 1.2</a></span></dt><dt><span class="section"><a href="#d4e1267">7.2. Using test framework</a></span></dt><dt><span class="section"><a href="#d4e1310">7.3. Creating tests</a></span></dt><dt><span class="section"><a href="#d4e1317">7.4. Creating own module</a></span></dt><dt><span class="section"><a href="#d4e1328">7.5. Running tests outside Maven</a></span></dt></dl></dd><dt><span class="chapter"><a href="#osgi">8. OSGi</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1381">8.1. Feature Overview</a></span></dt><dt><span class="section"><a href="#d4e1417">8.2. WAB Example</a></span></dt><dt><span class="section"><a href="#d4e1429">8.3. Http Service Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="#jrebel">9. JRebel support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1443">9.1. How to use JRebel with Jersey</a></span></dt><dt><span class="section"><a href="#d4e1449">9.2. Using JRebel with the hello world sample</a></span></dt><dt><span class="section"><a href="#d4e1464">9.3. Limitations</a></span></dt></dl></dd><dt><span class="chapter"><a href="#experimental">10. Experimental Features</a></span></dt><dd><dl><dt><span class="section"><a href="#hypermedia">10.1. Hypermedia Actions</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1474">10.1.1. Introduction</a></span></dt><dt><span class="section"><a href="#d4e1492">10.1.2. Hypermedia by Example</a></span></dt><dt><span class="section"><a href="#d4e1515">10.1.3. Server API</a></span></dt><dt><span class="section"><a href="#d4e1552">10.1.4. Client API</a></span></dt><dt><span class="section"><a href="#d4e1602">10.1.5. Server Evolution</a></span></dt><dt><span class="section"><a href="#d4e1612">10.1.6. Configuring Hypermedia in Jersey</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#chapter_deps">11. Dependencies</a></span></dt><dd><dl><dt><span class="section"><a href="#core_server">11.1. Core server</a></span></dt><dt><span class="section"><a href="#core_client">11.2. Core client</a></span></dt><dt><span class="section"><a href="#d4e1710">11.3. Container</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1712">11.3.1. Grizzly HTTP Web server</a></span></dt><dt><span class="section"><a href="#d4e1720">11.3.2. Grizzly Servlet container</a></span></dt><dt><span class="section"><a href="#d4e1729">11.3.3. Simple HTTP Web server</a></span></dt><dt><span class="section"><a href="#d4e1733">11.3.4. Light weight HTTP server</a></span></dt><dt><span class="section"><a href="#d4e1736">11.3.5. Servlet</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1749">11.4. Entity</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1751">11.4.1. JAXB</a></span></dt><dt><span class="section"><a href="#d4e1796">11.4.2. Atom</a></span></dt><dt><span class="section"><a href="#d4e1817">11.4.3. JSON</a></span></dt><dt><span class="section"><a href="#d4e1829">11.4.4. Mail and MIME multipart</a></span></dt><dt><span class="section"><a href="#d4e1850">11.4.5. Activation</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1854">11.5. Tools</a></span></dt><dt><span class="section"><a href="#d4e1858">11.6. Spring</a></span></dt><dt><span class="section"><a href="#d4e1865">11.7. Guice</a></span></dt><dt><span class="section"><a href="#d4e1881">11.8. Jersey Test Framework</a></span></dt></dl></dd><dt><span class="chapter"><a href="#glassfish">12. Jersey with GlassFish</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1927">12.1. Overriding Jersey with war files</a></span></dt><dt><span class="section"><a href="#d4e1934">12.2. Upgrading Jersey in GlassFish</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1936">12.2.1. GlassFish v3.0 and 3.0.1</a></span></dt><dt><span class="section"><a href="#d4e1956">12.2.2. GlassFish 3.1</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#how-to-build">13. Building and testing Jersey</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1982">13.1. Checking out the source</a></span></dt><dt><span class="section"><a href="#d4e1997">13.2. Building using Maven</a></span></dt><dt><span class="section"><a href="#d4e2009">13.3. Testing</a></span></dt><dt><span class="section"><a href="#d4e2015">13.4. Continuous building and testing with Hudson</a></span></dt><dt><span class="section"><a href="#d4e2019">13.5. Using NetBeans</a></span></dt></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>7.1. <a href="#d4e1250">Property name changes</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>2.1. <a href="#d4e101">Simple hello world root resource class</a></dt><dt>2.2. <a href="#d4e120">Specifying URI path parameter</a></dt><dt>2.3. <a href="#d4e140">PUT method</a></dt><dt>2.4. <a href="#d4e151">Specifying output MIME type</a></dt><dt>2.5. <a href="#d4e170">Using multiple output MIME types</a></dt><dt>2.6. <a href="#d4e181">Specifying input MIME type</a></dt><dt>2.7. <a href="#d4e193">Deployment agnostic application model</a></dt><dt>2.8. <a href="#d4e198">Reusing Jersey implementation in your custom application model</a></dt><dt>2.9. <a href="#d4e206">Deployment of a JAX-RS application using <code class="literal">@ApplicationPath</code> with Servlet 3.0</a></dt><dt>2.10. <a href="#d4e213">Configuration of maven-war-plugin in <code class="literal">pom.xml</code> with Servlet 3.0</a></dt><dt>2.11. <a href="#d4e223">Deployment of a JAX-RS application using <code class="literal">web.xml</code> with Servlet 3.0</a></dt><dt>2.12. <a href="#d4e233">Deployment of your application using Jersey specific servlet</a></dt><dt>2.13. <a href="#d4e238">Using Jersey specific servlet without an application model instance</a></dt><dt>2.14. <a href="#d4e254">Query parameters</a></dt><dt>2.15. <a href="#d4e260">Custom Java type for consuming request parameters</a></dt><dt>2.16. <a href="#d4e305">Processing POSTed HTML form</a></dt><dt>2.17. <a href="#d4e310">Obtaining general map of URI path and/or query parameters</a></dt><dt>2.18. <a href="#d4e315">Obtaining general map of header parameters</a></dt><dt>2.19. <a href="#d4e321">Obtaining general map of form parameters</a></dt><dt>2.20. <a href="#d4e342">Using <code class="code">File</code> with a specific MIME type to produce a response</a></dt><dt>2.21. <a href="#d4e352">The most acceptable MIME type is used when multiple output MIME types allowed</a></dt><dt>2.22. <a href="#d4e364">Returning 201 status code and adding <code class="literal">Location</code> header in response to POST request</a></dt><dt>2.23. <a href="#d4e370">Adding an entity body to a custom response</a></dt><dt>2.24. <a href="#d4e383">Sub-resource methods</a></dt><dt>2.25. <a href="#d4e396">Sub-resource locators</a></dt><dt>2.26. <a href="#d4e418">URI building</a></dt><dt>2.27. <a href="#d4e432">Building URIs using query parameters</a></dt><dt>2.28. <a href="#d4e441">Throwing Jersey specific exceptions to control response</a></dt><dt>2.29. <a href="#d4e447">Jersey specific exception implementation</a></dt><dt>2.30. <a href="#d4e456">Mapping generic exceptions to responses</a></dt><dt>2.31. <a href="#d4e472">Conditional GET support</a></dt><dt>2.32. <a href="#d4e500">Accessing <code class="code">SecurityContext</code></a></dt><dt>2.33. <a href="#d4e509">Injection</a></dt><dt>3.1. <a href="#d4e597">POST request with form parameters</a></dt><dt>4.1. <a href="#d4e813">Low level XML test - methods added to HelloWorldResource.java</a></dt><dt>4.2. <a href="#d4e826">Planet class</a></dt><dt>4.3. <a href="#d4e829">Resource class</a></dt><dt>4.4. <a href="#d4e842">Method for consuming Planet</a></dt><dt>4.5. <a href="#d4e855">Resource class - JAXBElement</a></dt><dt>4.6. <a href="#d4e862">Client side - JAXBElement</a></dt><dt>4.7. <a href="#d4e870">PlanetJAXBContextProvider</a></dt><dt>4.8. <a href="#d4e876">Using Provider with Jersey client</a></dt><dt>5.1. <a href="#d4e902">POJO JSON support web.xml configuration</a></dt><dt>5.2. <a href="#d4e906">POJO JSON support client configuration</a></dt><dt>5.3. <a href="#d4e918">Simple JAXB bean implementation</a></dt><dt>5.4. <a href="#d4e921">JAXB bean used to generate JSON representation</a></dt><dt>5.5. <a href="#d4e932">Tweaking JSON format using JAXB</a></dt><dt>5.6. <a href="#json.jaxb.context.resolver.example">An example of a JAXBContext resolver implementation</a></dt><dt>5.7. <a href="#d4e962">JAXB beans for JSON supported notations description, simple address bean</a></dt><dt>5.8. <a href="#d4e965">JAXB beans for JSON supported notations description, contact bean</a></dt><dt>5.9. <a href="#json.jaxb.bean.init.example">JAXB beans for JSON supported notations description, initialization</a></dt><dt>5.10. <a href="#d4e987">JSON expression produced using <code class="literal">mapped</code> notation</a></dt><dt>5.11. <a href="#d4e1000">Force arrays in <code class="literal">mapped</code> JSON notation</a></dt><dt>5.12. <a href="#d4e1011">Force non-string values in <code class="literal">mapped</code> JSON notation</a></dt><dt>5.13. <a href="#d4e1024">XML attributes as XML elements in <code class="literal">mapped</code> JSON notation</a></dt><dt>5.14. <a href="#json.jaxb.mapped.root.unwrapping">Keep XML root tag equivalent in JSON <code class="literal">mapped</code> JSON notation</a></dt><dt>5.15. <a href="#d4e1036">XML root tag equivalent kept in JSON using <code class="literal">mapped</code> notation</a></dt><dt>5.16. <a href="#d4e1046">XML namespace to JSON mapping configuration for <code class="literal">mapped</code> notation</a></dt><dt>5.17. <a href="#d4e1067">JSON expression produced using <code class="literal">natural</code> notation</a></dt><dt>5.18. <a href="#json.jaxb.natural.root.unwrapping">Keep XML root tag equivalent in JSON <code class="literal">natural</code> JSON notation</a></dt><dt>5.19. <a href="#d4e1090">JSON expression produced using Jettison based <code class="literal">mapped</code> notation</a></dt><dt>5.20. <a href="#json.jaxb.jettison.mapped.ns.def">XML namespace to JSON mapping configuration for Jettison based <code class="literal">mapped</code> notation</a></dt><dt>5.21. <a href="#d4e1102">JSON expression with XML namespaces mapped into JSON</a></dt><dt>5.22. <a href="#d4e1115">JSON expression produced using <code class="literal">badgerfish</code> notation</a></dt><dt>5.23. <a href="#d4e1130">JAXB bean creation</a></dt><dt>5.24. <a href="#d4e1135">Constructing a JSONObject</a></dt></dl></div>
+</script></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="float:right"><a href="http://jersey.java.net"><img src="http://jersey.java.net/images/Jersey_yellow.png"></a></div><small xmlns:fo="http://www.w3.org/1999/XSL/Format">Links: <a href="index.html">Table of Contents</a> | <a href="user-guide.html">Single HTML</a></small><div class="book" title="Jersey 1.12-SNAPSHOT User Guide"><div class="titlepage"><div><div><h1 class="title"><a name="d4e1"></a>Jersey 1.12-SNAPSHOT User Guide</h1></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="preface"><a href="#preface">Preface</a></span></dt><dt><span class="chapter"><a href="#getting-started">1. Getting Started</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e47">1.1. Creating a root resource</a></span></dt><dt><span class="section"><a href="#d4e54">1.2. Deploying the root resource</a></span></dt><dt><span class="section"><a href="#d4e68">1.3. Testing the root resource</a></span></dt><dt><span class="section"><a href="#getting.started.created">1.4. Here's one Paul created earlier</a></span></dt></dl></dd><dt><span class="chapter"><a href="#jax-rs">2. Overview of JAX-RS 1.1</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e88">2.1. Root Resource Classes</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e104">2.1.1. @Path</a></span></dt><dt><span class="section"><a href="#d4e129">2.1.2. HTTP Methods</a></span></dt><dt><span class="section"><a href="#d4e144">2.1.3. @Produces</a></span></dt><dt><span class="section"><a href="#d4e176">2.1.4. @Consumes</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e188">2.2. Deploying a RESTful Web Service</a></span></dt><dt><span class="section"><a href="#d4e247">2.3. Extracting Request Parameters</a></span></dt><dt><span class="section"><a href="#d4e324">2.4. Representations and Java Types</a></span></dt><dt><span class="section"><a href="#d4e357">2.5. Building Responses</a></span></dt><dt><span class="section"><a href="#d4e374">2.6. Sub-resources</a></span></dt><dt><span class="section"><a href="#d4e405">2.7. Building URIs</a></span></dt><dt><span class="section"><a href="#d4e435">2.8. WebApplicationException and Mapping Exceptions to Responses</a></span></dt><dt><span class="section"><a href="#d4e465">2.9. Conditional GETs and Returning 304 (Not Modified) Responses</a></span></dt><dt><span class="section"><a href="#d4e483">2.10. Life-cycle of Root Resource Classes</a></span></dt><dt><span class="section"><a href="#d4e491">2.11. Security</a></span></dt><dt><span class="section"><a href="#d4e504">2.12. Rules of Injection</a></span></dt><dt><span class="section"><a href="#d4e516">2.13. Use of @Context</a></span></dt><dt><span class="section"><a href="#d4e528">2.14. Annotations Defined By JAX-RS</a></span></dt></dl></dd><dt><span class="chapter"><a href="#client-api">3. Client API</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e534">3.1. Introduction</a></span></dt><dt><span class="section"><a href="#d4e548">3.2. Uniform Interface Constraint</a></span></dt><dt><span class="section"><a href="#d4e573">3.3. Ease of use and reusing JAX-RS artifacts</a></span></dt><dt><span class="section"><a href="#d4e609">3.4. Getting started with the Jersey client</a></span></dt><dt><span class="section"><a href="#d4e618">3.5. Overview of the API</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e623">3.5.1. Configuring a Client and WebResource</a></span></dt><dt><span class="section"><a href="#d4e644">3.5.2. Building a request</a></span></dt><dt><span class="section"><a href="#d4e665">3.5.3. Receiving a response</a></span></dt><dt><span class="section"><a href="#d4e677">3.5.4. Creating new WebResources from a WebResource</a></span></dt><dt><span class="section"><a href="#d4e683">3.5.5. Java instances and types for representations</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e694">3.6. Adding support for new representations</a></span></dt><dt><span class="section"><a href="#d4e706">3.7. Using filters</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e740">3.7.1. Supported filters</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e759">3.8. Testing services</a></span></dt><dt><span class="section"><a href="#d4e778">3.9. Security with Http(s)URLConnection</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e780">3.9.1. With Http(s)URLConnection</a></span></dt><dt><span class="section"><a href="#d4e796">3.9.2. With Apache HTTP client</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#xml">4. XML Support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e806">4.1. Low level XML support</a></span></dt><dt><span class="section"><a href="#d4e820">4.2. Getting started with JAXB</a></span></dt><dt><span class="section"><a href="#d4e849">4.3. POJOs</a></span></dt><dt><span class="section"><a href="#d4e865">4.4. Using custom JAXBContext</a></span></dt></dl></dd><dt><span class="chapter"><a href="#json">5. JSON Support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e895">5.1. POJO support</a></span></dt><dt><span class="section"><a href="#d4e913">5.2. JAXB Based JSON support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e928">5.2.1. Configuration Options</a></span></dt><dt><span class="section"><a href="#d4e949">5.2.2. JSON Notations</a></span></dt><dt><span class="section"><a href="#d4e1119">5.2.3. Examples</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1124">5.3. Low-Level JSON support</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1138">5.3.1. Examples</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#linking">6. Declarative Hyperlinking</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1147">6.1. Links in Representations</a></span></dt><dt><span class="section"><a href="#d4e1161">6.2. Binding Template Parameters</a></span></dt><dt><span class="section"><a href="#d4e1196">6.3. Conditional Link Injection</a></span></dt><dt><span class="section"><a href="#d4e1205">6.4. Link Headers</a></span></dt><dt><span class="section"><a href="#d4e1219">6.5. Configuration</a></span></dt></dl></dd><dt><span class="chapter"><a href="#test-framework">7. Jersey Test Framework</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1244">7.1. What is different in Jersey 1.2</a></span></dt><dt><span class="section"><a href="#d4e1267">7.2. Using test framework</a></span></dt><dt><span class="section"><a href="#d4e1310">7.3. Creating tests</a></span></dt><dt><span class="section"><a href="#d4e1317">7.4. Creating own module</a></span></dt><dt><span class="section"><a href="#d4e1328">7.5. Running tests outside Maven</a></span></dt></dl></dd><dt><span class="chapter"><a href="#osgi">8. OSGi</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1381">8.1. Feature Overview</a></span></dt><dt><span class="section"><a href="#d4e1417">8.2. WAB Example</a></span></dt><dt><span class="section"><a href="#d4e1429">8.3. Http Service Example</a></span></dt></dl></dd><dt><span class="chapter"><a href="#jrebel">9. JRebel support</a></span></dt><dt><span class="chapter"><a href="#experimental">10. Experimental Features</a></span></dt><dd><dl><dt><span class="section"><a href="#hypermedia">10.1. Hypermedia Actions</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1450">10.1.1. Introduction</a></span></dt><dt><span class="section"><a href="#d4e1468">10.1.2. Hypermedia by Example</a></span></dt><dt><span class="section"><a href="#d4e1491">10.1.3. Server API</a></span></dt><dt><span class="section"><a href="#d4e1528">10.1.4. Client API</a></span></dt><dt><span class="section"><a href="#d4e1578">10.1.5. Server Evolution</a></span></dt><dt><span class="section"><a href="#d4e1588">10.1.6. Configuring Hypermedia in Jersey</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#chapter_deps">11. Dependencies</a></span></dt><dd><dl><dt><span class="section"><a href="#core_server">11.1. Core server</a></span></dt><dt><span class="section"><a href="#core_client">11.2. Core client</a></span></dt><dt><span class="section"><a href="#d4e1686">11.3. Container</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1688">11.3.1. Grizzly HTTP Web server</a></span></dt><dt><span class="section"><a href="#d4e1696">11.3.2. Grizzly Servlet container</a></span></dt><dt><span class="section"><a href="#d4e1705">11.3.3. Simple HTTP Web server</a></span></dt><dt><span class="section"><a href="#d4e1709">11.3.4. Light weight HTTP server</a></span></dt><dt><span class="section"><a href="#d4e1712">11.3.5. Servlet</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1725">11.4. Entity</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1727">11.4.1. JAXB</a></span></dt><dt><span class="section"><a href="#d4e1772">11.4.2. Atom</a></span></dt><dt><span class="section"><a href="#d4e1793">11.4.3. JSON</a></span></dt><dt><span class="section"><a href="#d4e1805">11.4.4. Mail and MIME multipart</a></span></dt><dt><span class="section"><a href="#d4e1826">11.4.5. Activation</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1830">11.5. Tools</a></span></dt><dt><span class="section"><a href="#d4e1834">11.6. Spring</a></span></dt><dt><span class="section"><a href="#d4e1841">11.7. Guice</a></span></dt><dt><span class="section"><a href="#d4e1857">11.8. Jersey Test Framework</a></span></dt></dl></dd><dt><span class="chapter"><a href="#glassfish">12. Jersey with GlassFish</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1903">12.1. Overriding Jersey with war files</a></span></dt><dt><span class="section"><a href="#d4e1910">12.2. Upgrading Jersey in GlassFish</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1912">12.2.1. GlassFish v3.0 and 3.0.1</a></span></dt><dt><span class="section"><a href="#d4e1932">12.2.2. GlassFish 3.1</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="#how-to-build">13. Building and testing Jersey</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1958">13.1. Checking out the source</a></span></dt><dt><span class="section"><a href="#d4e1973">13.2. Building using Maven</a></span></dt><dt><span class="section"><a href="#d4e1985">13.3. Testing</a></span></dt><dt><span class="section"><a href="#d4e1991">13.4. Continuous building and testing with Hudson</a></span></dt><dt><span class="section"><a href="#d4e1995">13.5. Using NetBeans</a></span></dt></dl></dd></dl></div><div class="list-of-tables"><p><b>List of Tables</b></p><dl><dt>7.1. <a href="#d4e1250">Property name changes</a></dt></dl></div><div class="list-of-examples"><p><b>List of Examples</b></p><dl><dt>2.1. <a href="#d4e101">Simple hello world root resource class</a></dt><dt>2.2. <a href="#d4e120">Specifying URI path parameter</a></dt><dt>2.3. <a href="#d4e140">PUT method</a></dt><dt>2.4. <a href="#d4e151">Specifying output MIME type</a></dt><dt>2.5. <a href="#d4e170">Using multiple output MIME types</a></dt><dt>2.6. <a href="#d4e181">Specifying input MIME type</a></dt><dt>2.7. <a href="#d4e193">Deployment agnostic application model</a></dt><dt>2.8. <a href="#d4e198">Reusing Jersey implementation in your custom application model</a></dt><dt>2.9. <a href="#d4e206">Deployment of a JAX-RS application using <code class="literal">@ApplicationPath</code> with Servlet 3.0</a></dt><dt>2.10. <a href="#d4e213">Configuration of maven-war-plugin in <code class="literal">pom.xml</code> with Servlet 3.0</a></dt><dt>2.11. <a href="#d4e223">Deployment of a JAX-RS application using <code class="literal">web.xml</code> with Servlet 3.0</a></dt><dt>2.12. <a href="#d4e233">Deployment of your application using Jersey specific servlet</a></dt><dt>2.13. <a href="#d4e238">Using Jersey specific servlet without an application model instance</a></dt><dt>2.14. <a href="#d4e254">Query parameters</a></dt><dt>2.15. <a href="#d4e260">Custom Java type for consuming request parameters</a></dt><dt>2.16. <a href="#d4e305">Processing POSTed HTML form</a></dt><dt>2.17. <a href="#d4e310">Obtaining general map of URI path and/or query parameters</a></dt><dt>2.18. <a href="#d4e315">Obtaining general map of header parameters</a></dt><dt>2.19. <a href="#d4e321">Obtaining general map of form parameters</a></dt><dt>2.20. <a href="#d4e342">Using <code class="code">File</code> with a specific MIME type to produce a response</a></dt><dt>2.21. <a href="#d4e352">The most acceptable MIME type is used when multiple output MIME types allowed</a></dt><dt>2.22. <a href="#d4e364">Returning 201 status code and adding <code class="literal">Location</code> header in response to POST request</a></dt><dt>2.23. <a href="#d4e370">Adding an entity body to a custom response</a></dt><dt>2.24. <a href="#d4e383">Sub-resource methods</a></dt><dt>2.25. <a href="#d4e396">Sub-resource locators</a></dt><dt>2.26. <a href="#d4e418">URI building</a></dt><dt>2.27. <a href="#d4e432">Building URIs using query parameters</a></dt><dt>2.28. <a href="#d4e441">Throwing Jersey specific exceptions to control response</a></dt><dt>2.29. <a href="#d4e447">Jersey specific exception implementation</a></dt><dt>2.30. <a href="#d4e456">Mapping generic exceptions to responses</a></dt><dt>2.31. <a href="#d4e472">Conditional GET support</a></dt><dt>2.32. <a href="#d4e500">Accessing <code class="code">SecurityContext</code></a></dt><dt>2.33. <a href="#d4e509">Injection</a></dt><dt>3.1. <a href="#d4e597">POST request with form parameters</a></dt><dt>4.1. <a href="#d4e813">Low level XML test - methods added to HelloWorldResource.java</a></dt><dt>4.2. <a href="#d4e826">Planet class</a></dt><dt>4.3. <a href="#d4e829">Resource class</a></dt><dt>4.4. <a href="#d4e842">Method for consuming Planet</a></dt><dt>4.5. <a href="#d4e855">Resource class - JAXBElement</a></dt><dt>4.6. <a href="#d4e862">Client side - JAXBElement</a></dt><dt>4.7. <a href="#d4e870">PlanetJAXBContextProvider</a></dt><dt>4.8. <a href="#d4e876">Using Provider with Jersey client</a></dt><dt>5.1. <a href="#d4e902">POJO JSON support web.xml configuration</a></dt><dt>5.2. <a href="#d4e906">POJO JSON support client configuration</a></dt><dt>5.3. <a href="#d4e918">Simple JAXB bean implementation</a></dt><dt>5.4. <a href="#d4e921">JAXB bean used to generate JSON representation</a></dt><dt>5.5. <a href="#d4e932">Tweaking JSON format using JAXB</a></dt><dt>5.6. <a href="#json.jaxb.context.resolver.example">An example of a JAXBContext resolver implementation</a></dt><dt>5.7. <a href="#d4e962">JAXB beans for JSON supported notations description, simple address bean</a></dt><dt>5.8. <a href="#d4e965">JAXB beans for JSON supported notations description, contact bean</a></dt><dt>5.9. <a href="#json.jaxb.bean.init.example">JAXB beans for JSON supported notations description, initialization</a></dt><dt>5.10. <a href="#d4e987">JSON expression produced using <code class="literal">mapped</code> notation</a></dt><dt>5.11. <a href="#d4e1000">Force arrays in <code class="literal">mapped</code> JSON notation</a></dt><dt>5.12. <a href="#d4e1011">Force non-string values in <code class="literal">mapped</code> JSON notation</a></dt><dt>5.13. <a href="#d4e1024">XML attributes as XML elements in <code class="literal">mapped</code> JSON notation</a></dt><dt>5.14. <a href="#json.jaxb.mapped.root.unwrapping">Keep XML root tag equivalent in JSON <code class="literal">mapped</code> JSON notation</a></dt><dt>5.15. <a href="#d4e1036">XML root tag equivalent kept in JSON using <code class="literal">mapped</code> notation</a></dt><dt>5.16. <a href="#d4e1046">XML namespace to JSON mapping configuration for <code class="literal">mapped</code> notation</a></dt><dt>5.17. <a href="#d4e1067">JSON expression produced using <code class="literal">natural</code> notation</a></dt><dt>5.18. <a href="#json.jaxb.natural.root.unwrapping">Keep XML root tag equivalent in JSON <code class="literal">natural</code> JSON notation</a></dt><dt>5.19. <a href="#d4e1090">JSON expression produced using Jettison based <code class="literal">mapped</code> notation</a></dt><dt>5.20. <a href="#json.jaxb.jettison.mapped.ns.def">XML namespace to JSON mapping configuration for Jettison based <code class="literal">mapped</code> notation</a></dt><dt>5.21. <a href="#d4e1102">JSON expression with XML namespaces mapped into JSON</a></dt><dt>5.22. <a href="#d4e1115">JSON expression produced using <code class="literal">badgerfish</code> notation</a></dt><dt>5.23. <a href="#d4e1130">JAXB bean creation</a></dt><dt>5.24. <a href="#d4e1135">Constructing a JSONObject</a></dt></dl></div>
     
     <div class="preface" title="Preface"><div class="titlepage"><div><div><h2 class="title"><a name="preface"></a>Preface</h2></div></div></div>
         
@@ -2822,7 +2822,7 @@ else
         <p>Since Jersey is Maven based project, executing tests without Maven can be painful. You have to have everything
             needed present on classpath and by everything is meant following list:</p>
 
-        <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-server&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-server</a></li><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-core&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-core</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar" target="_top">jsr311-api</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=asm/asm/3.3.1/asm-3.3.1.jar" target="_top">asm</a></li><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey.jersey-test-framework&amp;a=jersey-test-framework-grizzly&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-test-framework-grizzly</a></li><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey.jersey-test-framework&amp;a=jersey-test-framework-core&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-test-framework-core</a></li><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-client&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-client</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=org/glassfish/javax.servlet/3.2-b05/javax.servlet-3.2-b05.jar" target="_top">javax.servlet</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=junit/junit/4.9/junit-4.9.jar" target="_top">junit</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-impl/2.2.4-1/jaxb-impl-2.2.4-1.jar" target="_top">jaxb-impl</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/xml/bind/jaxb-api/2.2.4/jaxb-api-2.2.4.jar" target="_top">jaxb-api</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar" target="_top">stax-api</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/activation/activation/1.1.1/activation-1.1.1.jar" target="_top">activation</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-servlet-webserver/1.9.42/grizzly-servlet-webserver-1.9.42.jar" target="_top">grizzly-servlet-webserver</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-http/1.9.42/grizzly-http-1.9.42.jar" target="_top">grizzly-http</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-framework/1.9.42/grizzly-framework-1.9.42.jar" target="_top">grizzly-framework</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-utils/1.9.42/grizzly-utils-1.9.42.jar" target="_top">grizzly-utils</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-rcm/1.9.42/grizzly-rcm-1.9.42.jar" target="_top">grizzly-rcm</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-portunif/1.9.42/grizzly-portunif-1.9.42.jar" target="_top">grizzly-portunif</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-http-servlet/1.9.42/grizzly-http-servlet-1.9.42.jar" target="_top">grizzly-http-servlet</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/servlet/servlet-api/2.5/servlet-api-2.5.jar" target="_top">servlet-api</a></li></ul></div>
+        <div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-server&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-server</a></li><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-core&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-core</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar" target="_top">jsr311-api</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=asm/asm/3.3.1/asm-3.3.1.jar" target="_top">asm</a></li><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey.jersey-test-framework&amp;a=jersey-test-framework-grizzly&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-test-framework-grizzly</a></li><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey.jersey-test-framework&amp;a=jersey-test-framework-core&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-test-framework-core</a></li><li class="listitem"><a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-client&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-client</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=org/glassfish/javax.servlet/3.2-b05/javax.servlet-3.2-b05.jar" target="_top">javax.servlet</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=junit/junit/4.9/junit-4.9.jar" target="_top">junit</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-impl/2.2.4-1/jaxb-impl-2.2.4-1.jar" target="_top">jaxb-impl</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/xml/bind/jaxb-api/2.2.4/jaxb-api-2.2.4.jar" target="_top">jaxb-api</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar" target="_top">stax-api</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/activation/activation/1.1.1/activation-1.1.1.jar" target="_top">activation</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-servlet-webserver/1.9.45/grizzly-servlet-webserver-1.9.45.jar" target="_top">grizzly-servlet-webserver</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-http/1.9.45/grizzly-http-1.9.45.jar" target="_top">grizzly-http</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-framework/1.9.45/grizzly-framework-1.9.45.jar" target="_top">grizzly-framework</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-utils/1.9.45/grizzly-utils-1.9.45.jar" target="_top">grizzly-utils</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-rcm/1.9.45/grizzly-rcm-1.9.45.jar" target="_top">grizzly-rcm</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-portunif/1.9.45/grizzly-portunif-1.9.45.jar" target="_top">grizzly-portunif</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-http-servlet/1.9.45/grizzly-http-servlet-1.9.45.jar" target="_top">grizzly-http-servlet</a></li><li class="listitem"><a class="ulink" href="http://search.maven.org/remotecontent?filepath=javax/servlet/servlet-api/2.5/servlet-api-2.5.jar" target="_top">servlet-api</a></li></ul></div>
 
         <p>This is needed to run <code class="literal">helloworld</code> sample tests, if you want run something more complex or
         with different test container (grizzly is used here), you may need to add other application specific dependencies
@@ -2979,86 +2979,14 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
 </div> 
 
 </div>
-  <div class="chapter" title="Chapter&nbsp;9.&nbsp;JRebel support"><div class="titlepage"><div><div><h2 class="title"><a name="jrebel"></a>Chapter&nbsp;9.&nbsp;JRebel support</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d4e1443">9.1. How to use JRebel with Jersey</a></span></dt><dt><span class="section"><a href="#d4e1449">9.2. Using JRebel with the hello world sample</a></span></dt><dt><span class="section"><a href="#d4e1464">9.3. Limitations</a></span></dt></dl></div>
+  <div class="chapter" title="Chapter&nbsp;9.&nbsp;JRebel support"><div class="titlepage"><div><div><h2 class="title"><a name="jrebel"></a>Chapter&nbsp;9.&nbsp;JRebel support</h2></div></div></div>
     
 
-    <p>Jersey provides basic support for JRebel. JRebel can be used to reload java
-        classes at runtime without requiring to redeploy an application. This
-        can improve developer productivity.
-        Java source can be modified, recompiled, and JRebel will ensure changes
-        will be reflected at runtime.</p>
-
-    <p>JRebel isn't opensource and is not for free BUT Zeroturnaround (JRebel's author)
-        provides a free license for open source project developers. More details can be found
-        on the project website: <a class="ulink" href="http://www.zeroturnaround.com/jrebel/" target="_top">http://zeroturnaround.com/jrebel</a>.
-        Jersey currently supports JRebel version 3.1.2.</p>
-
-    <div class="section" title="9.1.&nbsp;How to use JRebel with Jersey"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1443"></a>9.1.&nbsp;How to use JRebel with Jersey</h2></div></div></div>
-        
-
-        <p>The jersey-jrebel dependency is required in the pom file:</p>
-
-            <pre class="programlisting">        &lt;dependency&gt;
-            &lt;groupId&gt;com.sun.jersey&lt;/groupId&gt;
-            &lt;artifactId&gt;jersey-jrebel&lt;/artifactId&gt;
-            &lt;version&gt;1.12-SNAPSHOT&lt;/version&gt;
-        &lt;/dependency&gt;</pre>
-
-        <p>The javarebel-maven-plugin plugin can be added to the pom to automatically configure
-        JRebel for the case when java is executed from maven:</p>
-
-            <pre class="programlisting">            &lt;plugin&gt;
-                &lt;groupId&gt;org.zeroturnaround&lt;/groupId&gt;
-                &lt;artifactId&gt;javarebel-maven-plugin&lt;/artifactId&gt;
-
-                &lt;executions&gt;
-                    &lt;execution&gt;
-                        &lt;id&gt;generate-rebel-xml&lt;/id&gt;
-                        &lt;phase&gt;process-resources&lt;/phase&gt;
-                        &lt;goals&gt;
-                            &lt;goal&gt;generate&lt;/goal&gt;
-                        &lt;/goals&gt;
-                    &lt;/execution&gt;
-                &lt;/executions&gt;
-            &lt;/plugin&gt;</pre>
-    </div>
-
-    <div class="section" title="9.2.&nbsp;Using JRebel with the hello world sample"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1449"></a>9.2.&nbsp;Using JRebel with the hello world sample</h2></div></div></div>
-        
-
-        <p>The following assumes that JRebel has been set up correctly (a JRebel informational message will
-            be output if JRebel is enabled).</p>
-
-        <p>
-            Download the <a class="ulink" href="https://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey.samples&amp;a=helloworld&amp;v=1.12-SNAPSHOT&amp;c=project&amp;e=zip" target="_top">hello world sample</a>
-      and modify the pom file in accordance with the prevous chapter.</p>
-
-        <p>
-            Compile Helloworld sample with <code class="code">mvn clean install</code> and run it with <code class="code">mvn exec:java</code>.
-            The Helloworld application is deployed on Grizzly container.</p>
-
-        <p>Use a browser and goto the following URL <a class="ulink" href="" target="_top">http://localhost:9998/helloworld</a>.
-            Messages should be output indicating initialization of Jersey framework, and the browser should
-            display <code class="code">Hello World</code>.</p>
-
-        <p>Modify the <code class="code">HelloWorldResource.java</code> file such that the resource method <code class="code">getClichedMessage</code>
-            returns a different String value. Run <code class="code">mvn compile</code>. Reload the browser window and
-            the browser should display the modified message.</p>
-    </div>
-
-    <div class="section" title="9.3.&nbsp;Limitations"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1464"></a>9.3.&nbsp;Limitations</h2></div></div></div>
-        
-        <p>JRebel currently doesn't notify it's plugin about newly created classes
-        that have no reference to existing classes, such as newly created resource or provder classes.
-        However, its possible to detect a newly created resource class and use it in your
-        application when you are doing some other changes to existing code.
-        Why? After a change has beed made, Jersey re-initializes itself and the
-        new class can be detected in the process. For this case you you have to
-        use class or package scanning for detecting such resource classes.</p>
-    </div>
+    <p>Jersey-jrebel plugin is no longer provided by Jersey team, <a class="ulink" href="http://zeroturnaround.com/" target="_top">Zeroturnaround</a> has its own
+    implementation, see <a class="ulink" href="http://zeroturnaround.com/jrebel/features/" target="_top">http://zeroturnaround.com/jrebel/features/</a>.</p>
 
 </div>
-  <div class="chapter" title="Chapter&nbsp;10.&nbsp;Experimental Features"><div class="titlepage"><div><div><h2 class="title"><a name="experimental"></a>Chapter&nbsp;10.&nbsp;Experimental Features</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#hypermedia">10.1. Hypermedia Actions</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1474">10.1.1. Introduction</a></span></dt><dt><span class="section"><a href="#d4e1492">10.1.2. Hypermedia by Example</a></span></dt><dt><span class="section"><a href="#d4e1515">10.1.3. Server API</a></span></dt><dt><span class="section"><a href="#d4e1552">10.1.4. Client API</a></span></dt><dt><span class="section"><a href="#d4e1602">10.1.5. Server Evolution</a></span></dt><dt><span class="section"><a href="#d4e1612">10.1.6. Configuring Hypermedia in Jersey</a></span></dt></dl></dd></dl></div>
+  <div class="chapter" title="Chapter&nbsp;10.&nbsp;Experimental Features"><div class="titlepage"><div><div><h2 class="title"><a name="experimental"></a>Chapter&nbsp;10.&nbsp;Experimental Features</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#hypermedia">10.1. Hypermedia Actions</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1450">10.1.1. Introduction</a></span></dt><dt><span class="section"><a href="#d4e1468">10.1.2. Hypermedia by Example</a></span></dt><dt><span class="section"><a href="#d4e1491">10.1.3. Server API</a></span></dt><dt><span class="section"><a href="#d4e1528">10.1.4. Client API</a></span></dt><dt><span class="section"><a href="#d4e1578">10.1.5. Server Evolution</a></span></dt><dt><span class="section"><a href="#d4e1588">10.1.6. Configuring Hypermedia in Jersey</a></span></dt></dl></dd></dl></div>
     
     <p>This chapter describes experimental features of Jersey that are
     only available in maven SNAPSHOT releases. Such features are not intended to
@@ -3069,7 +2997,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
 
     <div class="section" title="10.1.&nbsp;Hypermedia Actions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="hypermedia"></a>10.1.&nbsp;Hypermedia Actions</h2></div></div></div>
     
-    <div class="section" title="10.1.1.&nbsp;Introduction"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1474"></a>10.1.1.&nbsp;Introduction</h3></div></div></div>
+    <div class="section" title="10.1.1.&nbsp;Introduction"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1450"></a>10.1.1.&nbsp;Introduction</h3></div></div></div>
         
         <p>It is generally understood that, in order to follow the REST style, URIs should be
             assigned to anything of interest (resources) and a few, well-defined operations should
@@ -3102,7 +3030,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
                 <code class="literal">pay</code> action will become available after an order is
         reviewed.</p>
     </div>
-    <div class="section" title="10.1.2.&nbsp;Hypermedia by Example"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1492"></a>10.1.2.&nbsp;Hypermedia by Example</h3></div></div></div>
+    <div class="section" title="10.1.2.&nbsp;Hypermedia by Example"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1468"></a>10.1.2.&nbsp;Hypermedia by Example</h3></div></div></div>
         
         <p>The notion of action resources naturally leads to discussions about improved client
             APIs to support them. Given that action resources are identified by URIs, no additional
@@ -3141,7 +3069,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
             to a URI. Refer to <a class="ulink" href="https://maven.java.net/content/repositories/snapshots/com/sun/jersey/experimental/hypermedia-action/hypermedia-action-sample" target="_top">hypermedia-action-sample</a> for more information on how this mapping is
         implemented.</p>
     </div>
-    <div class="section" title="10.1.3.&nbsp;Server API"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1515"></a>10.1.3.&nbsp;Server API</h3></div></div></div>
+    <div class="section" title="10.1.3.&nbsp;Server API"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1491"></a>10.1.3.&nbsp;Server API</h3></div></div></div>
         
         <p>The server API introduces 3 new annotation types: <code class="literal">@Action</code>,
                 <code class="literal">@ContextualActionSet</code> and
@@ -3154,7 +3082,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
             annotated with <code class="literal">@Action</code> and at most one method annotated with
                 <code class="literal">@ContextualActionSet</code>.</p>
         <p>The following example illustrates the use of all these annotation types to define the
-                <code class="literal">OrderResource</code> controller.<sup>[<a name="d4e1530" href="#ftn.d4e1530" class="footnote">2</a>]</sup>
+                <code class="literal">OrderResource</code> controller.<sup>[<a name="d4e1506" href="#ftn.d4e1506" class="footnote">2</a>]</sup>
             </p><pre class="programlisting">&nbsp;&nbsp;1     @Path("/orders/{id}")
 &nbsp;&nbsp;2     @HypermediaController(
 &nbsp;&nbsp;3         model=Order.class,
@@ -3253,7 +3181,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
             has not been payed by only including the <code class="literal">ship</code> action in the
                 <code class="literal">PAYED</code> state.</p>
     </div>
-    <div class="section" title="10.1.4.&nbsp;Client API"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1552"></a>10.1.4.&nbsp;Client API</h3></div></div></div>
+    <div class="section" title="10.1.4.&nbsp;Client API"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1528"></a>10.1.4.&nbsp;Client API</h3></div></div></div>
         
         <p>Although action resources can be accessed using traditional APIs for REST, including
             Jersey's client API, the use of client-side proxies and method invocations to trigger
@@ -3310,7 +3238,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
             proxy to review, pay and ship an order. For the sake of the example, we assume the
             customer that submitted the order has been suspended and needs to be activated before
             the order is reviewed. For that purpose, the client code retrieves the customer URI from
-            the order's model and obtains an instance of <code class="literal">CustomerController</code>.<sup>[<a name="d4e1579" href="#ftn.d4e1579" class="footnote">3</a>]</sup>
+            the order's model and obtains an instance of <code class="literal">CustomerController</code>.<sup>[<a name="d4e1555" href="#ftn.d4e1555" class="footnote">3</a>]</sup>
             </p><pre class="programlisting">&nbsp;&nbsp;1     // Instantiate Jersey's Client class
 &nbsp;&nbsp;2     Client client = new Client();
 &nbsp;&nbsp;3         
@@ -3352,7 +3280,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
             not supported). The <code class="literal">@Name</code> annotation used in Jersey is defined in
                 <code class="literal">com.sun.jersey.core.hypermedia</code>.</p>
     </div>
-    <div class="section" title="10.1.5.&nbsp;Server Evolution"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1602"></a>10.1.5.&nbsp;Server Evolution</h3></div></div></div>
+    <div class="section" title="10.1.5.&nbsp;Server Evolution"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1578"></a>10.1.5.&nbsp;Server Evolution</h3></div></div></div>
         
         <p>In the last section, we have seen how the use of client proxies based on
                 <span class="emphasis"><em>partially</em></span> annotated interfaces facilitates server evolution. An
@@ -3370,7 +3298,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
             interfaces should be fully annotated and a <span class="emphasis"><em>tighly-coupled</em></span> contract
             should be used instead.</p>
     </div>
-    <div class="section" title="10.1.6.&nbsp;Configuring Hypermedia in Jersey"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1612"></a>10.1.6.&nbsp;Configuring Hypermedia in Jersey</h3></div></div></div>
+    <div class="section" title="10.1.6.&nbsp;Configuring Hypermedia in Jersey"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1588"></a>10.1.6.&nbsp;Configuring Hypermedia in Jersey</h3></div></div></div>
         
         <p>There are a few configuration options in <a class="ulink" href="https://maven.java.net/content/repositories/snapshots/com/sun/jersey/experimental/hypermedia-action/hypermedia-action-sample" target="_top">hypermedia-action-sample</a> that are worth highlighting. First, a
             special filter factory <code class="literal">HypermediaFilterFactory</code> must
@@ -3400,15 +3328,15 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
     </div>
 </div>
 <div class="footnotes"><br><hr width="100" align="left"><div class="footnote">
-                <p><sup>[<a name="ftn.d4e1530" href="#d4e1530" class="para">2</a>] </sup>Several details about this class are omitted for clarity. The reader is
+                <p><sup>[<a name="ftn.d4e1506" href="#d4e1506" class="para">2</a>] </sup>Several details about this class are omitted for clarity. The reader is
                     referred to the hypermedia sample for more details.</p>
             </div><div class="footnote">
-                <p><sup>[<a name="ftn.d4e1579" href="#d4e1579" class="para">3</a>] </sup>
+                <p><sup>[<a name="ftn.d4e1555" href="#d4e1555" class="para">3</a>] </sup>
                     <code class="literal">CustomerController</code> is a hypermedia controller interface akin
                     to <code class="literal">OrderController</code> which is omitted since it does not
                     highlight any additional feature.</p>
             </div></div></div>
-  <div class="chapter" title="Chapter&nbsp;11.&nbsp;Dependencies"><div class="titlepage"><div><div><h2 class="title"><a name="chapter_deps"></a>Chapter&nbsp;11.&nbsp;Dependencies</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#core_server">11.1. Core server</a></span></dt><dt><span class="section"><a href="#core_client">11.2. Core client</a></span></dt><dt><span class="section"><a href="#d4e1710">11.3. Container</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1712">11.3.1. Grizzly HTTP Web server</a></span></dt><dt><span class="section"><a href="#d4e1720">11.3.2. Grizzly Servlet container</a></span></dt><dt><span class="section"><a href="#d4e1729">11.3.3. Simple HTTP Web server</a></span></dt><dt><span class="section"><a href="#d4e1733">11.3.4. Light weight HTTP server</a></span></dt><dt><span class="section"><a href="#d4e1736">11.3.5. Servlet</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1749">11.4. Entity</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1751">11.4.1. JAXB</a></span></dt><dt><span class="section"><a href="#d4e1796">11.4.2. Atom</a></span></dt><dt><span class="section"><a href="#d4e1817">11.4.3. JSON</a></span></dt><dt><span class="section"><a href="#d4e1829">11.4.4. Mail and MIME multipart</a></span></dt><dt><span class="section"><a href="#d4e1850">11.4.5. Activation</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1854">11.5. Tools</a></span></dt><dt><span class="section"><a href="#d4e1858">11.6. Spring</a></span></dt><dt><span class="section"><a href="#d4e1865">11.7. Guice</a></span></dt><dt><span class="section"><a href="#d4e1881">11.8. Jersey Test Framework</a></span></dt></dl></div>
+  <div class="chapter" title="Chapter&nbsp;11.&nbsp;Dependencies"><div class="titlepage"><div><div><h2 class="title"><a name="chapter_deps"></a>Chapter&nbsp;11.&nbsp;Dependencies</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#core_server">11.1. Core server</a></span></dt><dt><span class="section"><a href="#core_client">11.2. Core client</a></span></dt><dt><span class="section"><a href="#d4e1686">11.3. Container</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1688">11.3.1. Grizzly HTTP Web server</a></span></dt><dt><span class="section"><a href="#d4e1696">11.3.2. Grizzly Servlet container</a></span></dt><dt><span class="section"><a href="#d4e1705">11.3.3. Simple HTTP Web server</a></span></dt><dt><span class="section"><a href="#d4e1709">11.3.4. Light weight HTTP server</a></span></dt><dt><span class="section"><a href="#d4e1712">11.3.5. Servlet</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1725">11.4. Entity</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1727">11.4.1. JAXB</a></span></dt><dt><span class="section"><a href="#d4e1772">11.4.2. Atom</a></span></dt><dt><span class="section"><a href="#d4e1793">11.4.3. JSON</a></span></dt><dt><span class="section"><a href="#d4e1805">11.4.4. Mail and MIME multipart</a></span></dt><dt><span class="section"><a href="#d4e1826">11.4.5. Activation</a></span></dt></dl></dd><dt><span class="section"><a href="#d4e1830">11.5. Tools</a></span></dt><dt><span class="section"><a href="#d4e1834">11.6. Spring</a></span></dt><dt><span class="section"><a href="#d4e1841">11.7. Guice</a></span></dt><dt><span class="section"><a href="#d4e1857">11.8. Jersey Test Framework</a></span></dt></dl></div>
   
 
   <p>Jersey is built, assembled and installed using Maven. Jersey is
@@ -3567,10 +3495,10 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
 &lt;/dependency&gt;</pre>
   </div>
 
-  <div class="section" title="11.3.&nbsp;Container"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1710"></a>11.3.&nbsp;Container</h2></div></div></div>
+  <div class="section" title="11.3.&nbsp;Container"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1686"></a>11.3.&nbsp;Container</h2></div></div></div>
     
 
-    <div class="section" title="11.3.1.&nbsp;Grizzly HTTP Web server"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1712"></a>11.3.1.&nbsp;Grizzly HTTP Web server</h3></div></div></div>
+    <div class="section" title="11.3.1.&nbsp;Grizzly HTTP Web server"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1688"></a>11.3.1.&nbsp;Grizzly HTTP Web server</h3></div></div></div>
       
 
       <p>Maven developers, deploying an application using the Grizzly2 HTTP
@@ -3582,7 +3510,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
  and <a class="ulink" href="http://search.maven.org/remotecontent?filepath=org/glassfish/grizzly/grizzly-http/2.2.1/grizzly-http-2.2.1.jar" target="_top">grizzly-http.jar</a></p>
     </div>
 
-    <div class="section" title="11.3.2.&nbsp;Grizzly Servlet container"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1720"></a>11.3.2.&nbsp;Grizzly Servlet container</h3></div></div></div>
+    <div class="section" title="11.3.2.&nbsp;Grizzly Servlet container"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1696"></a>11.3.2.&nbsp;Grizzly Servlet container</h3></div></div></div>
       
 
       <p>Maven developers, deploying an application using the Grizzly Servlet container, require a dependency on the <a class="ulink" href="http://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-grizzly2-servlet&amp;v=1.12-SNAPSHOT&amp;e=pom" target="_top">jersey-grizzly2-servlet</a>
@@ -3594,21 +3522,21 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
      <a class="ulink" href="http://search.maven.org/remotecontent?filepath=org/glassfish/javax.servlet/3.1/javax.servlet-3.1.jar" target="_top">javax.servlet-3.1.jar</a></p>
     </div>
 
-    <div class="section" title="11.3.3.&nbsp;Simple HTTP Web server"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1729"></a>11.3.3.&nbsp;Simple HTTP Web server</h3></div></div></div>
+    <div class="section" title="11.3.3.&nbsp;Simple HTTP Web server"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1705"></a>11.3.3.&nbsp;Simple HTTP Web server</h3></div></div></div>
       
 
       <p>Maven developers, deploying an application using the Simple HTTP
       Web server, require a dependency on the <a class="ulink" href="http://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey.contribs&amp;a=jersey-simple-server&amp;v=1.12-SNAPSHOT&amp;e=pom" target="_top">jersey-simple-server</a>
       module.</p>
     </div>
-    <div class="section" title="11.3.4.&nbsp;Light weight HTTP server"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1733"></a>11.3.4.&nbsp;Light weight HTTP server</h3></div></div></div>
+    <div class="section" title="11.3.4.&nbsp;Light weight HTTP server"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1709"></a>11.3.4.&nbsp;Light weight HTTP server</h3></div></div></div>
       
 
       <p>Deploying an application using the light weight HTTP server
       requires no additional dependences, as Java SE 6 already contains everything needed.</p>
     </div>
 
-    <div class="section" title="11.3.5.&nbsp;Servlet"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1736"></a>11.3.5.&nbsp;Servlet</h3></div></div></div>
+    <div class="section" title="11.3.5.&nbsp;Servlet"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1712"></a>11.3.5.&nbsp;Servlet</h3></div></div></div>
       
 
       <p>Deploying an application on a servlet container requires a
@@ -3630,10 +3558,10 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
     </div>
   </div>
 
-  <div class="section" title="11.4.&nbsp;Entity"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1749"></a>11.4.&nbsp;Entity</h2></div></div></div>
+  <div class="section" title="11.4.&nbsp;Entity"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1725"></a>11.4.&nbsp;Entity</h2></div></div></div>
     
 
-    <div class="section" title="11.4.1.&nbsp;JAXB"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1751"></a>11.4.1.&nbsp;JAXB</h3></div></div></div>
+    <div class="section" title="11.4.1.&nbsp;JAXB"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1727"></a>11.4.1.&nbsp;JAXB</h3></div></div></div>
       
 
       <p>XML serialization support of Java types that are JAXB beans
@@ -3721,7 +3649,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
       non-maven developers require: <a class="ulink" href="http://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-fastinfoset&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-fastinfoset.jar</a></p>
     </div>
 
-    <div class="section" title="11.4.2.&nbsp;Atom"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1796"></a>11.4.2.&nbsp;Atom</h3></div></div></div>
+    <div class="section" title="11.4.2.&nbsp;Atom"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1772"></a>11.4.2.&nbsp;Atom</h3></div></div></div>
       
 
       <p>The use of the Java types
@@ -3759,7 +3687,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
       non-maven developers require: <a class="ulink" href="http://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-atom&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-atom.jar</a></p>
     </div>
 
-    <div class="section" title="11.4.3.&nbsp;JSON"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1817"></a>11.4.3.&nbsp;JSON</h3></div></div></div>
+    <div class="section" title="11.4.3.&nbsp;JSON"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1793"></a>11.4.3.&nbsp;JSON</h3></div></div></div>
       
 
       <p>The use of the Java types
@@ -3780,7 +3708,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
       non-maven developers require: <a class="ulink" href="http://maven.java.net/service/local/artifact/maven/redirect?r=snapshots&amp;g=com.sun.jersey&amp;a=jersey-json&amp;v=1.12-SNAPSHOT&amp;e=jar" target="_top">jersey-json.jar</a></p>
     </div>
 
-    <div class="section" title="11.4.4.&nbsp;Mail and MIME multipart"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1829"></a>11.4.4.&nbsp;Mail and MIME multipart</h3></div></div></div>
+    <div class="section" title="11.4.4.&nbsp;Mail and MIME multipart"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1805"></a>11.4.4.&nbsp;Mail and MIME multipart</h3></div></div></div>
       
 
       <p>The use of the Java type
@@ -3816,7 +3744,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
           </li></ul></div>
     </div>
 
-    <div class="section" title="11.4.5.&nbsp;Activation"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1850"></a>11.4.5.&nbsp;Activation</h3></div></div></div>
+    <div class="section" title="11.4.5.&nbsp;Activation"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1826"></a>11.4.5.&nbsp;Activation</h3></div></div></div>
       
 
       <p>The use of the Java type <code class="code">javax.activation.DataSource</code>
@@ -3824,7 +3752,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
     </div>
   </div>
 
-  <div class="section" title="11.5.&nbsp;Tools"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1854"></a>11.5.&nbsp;Tools</h2></div></div></div>
+  <div class="section" title="11.5.&nbsp;Tools"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1830"></a>11.5.&nbsp;Tools</h2></div></div></div>
     
 
     <p>By default WADL for resource classes is generated dynamically at
@@ -3836,7 +3764,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
     runtime WADL support.</p>
   </div>
 
-  <div class="section" title="11.6.&nbsp;Spring"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1858"></a>11.6.&nbsp;Spring</h2></div></div></div>
+  <div class="section" title="11.6.&nbsp;Spring"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1834"></a>11.6.&nbsp;Spring</h2></div></div></div>
     
 
     <p>Maven developers, using Spring 2.0.x or Spring 2.5.x, require a
@@ -3852,7 +3780,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
     on how to integrate Jersey-based Web applications with Spring.</p>
   </div>
 
-  <div class="section" title="11.7.&nbsp;Guice"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1865"></a>11.7.&nbsp;Guice</h2></div></div></div>
+  <div class="section" title="11.7.&nbsp;Guice"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1841"></a>11.7.&nbsp;Guice</h2></div></div></div>
     
 
     <p>Maven developers, using Guice 2.0, require a dependency on the
@@ -3887,7 +3815,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
 &lt;/repository&gt;</pre>
   </div>
 
-  <div class="section" title="11.8.&nbsp;Jersey Test Framework"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1881"></a>11.8.&nbsp;Jersey Test Framework</h2></div></div></div>
+  <div class="section" title="11.8.&nbsp;Jersey Test Framework"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1857"></a>11.8.&nbsp;Jersey Test Framework</h2></div></div></div>
     
 
     <p><span class="emphasis"><em>NOTE that breaking changes have occurred between 1.1.1-ea
@@ -3982,7 +3910,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
     version of the framework in your application.</p>
   </div>
 </div>
-  <div class="chapter" title="Chapter&nbsp;12.&nbsp;Jersey with GlassFish"><div class="titlepage"><div><div><h2 class="title"><a name="glassfish"></a>Chapter&nbsp;12.&nbsp;Jersey with GlassFish</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d4e1927">12.1. Overriding Jersey with war files</a></span></dt><dt><span class="section"><a href="#d4e1934">12.2. Upgrading Jersey in GlassFish</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1936">12.2.1. GlassFish v3.0 and 3.0.1</a></span></dt><dt><span class="section"><a href="#d4e1956">12.2.2. GlassFish 3.1</a></span></dt></dl></dd></dl></div>
+  <div class="chapter" title="Chapter&nbsp;12.&nbsp;Jersey with GlassFish"><div class="titlepage"><div><div><h2 class="title"><a name="glassfish"></a>Chapter&nbsp;12.&nbsp;Jersey with GlassFish</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d4e1903">12.1. Overriding Jersey with war files</a></span></dt><dt><span class="section"><a href="#d4e1910">12.2. Upgrading Jersey in GlassFish</a></span></dt><dd><dl><dt><span class="section"><a href="#d4e1912">12.2.1. GlassFish v3.0 and 3.0.1</a></span></dt><dt><span class="section"><a href="#d4e1932">12.2.2. GlassFish 3.1</a></span></dt></dl></dd></dl></div>
     
 
     <p>This chapter will present instructions on how to use Jersey with Glassfish
@@ -3990,7 +3918,7 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
         bundled with a GlassFish installation.
     </p>
 
-    <div class="section" title="12.1.&nbsp;Overriding Jersey with war files"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1927"></a>12.1.&nbsp;Overriding Jersey with war files</h2></div></div></div>
+    <div class="section" title="12.1.&nbsp;Overriding Jersey with war files"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1903"></a>12.1.&nbsp;Overriding Jersey with war files</h2></div></div></div>
         
         <p>To override the version of Jersey distributed in GlassFish with
         a version of Jersey distributed in a war file ensure that
@@ -4008,10 +3936,10 @@ Finally, to close the Felix console session just press <code class="code">[Ctrl]
         <p>Restart GlassFish for new JVM settings to take effect.</p>
     </div>
 
-    <div class="section" title="12.2.&nbsp;Upgrading Jersey in GlassFish"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1934"></a>12.2.&nbsp;Upgrading Jersey in GlassFish</h2></div></div></div>
+    <div class="section" title="12.2.&nbsp;Upgrading Jersey in GlassFish"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1910"></a>12.2.&nbsp;Upgrading Jersey in GlassFish</h2></div></div></div>
         
 
-        <div class="section" title="12.2.1.&nbsp;GlassFish v3.0 and 3.0.1"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1936"></a>12.2.1.&nbsp;GlassFish v3.0 and 3.0.1</h3></div></div></div>
+        <div class="section" title="12.2.1.&nbsp;GlassFish v3.0 and 3.0.1"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1912"></a>12.2.1.&nbsp;GlassFish v3.0 and 3.0.1</h3></div></div></div>
             
             <p>
 GlassFish v3.0 comes up with Jersey version 1.1.4.1. GlassFish v3.0.1 with Jersey version 1.1.5. To upgrade these to 1.12-SNAPSHOT you will need 
@@ -4054,7 +3982,7 @@ This directory gets created upon the first start of the GlassFish instance.
             </p>
         </div>
 
-        <div class="section" title="12.2.2.&nbsp;GlassFish 3.1"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1956"></a>12.2.2.&nbsp;GlassFish 3.1</h3></div></div></div>
+        <div class="section" title="12.2.2.&nbsp;GlassFish 3.1"><div class="titlepage"><div><div><h3 class="title"><a name="d4e1932"></a>12.2.2.&nbsp;GlassFish 3.1</h3></div></div></div>
             
             <p>GlassFish 3.1 is released.  GlassFish 3.1 builds can be downloaded from
                 <a class="ulink" href="http://glassfish.java.net/downloads/3.1-final.html" target="_top">http://glassfish.java.net/downloads/3.1-final.html</a>
@@ -4093,10 +4021,10 @@ This directory gets created upon the first start of the GlassFish instance.
     </div>
 
 </div>
-  <div class="chapter" title="Chapter&nbsp;13.&nbsp;Building and testing Jersey"><div class="titlepage"><div><div><h2 class="title"><a name="how-to-build"></a>Chapter&nbsp;13.&nbsp;Building and testing Jersey</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d4e1982">13.1. Checking out the source</a></span></dt><dt><span class="section"><a href="#d4e1997">13.2. Building using Maven</a></span></dt><dt><span class="section"><a href="#d4e2009">13.3. Testing</a></span></dt><dt><span class="section"><a href="#d4e2015">13.4. Continuous building and testing with Hudson</a></span></dt><dt><span class="section"><a href="#d4e2019">13.5. Using NetBeans</a></span></dt></dl></div>
+  <div class="chapter" title="Chapter&nbsp;13.&nbsp;Building and testing Jersey"><div class="titlepage"><div><div><h2 class="title"><a name="how-to-build"></a>Chapter&nbsp;13.&nbsp;Building and testing Jersey</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#d4e1958">13.1. Checking out the source</a></span></dt><dt><span class="section"><a href="#d4e1973">13.2. Building using Maven</a></span></dt><dt><span class="section"><a href="#d4e1985">13.3. Testing</a></span></dt><dt><span class="section"><a href="#d4e1991">13.4. Continuous building and testing with Hudson</a></span></dt><dt><span class="section"><a href="#d4e1995">13.5. Using NetBeans</a></span></dt></dl></div>
   
 
-<div class="section" title="13.1.&nbsp;Checking out the source"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1982"></a>13.1.&nbsp;Checking out the source</h2></div></div></div>
+<div class="section" title="13.1.&nbsp;Checking out the source"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1958"></a>13.1.&nbsp;Checking out the source</h2></div></div></div>
 
 <p>
 The Jersey source code is available from the Subversion repository located at
@@ -4125,7 +4053,7 @@ The source code may be browsed using
 </p>
 </div>
 
-<div class="section" title="13.2.&nbsp;Building using Maven"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1997"></a>13.2.&nbsp;Building using Maven</h2></div></div></div>
+<div class="section" title="13.2.&nbsp;Building using Maven"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1973"></a>13.2.&nbsp;Building using Maven</h2></div></div></div>
 
 <p>
 Java SE 6 or greater is required. Maven 2.2.1 or greater is recommended.
@@ -4167,7 +4095,7 @@ mvn reactor:make -Dmake.goals=-Dmaven.test.skip,clean,install -Dmake.folders=sam
 </p>
 </div>
 
-<div class="section" title="13.3.&nbsp;Testing"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2009"></a>13.3.&nbsp;Testing</h2></div></div></div>
+<div class="section" title="13.3.&nbsp;Testing"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1985"></a>13.3.&nbsp;Testing</h2></div></div></div>
 
 <p>
 Jersey contains many unit tests. Most of these are not really unit tests per-say
@@ -4188,7 +4116,7 @@ where <code class="literal">pattern</code> may be a comma separated set of names
 tests.
 </p>
 </div>
-<div class="section" title="13.4.&nbsp;Continuous building and testing with Hudson"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2015"></a>13.4.&nbsp;Continuous building and testing with Hudson</h2></div></div></div>
+<div class="section" title="13.4.&nbsp;Continuous building and testing with Hudson"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1991"></a>13.4.&nbsp;Continuous building and testing with Hudson</h2></div></div></div>
 
 <p>
 Jersey is built, tested and deployed on Solaris, Windows and Linux using an
@@ -4198,7 +4126,7 @@ at <a class="ulink" href="http://hudson.glassfish.org/job/Jersey-trunk-multiplat
 </p>
 </div>
 
-<div class="section" title="13.5.&nbsp;Using NetBeans"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e2019"></a>13.5.&nbsp;Using NetBeans</h2></div></div></div>
+<div class="section" title="13.5.&nbsp;Using NetBeans"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1995"></a>13.5.&nbsp;Using NetBeans</h2></div></div></div>
 
 <p>
 NetBeans 6.8 or greater has excellent maven support. The Jersey maven
