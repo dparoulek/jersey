@@ -12,14 +12,14 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;13.&nbsp;Building and testing Jersey</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="glassfish.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;</td></tr></table><hr></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="float:right"><a href="http://jersey.java.net"><img src="http://jersey.java.net/images/Jersey_yellow.png"></a></div><small xmlns:fo="http://www.w3.org/1999/XSL/Format">Links: <a href="index.html">Table of Contents</a> | <a href="user-guide.html">Single HTML</a></small><div class="chapter" title="Chapter&nbsp;13.&nbsp;Building and testing Jersey"><div class="titlepage"><div><div><h2 class="title"><a name="how-to-build"></a>Chapter&nbsp;13.&nbsp;Building and testing Jersey</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="how-to-build.html#d4e1958">13.1. Checking out the source</a></span></dt><dt><span class="section"><a href="how-to-build.html#d4e1973">13.2. Building using Maven</a></span></dt><dt><span class="section"><a href="how-to-build.html#d4e1985">13.3. Testing</a></span></dt><dt><span class="section"><a href="how-to-build.html#d4e1991">13.4. Continuous building and testing with Hudson</a></span></dt><dt><span class="section"><a href="how-to-build.html#d4e1995">13.5. Using NetBeans</a></span></dt></dl></div>
+</script></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;13.&nbsp;Building and testing Jersey</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="glassfish.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;</td></tr></table><hr></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="float:right"><a href="http://jersey.java.net"><img src="http://jersey.java.net/images/Jersey_yellow.png"></a></div><small xmlns:fo="http://www.w3.org/1999/XSL/Format">Links: <a href="index.html">Table of Contents</a> | <a href="user-guide.html">Single HTML</a></small><div class="chapter" title="Chapter&nbsp;13.&nbsp;Building and testing Jersey"><div class="titlepage"><div><div><h2 class="title"><a name="how-to-build"></a>Chapter&nbsp;13.&nbsp;Building and testing Jersey</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="how-to-build.html#d4e1958">13.1. Checking out the source</a></span></dt><dt><span class="section"><a href="how-to-build.html#d4e1972">13.2. Building using Maven</a></span></dt><dt><span class="section"><a href="how-to-build.html#d4e1984">13.3. Testing</a></span></dt><dt><span class="section"><a href="how-to-build.html#d4e1990">13.4. Continuous building and testing with Hudson</a></span></dt><dt><span class="section"><a href="how-to-build.html#d4e1994">13.5. Using NetBeans</a></span></dt></dl></div>
   
 
 <div class="section" title="13.1.&nbsp;Checking out the source"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1958"></a>13.1.&nbsp;Checking out the source</h2></div></div></div>
 
 <p>
 The Jersey source code is available from the Subversion repository located at
-<a class="ulink" href="http://java.net/projects/jersey/sources/svn/show" target="_top">http://java.net/projects/jersey/sources/svn/show</a>.
+<a class="ulink" href="http://java.net/projects/jersey/sources/svn/show" target="_top">http://java.net/projects/jersey/sources/svn/show</a>.  You can also read more about how the top level of the `jersey' Subversion repository is structured at that same <a class="ulink" href="http://java.net/projects/jersey/sources/svn/show" target="_top">link</a>.
 </p>
 <p>
 To check out the trunk where active development on the next release occurs use
@@ -32,11 +32,8 @@ svn checkout https://svn.java.net/svn/jersey~svn/trunk/jersey jersey --username 
 If you are new to Subversion, you may want to visit the <a class="ulink" href="http://subversion.tigris.org/" target="_top">Subversion Project website</a> and read <a class="ulink" href="http://svnbook.red-bean.com/" target="_top">Version Control with Subversion</a>.
 </p>
 <p>
-<a class="ulink" href="http://jersey.java.net/servlets/ProjectSource" target="_top">Read more about how to checkout this project's repository...</a>
-</p>
-<p>
 Stable releases of Jersey are tagged in the location
-<a class="ulink" href="http://jersey.java.net/svn/jersey/tags" target="_top">http://jersey.java.net/svn/jersey/tags</a>.
+<a class="ulink" href="http://java.net/projects/jersey/sources/svn/show/tags" target="_top">http://java.net/projects/jersey/sources/svn/show/tags</a>.
 </p>
 <p>
 The source code may be browsed using
@@ -44,7 +41,7 @@ The source code may be browsed using
 </p>
 </div>
 
-<div class="section" title="13.2.&nbsp;Building using Maven"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1973"></a>13.2.&nbsp;Building using Maven</h2></div></div></div>
+<div class="section" title="13.2.&nbsp;Building using Maven"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1972"></a>13.2.&nbsp;Building using Maven</h2></div></div></div>
 
 <p>
 Java SE 6 or greater is required. Maven 2.2.1 or greater is recommended.
@@ -86,7 +83,7 @@ mvn reactor:make -Dmake.goals=-Dmaven.test.skip,clean,install -Dmake.folders=sam
 </p>
 </div>
 
-<div class="section" title="13.3.&nbsp;Testing"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1985"></a>13.3.&nbsp;Testing</h2></div></div></div>
+<div class="section" title="13.3.&nbsp;Testing"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1984"></a>13.3.&nbsp;Testing</h2></div></div></div>
 
 <p>
 Jersey contains many unit tests. Most of these are not really unit tests per-say
@@ -107,7 +104,7 @@ where <code class="literal">pattern</code> may be a comma separated set of names
 tests.
 </p>
 </div>
-<div class="section" title="13.4.&nbsp;Continuous building and testing with Hudson"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1991"></a>13.4.&nbsp;Continuous building and testing with Hudson</h2></div></div></div>
+<div class="section" title="13.4.&nbsp;Continuous building and testing with Hudson"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1990"></a>13.4.&nbsp;Continuous building and testing with Hudson</h2></div></div></div>
 
 <p>
 Jersey is built, tested and deployed on Solaris, Windows and Linux using an
@@ -117,7 +114,7 @@ at <a class="ulink" href="http://hudson.glassfish.org/job/Jersey-trunk-multiplat
 </p>
 </div>
 
-<div class="section" title="13.5.&nbsp;Using NetBeans"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1995"></a>13.5.&nbsp;Using NetBeans</h2></div></div></div>
+<div class="section" title="13.5.&nbsp;Using NetBeans"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1994"></a>13.5.&nbsp;Using NetBeans</h2></div></div></div>
 
 <p>
 NetBeans 6.8 or greater has excellent maven support. The Jersey maven

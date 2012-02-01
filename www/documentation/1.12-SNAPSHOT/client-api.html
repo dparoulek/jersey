@@ -102,7 +102,7 @@
         <p>The Jersey Client API reuses many aspects of the JAX-RS and the Jersey implementation such as:</p>
         <div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
                 <p>URI building using
-                    <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.0/javax/ws/rs/core/UriBuilder.html" target="_top">UriBuilder</a> and
+                    <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/UriBuilder.html" target="_top">UriBuilder</a> and
                     <a class="ulink" href="http://jersey.java.net/nonav/apidocs/1.12-SNAPSHOT/jersey/com/sun/jersey/api/uri/UriTemplate.html" target="_top">UriTemplate</a>
                     to safely build URIs;
                 </p>
@@ -133,11 +133,11 @@
         </p><div class="example"><a name="d4e597"></a><p class="title"><b>Example&nbsp;3.1.&nbsp;POST request with form parameters</b></p><div class="example-contents">
             
             <pre class="programlisting">&nbsp;&nbsp;1 Form f = new Form();
-&nbsp;&nbsp;2 f.add(&#8220;x&#8221;, &#8220;foo&#8221;);
-&nbsp;&nbsp;3 f.add(&#8220;y&#8221;, &#8220;bar&#8221;);
+&nbsp;&nbsp;2 f.add("x", "foo");
+&nbsp;&nbsp;3 f.add("y", "bar");
 &nbsp;&nbsp;4 
 &nbsp;&nbsp;5 Client c = Client.create();
-&nbsp;&nbsp;6 WebResource r = c.resource(&#8220;http://localhost:8080/form&#8221;);
+&nbsp;&nbsp;6 WebResource r = c.resource("http://localhost:8080/form");
 &nbsp;&nbsp;7 
 &nbsp;&nbsp;8 JAXBBean bean = r.
 &nbsp;&nbsp;9     type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
@@ -207,7 +207,7 @@
                 instance, which will inherit the configuration declared on the client instance.
                 For example, the following creates a reference to a Web resource with the URI
                 &#8220;http://localhost:8080/xyz&#8221;:
-                </p><pre class="programlisting">    WebResource r = c.resource(&#8220;http://localhost:8080/xyz&#8221;);</pre><p>
+                </p><pre class="programlisting">    WebResource r = c.resource("http://localhost:8080/xyz");</pre><p>
             and redirection will be configured for responses to requests invoked on the Web resource.
             </p>
             <p>
@@ -236,7 +236,7 @@
                 </p><pre class="programlisting">    String response = r.accept(
         MediaType.APPLICATION_JSON_TYPE,
         MediaType.APPLICATION_XML_TYPE).
-        header(&#8220;X-FOO&#8221;, &#8220;BAR&#8221;).
+        header("X-FOO", "BAR").
         get(String.class);</pre><p>
             </p>
             <p>The above sends a GET request with an
@@ -253,21 +253,21 @@
                 <code class="literal">POST</code> and
                 <code class="literal">DELETE</code> requests.
             For example, the following sends a POST request:
-                </p><pre class="programlisting">    String request = &#8220;content&#8221;;
+                </p><pre class="programlisting">    String request = "content";
     String response = r.accept(
         MediaType.APPLICATION_JSON_TYPE,
         MediaType.APPLICATION_XML_TYPE).
-        header(&#8220;X-FOO&#8221;, &#8220;BAR&#8221;).
+        header("X-FOO", "BAR").
         post(String.class, request);</pre><p>
-            where the String &#8220;content&#8221; will be serialized as the request
-            entity (see the section &#8220;Java instances and types for representations&#8221;
+            where the String "content" will be serialized as the request
+            entity (see the section "Java instances and types for representations"
             section for further details on the supported Java types). The
             <code class="literal">Content-Type</code> of the request entity may be declared
             using the <code class="literal">type</code> builder method as follows:
             </p><pre class="programlisting">    String response = r.accept(
          MediaType.APPLICATION_JSON_TYPE,
          MediaType.APPLICATION_XML_TYPE).
-         header(&#8220;X-FOO&#8221;, &#8220;BAR&#8221;).
+         header("X-FOO", "BAR").
          type(MediaType.TEXT_PLAIN_TYPE).
          post(String.class, request);</pre><p>
             or alternatively the request entity and type may be declared
@@ -275,7 +275,7 @@
             </p><pre class="programlisting">    String response = r.accept(
          MediaType.APPLICATION_JSON_TYPE,
          MediaType.APPLICATION_XML_TYPE).
-         header(&#8220;X-FOO&#8221;, &#8220;BAR&#8221;).
+         header("X-FOO", "BAR").
          entity(request, MediaType.TEXT_PLAIN_TYPE).
          post(String.class);</pre><p>
             </p>
@@ -314,16 +314,16 @@
                     can be created from an existing <code class="literal">WebResource</code> by building from the latter's URI.
                     Thus it is possible to build the request URI before building the request. For example, the
                     following appends a new path segment and adds some query parameters:
-                </p><pre class="programlisting">    WebResource r = c.resource(&#8220;http://localhost:8080/xyz&#8221;);
+                </p><pre class="programlisting">    WebResource r = c.resource("http://localhost:8080/xyz");
 
     MultivaluedMap&lt;String, String&gt; params = MultivaluedMapImpl();
-    params.add(&#8220;foo&#8221;, &#8220;x&#8221;);
-    params.add(&#8220;bar&#8221;, &#8220;y&#8221;);
+    params.add("foo", "x");
+    params.add("bar", "y");
     
-    String response = r.path(&#8220;abc&#8221;).
+    String response = r.path("abc").
         queryParams(params).
         get(String.class);</pre><p>
-                that results in a GET request to the URI &#8220;http://localhost:8080/xyz/abc?foo=x&amp;bar=y&#8221;.</p>
+                that results in a GET request to the URI "http://localhost:8080/xyz/abc?foo=x&amp;bar=y".</p>
             </div>
             
             <div class="section" title="3.5.5.&nbsp;Java instances and types for representations"><div class="titlepage"><div><div><h3 class="title"><a name="d4e683"></a>3.5.5.&nbsp;Java instances and types for representations</h3></div></div></div>
