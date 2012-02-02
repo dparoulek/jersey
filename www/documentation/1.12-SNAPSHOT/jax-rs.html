@@ -524,8 +524,8 @@
     <code class="literal">java.io.InputStream</code>, <code class="literal">java.io.Reader</code>
     and <code class="literal">java.io.File</code> are supported. In addition JAXB beans
     are supported. Such beans are <code class="literal">JAXBElement</code> or classes
-    annotated with <a class="ulink" href="http://java.sun.com/javase/6/docs/api/javax/xml/bind/annotation/XmlRootElement.html" target="_top">@XmlRootElement</a>
-    or <a class="ulink" href="http://java.sun.com/javase/6/docs/api/javax/xml/bind/annotation/XmlType.html" target="_top">@XmlType</a>.
+    annotated with <a class="ulink" href="http://docs.oracle.com/javase/6/docs/api/javax/xml/bind/annotation/XmlRootElement.html" target="_top">@XmlRootElement</a>
+    or <a class="ulink" href="http://docs.oracle.com/javase/6/docs/api/javax/xml/bind/annotation/XmlType.html" target="_top">@XmlType</a>.
     The samples jaxb and json-from-jaxb show the use of JAXB beans. </p>
 
     <p>Unlike method parameters that are associated with the extraction of
@@ -722,7 +722,7 @@
     of application state"). HTML forms present a good example of this in
     practice.</p>
 
-    <p>Building URIs and building them safely is not easy with <a class="ulink" href="http://java.sun.com/j2se/1.5.0/docs/api/java/net/URI.html" target="_top">java.net.URI</a>,
+    <p>Building URIs and building them safely is not easy with <a class="ulink" href="http://docs.oracle.com/javase/1.5.0/docs/api/java/net/URI.html" target="_top">java.net.URI</a>,
     which is why JAX-RS has the <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/UriBuilder.html" target="_top">UriBuilder</a> class that makes it simple and easy to build URIs safely.</p>
 
     <p><a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/UriBuilder.html" target="_top">UriBuilder</a> can be used to build new URIs or build from existing URIs. For resource
@@ -831,7 +831,7 @@
     <p>In other cases it may not be appropriate to throw instances of <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/WebApplicationException.html" target="_top">WebApplicationException</a>,
     or classes that extend <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/WebApplicationException.html" target="_top">WebApplicationException</a>, and instead it may be preferable to map an existing exception to a
     response. For such cases it is possible to use the <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/ExceptionMapper.html" target="_top">ExceptionMapper&lt;E extends Throwable&gt;</a> interface. For example, the following
-    maps the <a class="ulink" href="http://java.sun.com/javaee/5/docs/api/javax/persistence/EntityNotFoundException.html" target="_top">EntityNotFoundException</a>
+    maps the <a class="ulink" href="http://docs.oracle.com/javaee/5/api/javax/persistence/EntityNotFoundException.html" target="_top">EntityNotFoundException</a>
     to a HTTP 404 (Not Found) response:</p>
 
     <div class="example"><a name="d4e456"></a><p class="title"><b>Example&nbsp;2.30.&nbsp;Mapping generic exceptions to responses</b></p><div class="example-contents">
@@ -848,7 +848,7 @@
 
     <p>The above class is annotated with <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/Provider.html" target="_top">@Provider</a>, this declares that the class is of interest to the JAX-RS runtime. Such a
     class may be added to the set of classes of the <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/Application.html" target="_top">Application</a> instance that is configured. When an application throws an
-    <a class="ulink" href="http://java.sun.com/javaee/5/docs/api/javax/persistence/EntityNotFoundException.html" target="_top">EntityNotFoundException</a>
+    <a class="ulink" href="http://docs.oracle.com/javaee/5/api/javax/persistence/EntityNotFoundException.html" target="_top">EntityNotFoundException</a>
     the <code class="literal">toResponse</code> method of the <code class="literal">EntityNotFoundMapper</code> instance will be invoked.</p>
   </div>
 
@@ -934,7 +934,7 @@
     
 
     <p>Security information is available by obtaining the <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/SecurityContext.html" target="_top">SecurityContext</a> using <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/Context.html" target="_top">@Context</a>,
-    which is essentially the equivalent functionality available on the <a class="ulink" href="http://java.sun.com/javaee/5/docs/api/javax/servlet/http/HttpServletRequest.html" target="_top">HttpServletRequest</a>.</p>
+    which is essentially the equivalent functionality available on the <a class="ulink" href="http://docs.oracle.com/javaee/5/api/javax/servlet/http/HttpServletRequest.html" target="_top">HttpServletRequest</a>.</p>
 
     <p><a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/SecurityContext.html" target="_top">SecurityContext</a> can be used in conjunction with sub-resource locators to return different
     resources if the user principle is included in a certain role. For example, a sub-resource locator could return
@@ -1009,17 +1009,17 @@
     <p>Previous sections have introduced the use of <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/Context.html" target="_top">@Context</a>. <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/spec/spec3.html#x3-520005" target="_top">Chapter 5</a>
     of the JAX-RS specification presents all the standard JAX-RS Java types that may be used with <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/Context.html" target="_top">@Context</a>.</p>
 
-    <p>When deploying a JAX-RS application using servlet then <a class="ulink" href="http://java.sun.com/javaee/5/docs/api/javax/servlet/ServletConfig.html" target="_top">ServletConfig</a>,
-    <a class="ulink" href="http://java.sun.com/javaee/5/docs/api/javax/servlet/ServletContext.html" target="_top">ServletContext</a>,
-    <a class="ulink" href="http://java.sun.com/javaee/5/docs/api/javax/servlet/http/HttpServletRequest.html" target="_top">HttpServletRequest</a>
-    and <a class="ulink" href="http://java.sun.com/javaee/5/docs/api/javax/servlet/http/HttpServletResponse.html" target="_top">HttpServletResponse</a>
+    <p>When deploying a JAX-RS application using servlet then <a class="ulink" href="http://docs.oracle.com/javaee/5/api/javax/servlet/ServletConfig.html" target="_top">ServletConfig</a>,
+    <a class="ulink" href="http://docs.oracle.com/javaee/5/api/javax/servlet/ServletContext.html" target="_top">ServletContext</a>,
+    <a class="ulink" href="http://docs.oracle.com/javaee/5/api/javax/servlet/http/HttpServletRequest.html" target="_top">HttpServletRequest</a>
+    and <a class="ulink" href="http://docs.oracle.com/javaee/5/api/javax/servlet/http/HttpServletResponse.html" target="_top">HttpServletResponse</a>
     are available using <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/core/Context.html" target="_top">@Context</a>.</p>
   </div>
 
   <div class="section" title="2.14.&nbsp;Annotations Defined By JAX-RS"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e528"></a>2.14.&nbsp;Annotations Defined By JAX-RS</h2></div></div></div>
     
 
-    <p>For a list of the annotations specified by JAX-RS see <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/spec/spec3.html#x3-66000A" target="_top">Appendix
+    <p>For a list of the annotations specified by JAX-RS see <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/spec/spec3.html#x3-67000A" target="_top">Appendix
     A</a> of the specification.</p>
   </div>
 </div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="getting-started.html">Prev</a>&nbsp;</td><td width="20%" align="center">&nbsp;</td><td width="40%" align="right">&nbsp;<a accesskey="n" href="client-api.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;1.&nbsp;Getting Started&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;3.&nbsp;Client API</td></tr></table></div></body></html>

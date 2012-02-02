@@ -12,7 +12,7 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;5.&nbsp;JSON Support</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="xml.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="linking.html">Next</a></td></tr></table><hr></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="float:right"><a href="http://jersey.java.net"><img src="http://jersey.java.net/images/Jersey_yellow.png"></a></div><small xmlns:fo="http://www.w3.org/1999/XSL/Format">Links: <a href="index.html">Table of Contents</a> | <a href="user-guide.html">Single HTML</a></small><div class="chapter" title="Chapter&nbsp;5.&nbsp;JSON Support"><div class="titlepage"><div><div><h2 class="title"><a name="json"></a>Chapter&nbsp;5.&nbsp;JSON Support</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="json.html#d4e895">5.1. POJO support</a></span></dt><dt><span class="section"><a href="json.html#d4e913">5.2. JAXB Based JSON support</a></span></dt><dd><dl><dt><span class="section"><a href="json.html#d4e928">5.2.1. Configuration Options</a></span></dt><dt><span class="section"><a href="json.html#d4e949">5.2.2. JSON Notations</a></span></dt><dt><span class="section"><a href="json.html#d4e1119">5.2.3. Examples</a></span></dt></dl></dd><dt><span class="section"><a href="json.html#d4e1124">5.3. Low-Level JSON support</a></span></dt><dd><dl><dt><span class="section"><a href="json.html#d4e1138">5.3.1. Examples</a></span></dt></dl></dd></dl></div>
+</script></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Chapter&nbsp;5.&nbsp;JSON Support</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="xml.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="linking.html">Next</a></td></tr></table><hr></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" style="float:right"><a href="http://jersey.java.net"><img src="http://jersey.java.net/images/Jersey_yellow.png"></a></div><small xmlns:fo="http://www.w3.org/1999/XSL/Format">Links: <a href="index.html">Table of Contents</a> | <a href="user-guide.html">Single HTML</a></small><div class="chapter" title="Chapter&nbsp;5.&nbsp;JSON Support"><div class="titlepage"><div><div><h2 class="title"><a name="json"></a>Chapter&nbsp;5.&nbsp;JSON Support</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="json.html#json.pojo.approach.section">5.1. POJO support</a></span></dt><dt><span class="section"><a href="json.html#json.jaxb.approach.section">5.2. JAXB Based JSON support</a></span></dt><dd><dl><dt><span class="section"><a href="json.html#d4e928">5.2.1. Configuration Options</a></span></dt><dt><span class="section"><a href="json.html#d4e949">5.2.2. JSON Notations</a></span></dt><dt><span class="section"><a href="json.html#d4e1119">5.2.3. Examples</a></span></dt></dl></dd><dt><span class="section"><a href="json.html#json.low.level.approach.section">5.3. Low-Level JSON support</a></span></dt><dd><dl><dt><span class="section"><a href="json.html#d4e1138">5.3.1. Examples</a></span></dt></dl></dd></dl></div>
   
 
   <p>Jersey JSON support comes as a set of JAX-RS <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/MessageBodyReader.html" target="_top">MessageBodyReader&lt;T&gt;</a> and <a class="ulink" href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/ext/MessageBodyWriter.html" target="_top">MessageBodyWriter&lt;T&gt;</a>
@@ -20,20 +20,20 @@
   three basic approaches when working with JSON format:
 
   </p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem">
-      <p><a class="link" href="json.html#json.pojo.approach.title">POJO support</a></p>
+      <p><a class="link" href="json.html#json.pojo.approach.section" title="5.1.&nbsp;POJO support">POJO support</a></p>
     </li><li class="listitem">
-      <p><a class="link" href="json.html#json.jaxb.approach.title">JAXB based JSON support</a></p>
+      <p><a class="link" href="json.html#json.jaxb.approach.section" title="5.2.&nbsp;JAXB Based JSON support">JAXB based JSON support</a></p>
     </li><li class="listitem">
-      <p><a class="link" href="json.html#json.low.level.approach.title">Low-level, JSONObject/JSONArray based JSON support</a></p>
+      <p><a class="link" href="json.html#json.low.level.approach.section" title="5.3.&nbsp;Low-Level JSON support">Low-level, JSONObject/JSONArray based JSON support</a></p>
     </li></ul></div><p>
-  
-  The first method is pretty generic and allows you to map any Java Object to JSON and vice versa. 
+ 
+  The first method is pretty generic and allows you to map any Java Object to JSON and vice versa.
   The other two approaches limit you in Java types your resource methods could produce and/or consume.
   JAXB based approach could be taken if you want to utilize certain JAXB features.
   The last, low-level, approach gives you the best fine-grained control over the outcoming JSON data format.
   </p>
 
-  <div class="section" title="5.1.&nbsp;POJO support"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e895"></a>5.1.&nbsp;POJO support</h2></div></div></div>
+  <div class="section" title="5.1.&nbsp;POJO support"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="json.pojo.approach.section"></a>5.1.&nbsp;POJO support</h2></div></div></div>
     
     <p>
     POJO suppport represents the easiest way to convert your Java Objects to JSON and back.
@@ -74,7 +74,7 @@ your ObjectMapper instance into your Jersey application.
 
   </div>
 
-  <div class="section" title="5.2.&nbsp;JAXB Based JSON support"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e913"></a>5.2.&nbsp;JAXB Based JSON support</h2></div></div></div>
+  <div class="section" title="5.2.&nbsp;JAXB Based JSON support"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="json.jaxb.approach.section"></a>5.2.&nbsp;JAXB Based JSON support</h2></div></div></div>
     
 
     <p>
@@ -493,7 +493,7 @@ a single address (<code class="code">street="Long Street 1"</code>, <code class=
 
 
 
-   <div class="section" title="5.3.&nbsp;Low-Level JSON support"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d4e1124"></a>5.3.&nbsp;Low-Level JSON support</h2></div></div></div>
+   <div class="section" title="5.3.&nbsp;Low-Level JSON support"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="json.low.level.approach.section"></a>5.3.&nbsp;Low-Level JSON support</h2></div></div></div>
     
 
     <p>Using this approach means you will be using JSONObject and/or JSONArray classes for your data representations.
