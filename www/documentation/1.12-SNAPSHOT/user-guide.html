@@ -1592,11 +1592,12 @@ sample.</p>
             instances. A <code class="literal">WebResource</code> will inherit filters from its creator, which
             can be a <code class="literal">Client</code> or another <code class="literal">WebResource</code>.
             Additional filters can be added to a <code class="literal">WebResource</code> after it has been
-            created. For requests, filters are applied in order, starting with inherited filters
-            and followed by the filters added to the <code class="literal">WebResource</code>. All filters
-            are applied in the order in which they were added. For responses, filters are applied
+            created. For requests, filters are applied
             in reverse order, starting with the <code class="literal">WebResource</code> filters and then
             moving to the inherited filters.
+            For responses, filters are applied in order, starting with inherited filters
+            and followed by the filters added to the <code class="literal">WebResource</code>. All filters
+            are applied in the order in which they were added.
             For instance, in the following example the <code class="literal">Client</code> has two filters added,
             <code class="literal">filter1</code> and <code class="literal">filter2</code>, in that order, and the
             <code class="literal">WebResource</code> has one filter added, <code class="literal">filter3</code>:
@@ -1609,10 +1610,10 @@ sample.</p>
     ClientFilter filter3 = ...
     WebResource r = c.resource(...);
     r.addFilter(filter3);</pre><p>
-            After a request has been built the request is filtered by <code class="literal">filter1</code>,
-            <code class="literal">filter2</code> and <code class="literal">filter3</code> in that order. After the response
-            has been received the response is filtered by <code class="literal">filter3</code>,
-            <code class="literal">filter2</code> and <code class="literal">filter1</code> in that order, before the
+            After a request has been built the request is filtered by <code class="literal">filter3</code>,
+            <code class="literal">filter2</code> and <code class="literal">filter1</code> in that order. After the response
+            has been received the response is filtered by <code class="literal">filter1</code>,
+            <code class="literal">filter2</code> and <code class="literal">filter3</code> in that order, before the
             response is returned.</p>
             <p>Filters are implemented using the &#8220;russian doll&#8221; stack-based pattern where a
             filter is responsible for calling the next filter in the ordered list of filters
