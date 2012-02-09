@@ -561,13 +561,17 @@ A uniform interface for invoking HTTP requests.
 <A NAME="head()"><!-- --></A><H3>
 head</H3>
 <PRE>
-<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A> <B>head</B>()</PRE>
+<A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client">ClientResponse</A> <B>head</B>()
+                    throws <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the HEAD method.
 <P>
 <DD><DL>
 
-<DT><B>Returns:</B><DD>the HTTP response.</DL>
+<DT><B>Returns:</B><DD>the HTTP response.
+<DT><B>Throws:</B>
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -576,7 +580,8 @@ head</H3>
 options</H3>
 <PRE>
 &lt;T&gt; T <B>options</B>(java.lang.Class&lt;T&gt;&nbsp;c)
-          throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+          throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                 <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the OPTIONS method.
 <P>
@@ -586,7 +591,9 @@ options</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -595,7 +602,8 @@ options</H3>
 options</H3>
 <PRE>
 &lt;T&gt; T <B>options</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
-          throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+          throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                 <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the OPTIONS method.
 <P>
@@ -605,7 +613,9 @@ options</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -614,7 +624,8 @@ options</H3>
 get</H3>
 <PRE>
 &lt;T&gt; T <B>get</B>(java.lang.Class&lt;T&gt;&nbsp;c)
-      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+             <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the GET method.
 <P>
@@ -624,7 +635,9 @@ get</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -633,7 +646,8 @@ get</H3>
 get</H3>
 <PRE>
 &lt;T&gt; T <B>get</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
-      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+             <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the GET method.
 <P>
@@ -643,7 +657,9 @@ get</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -652,7 +668,8 @@ get</H3>
 put</H3>
 <PRE>
 void <B>put</B>()
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the PUT method with no request entity or response.
  <p>
@@ -663,7 +680,9 @@ void <B>put</B>()
 
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
-         greater than or equal to 300.</DL>
+         greater than or equal to 300.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -672,7 +691,8 @@ void <B>put</B>()
 put</H3>
 <PRE>
 void <B>put</B>(java.lang.Object&nbsp;requestEntity)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the PUT method with a request entity but no response.
  <p>
@@ -683,7 +703,9 @@ void <B>put</B>(java.lang.Object&nbsp;requestEntity)
 <DT><B>Parameters:</B><DD><CODE>requestEntity</CODE> - the request entity.
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
-         greater than or equal to 300.</DL>
+         greater than or equal to 300.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -692,7 +714,8 @@ void <B>put</B>(java.lang.Object&nbsp;requestEntity)
 put</H3>
 <PRE>
 &lt;T&gt; T <B>put</B>(java.lang.Class&lt;T&gt;&nbsp;c)
-      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+             <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the PUT method with no request entity that returns a response.
 <P>
@@ -702,7 +725,9 @@ put</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -711,7 +736,8 @@ put</H3>
 put</H3>
 <PRE>
 &lt;T&gt; T <B>put</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
-      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+             <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the PUT method with a request entity that returns a response.
 <P>
@@ -721,7 +747,9 @@ put</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -731,7 +759,8 @@ put</H3>
 <PRE>
 &lt;T&gt; T <B>put</B>(java.lang.Class&lt;T&gt;&nbsp;c,
           java.lang.Object&nbsp;requestEntity)
-      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+             <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the PUT method with a request entity that returns a response.
 <P>
@@ -741,7 +770,9 @@ put</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -751,7 +782,8 @@ put</H3>
 <PRE>
 &lt;T&gt; T <B>put</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
           java.lang.Object&nbsp;requestEntity)
-      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+      throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+             <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the PUT method with a request entity that returns a response.
 <P>
@@ -761,7 +793,9 @@ put</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -770,7 +804,8 @@ put</H3>
 post</H3>
 <PRE>
 void <B>post</B>()
-          throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+          throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                 <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the POST method with no request entity or response.
  <p>
@@ -781,7 +816,9 @@ void <B>post</B>()
 
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
-         greater than or equal to 300.</DL>
+         greater than or equal to 300.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -790,7 +827,8 @@ void <B>post</B>()
 post</H3>
 <PRE>
 void <B>post</B>(java.lang.Object&nbsp;requestEntity)
-          throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+          throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                 <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the POST method with a request entity but no response.
  <p>
@@ -801,7 +839,9 @@ void <B>post</B>(java.lang.Object&nbsp;requestEntity)
 <DT><B>Parameters:</B><DD><CODE>requestEntity</CODE> - the request entity.
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
-         greater than or equal to 300.</DL>
+         greater than or equal to 300.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -810,7 +850,8 @@ void <B>post</B>(java.lang.Object&nbsp;requestEntity)
 post</H3>
 <PRE>
 &lt;T&gt; T <B>post</B>(java.lang.Class&lt;T&gt;&nbsp;c)
-       throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+       throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+              <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the POST method with no request entity that returns a response.
 <P>
@@ -820,7 +861,9 @@ post</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -829,7 +872,8 @@ post</H3>
 post</H3>
 <PRE>
 &lt;T&gt; T <B>post</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
-       throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+       throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+              <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the POST method with a request entity that returns a response.
 <P>
@@ -839,7 +883,9 @@ post</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -849,7 +895,8 @@ post</H3>
 <PRE>
 &lt;T&gt; T <B>post</B>(java.lang.Class&lt;T&gt;&nbsp;c,
            java.lang.Object&nbsp;requestEntity)
-       throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+       throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+              <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the POST method with a request entity that returns a response.
 <P>
@@ -859,7 +906,9 @@ post</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -869,7 +918,8 @@ post</H3>
 <PRE>
 &lt;T&gt; T <B>post</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
            java.lang.Object&nbsp;requestEntity)
-       throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+       throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+              <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the POST method with a request entity that returns a response.
 <P>
@@ -879,7 +929,9 @@ post</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -888,7 +940,8 @@ post</H3>
 delete</H3>
 <PRE>
 void <B>delete</B>()
-            throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+            throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                   <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the DELETE method with no request entity or response.
  <p>
@@ -899,7 +952,9 @@ void <B>delete</B>()
 
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
-         greater than or equal to 300.</DL>
+         greater than or equal to 300.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -908,7 +963,8 @@ void <B>delete</B>()
 delete</H3>
 <PRE>
 void <B>delete</B>(java.lang.Object&nbsp;requestEntity)
-            throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+            throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                   <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the DELETE method with a request entity but no response.
  <p>
@@ -919,7 +975,9 @@ void <B>delete</B>(java.lang.Object&nbsp;requestEntity)
 <DT><B>Parameters:</B><DD><CODE>requestEntity</CODE> - the request entity.
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
-         greater than or equal to 300.</DL>
+         greater than or equal to 300.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -928,7 +986,8 @@ void <B>delete</B>(java.lang.Object&nbsp;requestEntity)
 delete</H3>
 <PRE>
 &lt;T&gt; T <B>delete</B>(java.lang.Class&lt;T&gt;&nbsp;c)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the DELETE method with no request entity that returns a response.
 <P>
@@ -938,7 +997,9 @@ delete</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -947,7 +1008,8 @@ delete</H3>
 delete</H3>
 <PRE>
 &lt;T&gt; T <B>delete</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the DELETE method with a request entity that returns a response.
 <P>
@@ -957,7 +1019,9 @@ delete</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -967,7 +1031,8 @@ delete</H3>
 <PRE>
 &lt;T&gt; T <B>delete</B>(java.lang.Class&lt;T&gt;&nbsp;c,
              java.lang.Object&nbsp;requestEntity)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the DELETE method with a request entity that returns a response.
 <P>
@@ -977,7 +1042,9 @@ delete</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -987,7 +1054,8 @@ delete</H3>
 <PRE>
 &lt;T&gt; T <B>delete</B>(<A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
              java.lang.Object&nbsp;requestEntity)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke the DELETE method with a request entity that returns a response.
 <P>
@@ -997,7 +1065,9 @@ delete</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -1006,7 +1076,8 @@ delete</H3>
 method</H3>
 <PRE>
 void <B>method</B>(java.lang.String&nbsp;method)
-            throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+            throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                   <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke a HTTP method with no request entity or response.
  <p>
@@ -1017,7 +1088,9 @@ void <B>method</B>(java.lang.String&nbsp;method)
 <DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
-         greater than or equal to 300.</DL>
+         greater than or equal to 300.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -1027,7 +1100,8 @@ method</H3>
 <PRE>
 void <B>method</B>(java.lang.String&nbsp;method,
             java.lang.Object&nbsp;requestEntity)
-            throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+            throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                   <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke a HTTP method with a request entity but no response.
  <p>
@@ -1038,7 +1112,9 @@ void <B>method</B>(java.lang.String&nbsp;method,
 <DT><B>Parameters:</B><DD><CODE>method</CODE> - the HTTP method.<DD><CODE>requestEntity</CODE> - the request entity.
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
-         greater than or equal to 300.</DL>
+         greater than or equal to 300.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -1048,7 +1124,8 @@ method</H3>
 <PRE>
 &lt;T&gt; T <B>method</B>(java.lang.String&nbsp;method,
              java.lang.Class&lt;T&gt;&nbsp;c)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke a HTTP method with no request entity that returns a response.
 <P>
@@ -1058,7 +1135,9 @@ method</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -1068,7 +1147,8 @@ method</H3>
 <PRE>
 &lt;T&gt; T <B>method</B>(java.lang.String&nbsp;method,
              <A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke a HTTP method with no request entity that returns a response.
 <P>
@@ -1078,7 +1158,9 @@ method</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -1089,7 +1171,8 @@ method</H3>
 &lt;T&gt; T <B>method</B>(java.lang.String&nbsp;method,
              java.lang.Class&lt;T&gt;&nbsp;c,
              java.lang.Object&nbsp;requestEntity)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke a HTTP method with a request entity that returns a response.
 <P>
@@ -1099,7 +1182,9 @@ method</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>c</code> is not the type
-         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <HR>
@@ -1110,7 +1195,8 @@ method</H3>
 &lt;T&gt; T <B>method</B>(java.lang.String&nbsp;method,
              <A HREF="../../../../../com/sun/jersey/api/client/GenericType.html" title="class in com.sun.jersey.api.client">GenericType</A>&lt;T&gt;&nbsp;gt,
              java.lang.Object&nbsp;requestEntity)
-         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></PRE>
+         throws <A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A>,
+                <A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></PRE>
 <DL>
 <DD>Invoke a HTTP method with a request entity that returns a response.
 <P>
@@ -1120,7 +1206,9 @@ method</H3>
 <DT><B>Throws:</B>
 <DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/UniformInterfaceException.html" title="class in com.sun.jersey.api.client">UniformInterfaceException</A></CODE> - if the status of the HTTP response is 
          greater than or equal to 300 and <code>gt</code> does not
-         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.</DL>
+         represent the type <A HREF="../../../../../com/sun/jersey/api/client/ClientResponse.html" title="class in com.sun.jersey.api.client"><CODE>ClientResponse</CODE></A>.
+<DD><CODE><A HREF="../../../../../com/sun/jersey/api/client/ClientHandlerException.html" title="class in com.sun.jersey.api.client">ClientHandlerException</A></CODE> - if the client handler fails to process
+         the request or response.</DL>
 </DD>
 </DL>
 <!-- ========= END OF CLASS DATA ========= -->
