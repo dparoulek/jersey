@@ -1,0 +1,304 @@
+<?xml version="1.0"?>
+<!--
+
+    DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+    Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+
+    The contents of this file are subject to the terms of either the GNU
+    General Public License Version 2 only ("GPL") or the Common Development
+    and Distribution License("CDDL") (collectively, the "License").  You
+    may not use this file except in compliance with the License.  You can
+    obtain a copy of the License at
+    http://glassfish.java.net/public/CDDL+GPL_1_1.html
+    or packager/legal/LICENSE.txt.  See the License for the specific
+    language governing permissions and limitations under the License.
+
+    When distributing the software, include this License Header Notice in each
+    file and include the License file at packager/legal/LICENSE.txt.
+
+    GPL Classpath Exception:
+    Oracle designates this particular file as subject to the "Classpath"
+    exception as provided by Oracle in the GPL Version 2 section of the License
+    file that accompanied this code.
+
+    Modifications:
+    If applicable, add the following below the License Header, with the fields
+    enclosed by brackets [] replaced by your own identifying information:
+    "Portions Copyright [year] [name of copyright owner]"
+
+    Contributor(s):
+    If you wish your version of this file to be governed by only the CDDL or
+    only the GPL Version 2, indicate your decision by adding "[Contributor]
+    elects to include this software in this distribution under the [CDDL or GPL
+    Version 2] license."  If you don't indicate a single choice of license, a
+    recipient has the option to distribute your version of this file under
+    either the CDDL, the GPL Version 2 or to extend the choice of license to
+    its licensees as provided above.  However, if you add GPL Version 2 code
+    and therefore, elected the GPL Version 2 license, then the option applies
+    only if the new code is made subject to such option by the copyright
+    holder.
+
+-->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+        "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"[
+<!ENTITY % ents SYSTEM "jersey.ent" >
+%ents;
+]>
+
+<chapter id="test-framework">
+    <title>Jersey Test Framework</title>
+
+    <para>This chapter will present how to write tests for your resources
+    using Jersey Test Framework and how to run them in various containers.
+    Additionally it will explain how to create new module for not yet
+    supported container.</para>
+
+    <para>Jersey currently provides following modules:
+
+        <itemizedlist>
+            <listitem>jersey-test-framework-grizzly</listitem>
+            <listitem>jersey-test-framework-grizzly2</listitem>
+            <listitem>jersey-test-framework-http</listitem>
+            <listitem>jersey-test-framework-inmemory</listitem>
+            <listitem>jersey-test-framework-embedded-glassfish</listitem>
+            <listitem>jersey-test-framework-external</listitem>
+        </itemizedlist>
+    </para>
+
+    <section>
+        <title>What is different in Jersey 1.2</title>
+
+        <para>There are some significant breaking changes in Jersey 1.2.
+        In prior Jersey versions users were able to select container factory
+        just by specifying it in some property. That was convenient from
+        user perspective but not good from build perspective. Former test
+        framework artifact was dependent on all containers which is useless
+        in most cases (usually you test only with one container).</para>
+
+        <para>Solution to this is modularization - make module for each
+        test container. It has one drawback: users will have to have other
+        dependency in their applications, for example if you want to test
+        on embedded grizzly container, you will declare (only) dependency
+        on jersey test framework grizzly module. You can declare multiple
+        test containers this way and select one by defining property
+        <literal>jersey.test.containerFactory</literal>.</para>
+
+        <para>Another change (non-breaking) is renaming Jersey parameters
+        which control container factory, used port and host name for
+        external container. Old properties are still working but users are
+        encouraged to use new ones.</para>
+
+        <table frame='all'><title>Property name changes</title>
+            <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <thead>
+                <row>
+                    <entry>Prior Jersey 1.2</entry>
+                    <entry>Jersey 1.2+</entry>
+                </row>
+            </thead>
+            <tbody>
+            <row>
+                <entry>test.containerFactory</entry>
+                <entry>jersey.test.containerFactory</entry>
+            </row>
+            <row>
+                <entry>JERSEY_HTTP_PORT</entry>
+                <entry>jersey.test.port</entry>
+            </row>
+            <row>
+                <entry>JERSEY_HOST_NAME (used with external container)</entry>
+                <entry>jersey.test.host</entry>
+            </row>
+            </tbody>
+            </tgroup>
+        </table>
+    </section>
+
+    <section>
+        <title>Using test framework</title>
+        <para>When you want test your resources in maven-based project, you
+            need to add dependency on one of the Jersey Test Framework modules. You
+            can take a look at helloworld sample pom file. There is declared
+            dependency on:
+
+            <programlisting language="xml">
+
+                &lt;dependency&gt;
+                &lt;groupId&gt;com.sun.jersey.jersey-test-framework&lt;/groupId&gt;
+                &lt;artifactId&gt;jersey-test-framework-grizzly2&lt;/artifactId&gt;
+                &lt;version&gt;${project.version}&lt;/version&gt;
+                &lt;scope&gt;test&lt;/scope&gt;
+                &lt;/dependency&gt;
+
+            </programlisting>
+
+            which means that Grizzly Web container (version 2.x) will be used for testing.
+        </para>
+
+        <para>You can specify more than one module in dependencies and choose which
+        module will be used by <literal>jersey.test.containerFactory</literal> property.
+        Every module should contain at least one container factory.</para>
+
+        <glosslist>
+            <glossentry>
+                <glossterm>jersey-test-framework-grizzly</glossterm>
+                <glossdef>
+                    <para>
+                        <literal>com.sun.jersey.test.framework.spi.container.grizzly.web.GrizzlyWebTestContainerFactory</literal>
+                        <literal>com.sun.jersey.test.framework.spi.container.grizzly.GrizzlyTestContainerFactory</literal>
+                    </para>
+                </glossdef>
+            </glossentry>
+            <glossentry>
+                <glossterm>jersey-test-framework-grizzly2</glossterm>
+                <glossdef>
+                    <para>
+                        <literal>com.sun.jersey.test.framework.spi.container.grizzly2.web.GrizzlyWebTestContainerFactory</literal>
+                        <literal>com.sun.jersey.test.framework.spi.container.grizzly2.GrizzlyTestContainerFactory</literal>
+                    </para>
+                </glossdef>
+            </glossentry>
+            <glossentry>
+                <glossterm>jersey-test-framework-http</glossterm>
+                <glossdef>
+                    <para>
+                        <literal>com.sun.jersey.test.framework.spi.container.http.HTTPContainerFactory</literal>
+                    </para>
+                </glossdef>
+            </glossentry>
+            <glossentry>
+                <glossterm>jersey-test-framework-inmemory</glossterm>
+                <glossdef>
+                    <para>
+                        <literal>com.sun.jersey.test.framework.spi.container.inmemory.InMemoryTestContainerFactory</literal>
+                    </para>
+                </glossdef>
+            </glossentry>
+            <glossentry>
+                <glossterm>jersey-test-framework-embedded-glassfish</glossterm>
+                <glossdef>
+                    <para>
+                        <literal>com.sun.jersey.test.framework.spi.container.embedded.glassfish.EmbeddedGlassFishTestContainerFactory</literal>
+                    </para>
+                </glossdef>
+            </glossentry>
+            <glossentry>
+                <glossterm>jersey-test-framework-external</glossterm>
+                <glossdef>
+                    <para>
+                        <literal>com.sun.jersey.test.framework.spi.container.external.ExternalTestContainerFactory</literal>
+                    </para>
+                </glossdef>
+            </glossentry>
+        </glosslist>
+
+        <para>Basically you can just add dependency on single module and its container factory would be used. Problem
+        is when you specify module which has more than one container factory or multiple modules. If this happen, test
+        framework will choose factory using following rules:</para>
+
+        <programlisting language="java">if("jersey.test.containerFactory" not specified)
+    look for factories
+    if(factories.count == 1)
+        use found factory
+    else
+        if(com.sun.jersey.test.framework.spi.container.grizzly2.web.GrizzlyWebTestContainerFactory is present)
+            use it // current default jersey test container factory
+        else
+            use first found and log warning
+else
+    use factory class specified in "jersey.test.containerFactory"</programlisting>
+
+        <para>That means if your project depends on multiple test framework modules and you want to control which will
+        be used, you have to declare which one in property called "jersey.test.containerFactory", for example like this:
+
+            <literal>mvn clean install -Djersey.test.containerFactory=com.sun.jersey.test.framework.spi.container.inmemory.InMemoryTestContainerFactory</literal>
+        </para>
+
+    </section>
+
+    <section>
+        <title>Creating tests</title>
+
+        <para>Jersey Test Framework uses JUnit version 4.X, so if you can write standard unit tests, you can easily
+        create Jersey Test. You need to declare test as a descendant of JerseyTest class.
+
+        <programlisting language="java">public class MainTest extends JerseyTest {
+
+    public MainTest()throws Exception {
+        super("com.sun.jersey.samples.helloworld.resources");
+    }
+
+    @Test
+    public void testHelloWorld() {
+        WebResource webResource = resource();
+        String responseMsg = webResource.path("helloworld").get(String.class);
+        assertEquals("Hello World", responseMsg);
+    }
+
+}</programlisting>
+
+        Note <literal>super</literal> call in constructor - it passes list of package names to scan (it really is a list,
+        JerseyTest constructor has variable argument count). Another useful method is
+        <literal>resource()</literal> which returns WebResource instance with URI set to base URI of your application.
+        You can get preconfigured Jersey Client instance similarly by calling <literal>client()</literal> method.</para>
+
+    </section>
+
+    <section>
+        <title>Creating own module</title>
+        <para>Creating your own module is pretty straightforward, you just have to implement <literal>com.sun.jersey.test.framework.spi.container.TestContainerFactory</literal>
+        and <literal>com.sun.jersey.test.framework.spi.container.TestContainer</literal>. TestContainer factory is there basically for returning TestContainer instance and
+        TestContainer has self-explanatory methods: <literal>start()</literal>, <literal>stop()</literal>, <literal>getClient()</literal> and <literal>getBaseURI()</literal>.
+        I recommend taking look at source code and read javadoc of these two classes, all you need is there.</para>
+
+        <para>You should be avare of another thing when implementing own jersey test framework module. If you want it to be
+        usable by running just <literal>mvn clean install</literal> (when only your module is specified), you need to add
+        META-INF/services/com.sun.jersey.test.framework.spi.container.TestContainerFactory file into your jar and put there
+        your factory class (fully classified) name.</para>
+    </section>
+
+    <section>
+        <title>Running tests outside Maven</title>
+
+        <para>Since Jersey is Maven based project, executing tests without Maven can be painful. You have to have everything
+            needed present on classpath and by everything is meant following list:</para>
+
+        <itemizedlist>
+            <listitem><ulink url="https://maven.java.net/service/local/artifact/maven/redirect?r=&repository;&amp;g=com.sun.jersey&amp;a=jersey-server&amp;v=&version;&amp;e=jar">jersey-server</ulink></listitem>
+            <listitem><ulink url="https://maven.java.net/service/local/artifact/maven/redirect?r=&repository;&amp;g=com.sun.jersey&amp;a=jersey-core&amp;v=&version;&amp;e=jar">jersey-core</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=javax/ws/rs/jsr311-api/&jsr311-api-jar.version;/jsr311-api-&jsr311-api-jar.version;.jar">jsr311-api</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=asm/asm/&asm.version;/asm-&asm.version;.jar">asm</ulink></listitem>
+            <listitem><ulink url="https://maven.java.net/service/local/artifact/maven/redirect?r=&repository;&amp;g=com.sun.jersey.jersey-test-framework&amp;a=jersey-test-framework-grizzly&amp;v=&version;&amp;e=jar">jersey-test-framework-grizzly</ulink></listitem>
+            <listitem><ulink url="https://maven.java.net/service/local/artifact/maven/redirect?r=&repository;&amp;g=com.sun.jersey.jersey-test-framework&amp;a=jersey-test-framework-core&amp;v=&version;&amp;e=jar">jersey-test-framework-core</ulink></listitem>
+            <listitem><ulink url="https://maven.java.net/service/local/artifact/maven/redirect?r=&repository;&amp;g=com.sun.jersey&amp;a=jersey-client&amp;v=&version;&amp;e=jar">jersey-client</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=org/glassfish/javax.servlet/3.2-b05/javax.servlet-3.2-b05.jar">javax.servlet</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=junit/junit/4.9/junit-4.9.jar">junit</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-impl/2.2.4-1/jaxb-impl-2.2.4-1.jar">jaxb-impl</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=javax/xml/bind/jaxb-api/2.2.4/jaxb-api-2.2.4.jar">jaxb-api</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar">stax-api</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=javax/activation/activation/1.1.1/activation-1.1.1.jar">activation</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-servlet-webserver/1.9.45/grizzly-servlet-webserver-1.9.45.jar">grizzly-servlet-webserver</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-http/1.9.45/grizzly-http-1.9.45.jar">grizzly-http</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-framework/1.9.45/grizzly-framework-1.9.45.jar">grizzly-framework</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-utils/1.9.45/grizzly-utils-1.9.45.jar">grizzly-utils</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-rcm/1.9.45/grizzly-rcm-1.9.45.jar">grizzly-rcm</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-portunif/1.9.45/grizzly-portunif-1.9.45.jar">grizzly-portunif</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=com/sun/grizzly/grizzly-http-servlet/1.9.45/grizzly-http-servlet-1.9.45.jar">grizzly-http-servlet</ulink></listitem>
+            <listitem><ulink url="http://search.maven.org/remotecontent?filepath=javax/servlet/servlet-api/2.5/servlet-api-2.5.jar">servlet-api</ulink></listitem>
+        </itemizedlist>
+
+        <para>This is needed to run <literal>helloworld</literal> sample tests, if you want run something more complex or
+        with different test container (grizzly is used here), you may need to add other application specific dependencies
+        (and remove some as well).</para>
+
+        <para>As was already written above, Jersey test is descendant of standard unit test so it can be run same way.
+        You can execute it by executing <literal>org.junit.runner.JUnitCore</literal> and passing your test class name
+        as parameter, from ant (<ulink url="http://ant.apache.org/manual/Tasks/junit.html">junit-task</ulink>)
+        or whatever you are used to.</para>
+
+    </section>
+
+    
+
+</chapter>

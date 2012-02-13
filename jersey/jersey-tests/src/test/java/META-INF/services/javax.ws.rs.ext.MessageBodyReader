@@ -1,0 +1,4 @@
+com.sun.jersey.impl.entity.BeanStreamingTest$BeanWildProvider
+com.sun.jersey.impl.entity.BeanStreamingTest$BeanProvider
+com.sun.jersey.impl.entity.BeanStreamingTest$Bean2WildProvider
+com.sun.jersey.impl.entity.BeanStreamingTest$Bean2Provider
