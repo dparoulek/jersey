@@ -1,0 +1,213 @@
+<!--
+ This library is free software; you can redistribute it and/or modify it under the terms of
+ the GNU Lesser General Public License as published by the Free Software Foundation;
+ either version 2.1 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+ PURPOSE. See the GNU Lesser General Public License for more details.
+
+ You should have received a copy of the GNU Lesser General Public License along with this
+ library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ Boston, MA 02110-1301 USA
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>com.sun.jersey.contribs.bill-burke-book</groupId>
+        <artifactId>ex11_1_pom</artifactId>
+        <version>1.12-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>ex11_1-ear</artifactId>
+    <packaging>jar</packaging>
+    <name>ex11_1 EAR</name>
+    <url>http://maven.apache.org</url>
+    <profiles>
+        <profile>
+            <id>cobertura</id>
+            <activation>
+                <property>
+                    <name>cobertura</name>
+                </property>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun.jersey.contribs.bill-burke-book</groupId>
+                    <artifactId>ex11_1</artifactId>
+                    <version>${project.version}</version>
+                    <type>ejb</type>
+                    <classifier>cobertura</classifier>
+                </dependency>
+                <dependency>
+                    <groupId>com.sun.jersey.contribs.bill-burke-book</groupId>
+                    <artifactId>ex11_1-war</artifactId>
+                    <version>${project.version}</version>
+                    <type>war</type>
+                    <classifier>cobertura</classifier>
+                </dependency>
+                <!-- Adding explicit (yet "provided") dependencies to Jersey runtime -->
+                <dependency>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-servlet</artifactId>
+                    <version>${project.version}</version>
+                    <scope>provided</scope>
+                    <classifier>cobertura</classifier>
+                </dependency>
+                <dependency>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-client</artifactId>
+                    <version>${project.version}</version>
+                    <scope>provided</scope>
+                    <classifier>cobertura</classifier>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun.jersey.contribs.bill-burke-book</groupId>
+                    <artifactId>ex11_1</artifactId>
+                    <version>${project.version}</version>
+                    <type>ejb</type>
+                </dependency>
+                <dependency>
+                    <groupId>com.sun.jersey.contribs.bill-burke-book</groupId>
+                    <artifactId>ex11_1-war</artifactId>
+                    <version>${project.version}</version>
+                    <type>war</type>
+                </dependency>
+                <!-- Adding explicit (yet "provided") dependencies to Jersey runtime -->
+                <dependency>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-servlet</artifactId>
+                    <version>${project.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-client</artifactId>
+                    <version>${project.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+
+<!--
+Hack to avoid having to run the tests which require a running
+JavaDB instance (not having one would break the Hudson build).
+Running "mvn clean install" will not run the tests.
+To run the tests, use "mvn -P test clean install".
+-->
+        <profile>
+            <id>test</id>
+        </profile>
+
+        <profile>
+            <id>skip-test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
+    </profiles>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <defaultJavaBundleDir>lib/</defaultJavaBundleDir>
+                    <finalName>ex11_1</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>yomama</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>generate-application-xml</goal>
+                            <goal>ear</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.glassfish</groupId>
+                <artifactId>maven-embedded-glassfish-plugin</artifactId>
+                <version>${gf.embedded.version}</version>
+                <configuration>
+                    <goalPrefix>embedded-glassfish</goalPrefix>
+                    <app>${basedir}/target/ex11_1.ear</app>
+                    <autoDelete>true</autoDelete>
+                    <port>8080</port>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>start-glassfish</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>glassfish-deploy</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>glassfish-undeploy</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>undeploy</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>stop-glassfish</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>surefire-it</id>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+</project>
