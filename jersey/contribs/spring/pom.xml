@@ -120,6 +120,17 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                  <instructions>
+                    <Import-Package><![CDATA[
+                    javax.ws.rs,
+                    javax.ws.rs.core,
+                    javax.ws.rs.ext,
+                    *
+                    ]]>
+                    </Import-Package>
+                  </instructions>
+                </configuration>
             </plugin>
 
             <plugin>
