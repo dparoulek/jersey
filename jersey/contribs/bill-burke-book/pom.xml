@@ -18,7 +18,7 @@
     <parent>
         <groupId>com.sun.jersey.contribs</groupId>
         <artifactId>jersey-contribs</artifactId>
-        <version>1.12</version>
+        <version>1.12.vivo_1</version>
     </parent>
 
     <groupId>com.sun.jersey.contribs.bill-burke-book</groupId>

@@ -46,7 +46,7 @@
     <parent>
         <groupId>com.sun.jersey.contribs</groupId>
         <artifactId>jersey-contribs</artifactId>
-        <version>1.12</version>
+        <version>1.12.vivo_1</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>jersey-spring</artifactId>
@@ -147,6 +147,7 @@
     <properties>
         <spring20-release-version>2.0.5</spring20-release-version>
         <spring25-release-version>[2.5.2,3)</spring25-release-version>
+        <jersey.version>1.12</jersey.version>
     </properties>
     <profiles>
         <profile>
@@ -182,18 +183,18 @@
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-servlet</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-grizzly2-servlet</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-client</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
@@ -255,18 +256,18 @@
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-servlet</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-grizzly2-servlet</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-client</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
@@ -341,18 +342,18 @@
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-servlet</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-grizzly2-servlet</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-client</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
@@ -412,20 +413,20 @@
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-servlet</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <classifier>cobertura</classifier>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-grizzly2-servlet</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <classifier>cobertura</classifier>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>com.sun.jersey</groupId>
                     <artifactId>jersey-client</artifactId>
-                    <version>${project.version}</version>
+                    <version>${jersey.version}</version>
                     <scope>test</scope>
                     <classifier>cobertura</classifier>
                 </dependency>

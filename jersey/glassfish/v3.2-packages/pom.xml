@@ -47,7 +47,7 @@
     <parent>
         <groupId>com.sun.jersey</groupId>
         <artifactId>glassfish</artifactId>
-        <version>1.12</version>
+        <version>1.12.vivo_1</version>
     </parent>
     <groupId>com.sun.jersey.glassfish.v32</groupId>
     <artifactId>glassfish-packages</artifactId>
